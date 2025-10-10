@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeoN VJ ユーザーガイド</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
+            line-height: 1.8;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 12px;
+            font-size: 2em;
+        }
+        h2 {
+            color: #34495e;
+            margin-top: 40px;
+            border-left: 5px solid #3498db;
+            padding-left: 15px;
+            font-size: 1.6em;
+        }
+        h3 {
+            color: #7f8c8d;
+            margin-top: 25px;
+            font-size: 1.3em;
+        }
+        h4 {
+            color: #95a5a6;
+            margin-top: 15px;
+            font-size: 1.1em;
+        }
+        .subtitle {
+            font-style: italic;
+            color: #7f8c8d;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+        .important, .warning, .tip {
+            border-left: 4px solid #3498db;
+            padding: 12px 18px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .important {
+            background-color: #e8f4f8;
+            border-color: #3498db;
+        }
+        .warning {
+            background-color: #fff3cd;
+            border-color: #ff9800;
+        }
+        .tip {
+            background-color: #f0f9ff;
+            border-color: #00bcd4;
+        }
+        ul, ol {
+            padding-left: 25px;
+            line-height: 1.9;
+        }
+        li {
+            margin: 8px 0;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .footer {
+            margin-top: 60px;
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 0.9em;
+            border-top: 1px solid #ecf0f1;
+            padding-top: 20px;
+        }
+        .language-switch {
+            margin-bottom: 25px;
+            text-align: center;
+            flex-wrap: wrap;
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+        }
+        .language-switch a {
+            padding: 6px 12px;
+            border: 1px solid #3498db;
+            border-radius: 4px;
+            text-decoration: none;
+            color: #3498db;
+            font-size: 14px;
+            white-space: nowrap;
+            transition: all 0.2s ease;
+        }
+        .language-switch a:hover {
+            background-color: #3498db;
+            color: white;
+        }
+        .language-switch a.current {
+            background-color: #3498db;
+            color: white;
+        }
+        .toc {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 6px;
+            padding: 20px 25px;
+            margin: 30px 0;
+        }
+        .toc h3 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .toc ul li {
+            margin: 6px 0;
+        }
+        .toc ul li a {
+            color: #3498db;
+        }
+        hr {
+            border: none;
+            border-top: 1px solid #ecf0f1;
+            margin: 40px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="language-switch">
+        <a href="manual-ja.html" class="current">🇯🇵 日本語</a>
+        <a href="manual-en.html">🇺🇸 English</a>
+        <a href="manual-fr.html">🇫🇷 Français</a>
+        <a href="manual-zh-Hans.html">🇨🇳 简体中文</a>
+        <a href="manual-zh-Hant.html">🇹🇼 繁體中文</a>
+        <a href="manual-ko.html">🇰🇷 한국어</a>
+        <a href="manual-th.html">🇹🇭 ไทย</a>
+        <a href="manual-es.html">🇪🇸 Español</a>
+    </div>
+
+    <h1>🎵 NeoN VJ ユーザーガイド</h1>
+
+    <p class="subtitle">初心者向け - 最初にアプリを使う時に読むガイド</p>
+
+    <div class="toc">
+        <h3>目次</h3>
+        <ul>
+            <li><a href="#intro">1. はじめに</a></li>
+            <li><a href="#quickstart">2. クイックスタート</a></li>
+            <li><a href="#basic">3. 基本操作</a></li>
+            <li><a href="#settings">4. 初心者におすすめの設定</a></li>
+            <li><a href="#external">5. 外部ディスプレイに出力する</a></li>
+            <li><a href="#features">6. 便利な機能</a></li>
+            <li><a href="#troubleshooting">7. 困った時は（トラブルシューティング）</a></li>
+            <li><a href="#advanced">8. 上級者向け機能</a></li>
+            <li><a href="#exit">9. アプリの終了方法</a></li>
+            <li><a href="#support">10. サポート情報</a></li>
+        </ul>
+    </div>
+
+    <h2 id="intro">📱 1. はじめに</h2>
+
+    <h3>NeoN VJとは</h3>
+    <p>NeoN VJは、DJイベントで流れている音楽を<strong>自動認識</strong>し、<strong>曲名・アーティスト名・アルバムアートをリアルタイムに表示</strong>するiOS/iPadOSアプリです。</p>
+    <p>外部モニターやプロジェクターにも対応しており、VJパフォーマンスや配信での活用を想定しています。</p>
+
+    <h3>動作環境</h3>
+    <ul>
+        <li><strong>対応OS</strong>: iOS 15以上</li>
+        <li><strong>対応デバイス</strong>: iPhone / iPad</li>
+        <li><strong>インターネット接続</strong>: 必須（Shazamを利用するため）</li>
+        <li><strong>マイクアクセス</strong>: 必須（音楽認識のため）</li>
+    </ul>
+
+    <h3>できること</h3>
+    <ul>
+        <li>✅ 流れている音楽を自動認識して表示</li>
+        <li>✅ 外部ディスプレイ・プロジェクターへの出力</li>
+        <li>✅ イベントロゴや背景のカスタマイズ</li>
+        <li>✅ DJ名の表示</li>
+        <li>✅ リアルタイムプレイリストのWeb公開</li>
+        <li>✅ レイアウトのカスタマイズ（7種類のプリセット）</li>
+        <li>✅ 8言語対応（日本語、英語、スペイン語、フランス語、韓国語、タイ語、簡体字中国語、繁体字中国語）</li>
+    </ul>
+
+    <h3>できないこと</h3>
+    <ul>
+        <li>❌ オフラインでの楽曲認識</li>
+        <li>❌ Shazamデータベースにない楽曲の認識</li>
+        <li>❌ 録音された音声ファイルの解析（リアルタイム認識のみ）</li>
+    </ul>
+
+    <hr>
+
+    <h2 id="quickstart">🚀 2. クイックスタート</h2>
+
+    <h3>初回セットアップ</h3>
+    <p>アプリを初めて起動する際の重要な手順です。</p>
+
+    <h4>1. アプリを起動する</h4>
+    <p>アプリを起動すると、初回起動時は<strong>3秒後にウェルカムチュートリアル</strong>が自動的に表示されます。</p>
+    <ul>
+        <li>チュートリアルは3ステップで基本的な使い方を紹介します</li>
+        <li>「スキップ」ボタンでスキップすることもできます</li>
+        <li>後から設定画面で再度チュートリアルを見ることができます</li>
+    </ul>
+
+    <h4>2. マイクアクセスを許可する</h4>
+    <p>初回起動時、または「認識開始」ボタンを初めて押した時に、<strong>マイクへのアクセス許可</strong>を求められます。</p>
+
+    <div class="warning">
+        <strong>⚠️ 重要</strong>: 必ず「<strong>許可</strong>」を選択してください
+        <ul>
+            <li>「<strong>許可しない</strong>」を選択すると、楽曲認識機能が一切使用できません</li>
+            <li>後から許可する場合:
+                <ol>
+                    <li>iOSの「設定」アプリを開く</li>
+                    <li>「プライバシーとセキュリティ」→「マイク」</li>
+                    <li>「NeoN VJ」をONにする</li>
+                </ol>
+            </li>
+        </ul>
+    </div>
+
+    <h4>3. 動作確認（推奨）</h4>
+    <p>「<strong>マイクテスト</strong>」ボタンで音声入力が正常に動作するか確認することを推奨します。</p>
+
+    <h3>楽曲認識を開始する</h3>
+    <ol>
+        <li><strong>「認識開始」ボタン</strong>をタップ</li>
+        <li>音楽が流れている環境で待機</li>
+        <li>認識が成功すると、<strong>曲名・アーティスト名・アルバムアート</strong>が表示されます</li>
+    </ol>
+
+    <h3>楽曲認識を停止する</h3>
+    <p><strong>「停止」ボタン</strong>をタップすると、認識を停止し「Searching...」画面に戻ります</p>
+
+    <hr>
+
+    <h2 id="basic">🎮 3. 基本操作</h2>
+
+    <h3>画面の見方</h3>
+
+    <h4>コントロールボタン（画面左側）</h4>
+    <ul>
+        <li><strong>マイクテスト</strong>: 音声入力の動作確認</li>
+        <li><strong>認識開始/停止</strong>: 楽曲認識の開始・停止</li>
+        <li><strong>再判定</strong>: 楽曲認識のやり直し（認識開始後のみ表示）</li>
+        <li><strong>設定</strong>: 詳細設定画面を開く</li>
+        <li><strong>位置調整</strong>: 外部ディスプレイ接続時のみ表示</li>
+        <li><strong>メニュー非表示</strong>: コントロールボタンやログ表示を隠して表示エリアを最大化</li>
+    </ul>
+
+    <div class="warning">
+        <strong>⚠️ 重要</strong>: 端末画面をお客様に見せる場合は、必ず「<strong>メニュー非表示</strong>」ボタンを押してください
+        <ul>
+            <li>システムメニューや認識ログなどの余計な情報がお客様に見えなくなります</li>
+            <li>フロアでの使用時は、お客様に楽曲情報のみを見せることができます</li>
+            <li>外部モニター出力には、最初からメニューUIとログは表示されません（自動的にクリーンな表示になります）</li>
+        </ul>
+    </div>
+
+    <h4>コントロールボタン（画面右側）</h4>
+    <ul>
+        <li><strong>全画面表示</strong>: 全画面表示モードに切り替え</li>
+    </ul>
+
+    <h4>ステータス表示（画面下部）</h4>
+    <ul>
+        <li>🟢 <strong>緑色の点</strong>: 楽曲認識中で曲が表示されている状態</li>
+        <li>🟠 <strong>オレンジ色の点</strong>: 楽曲認識中だが認識できていない状態</li>
+        <li>⚫ <strong>グレーの点</strong>: 楽曲認識が停止している状態</li>
+    </ul>
+
+    <h3>再判定機能の使い方</h3>
+    <p><strong>再判定機能</strong>は、楽曲の認識が難しい場合や、前の曲から切り替わらない時に使用します。</p>
+
+    <h4>使用場面</h4>
+    <ul>
+        <li>楽曲の切り替わりが認識されない時</li>
+        <li>「Searching...」画面に戻る前に認識を継続したい時</li>
+    </ul>
+
+    <h4>使い方</h4>
+    <ol>
+        <li>画面左側の<strong>オレンジ色の「再判定」ボタン</strong>をタップ</li>
+        <li>タイムアウト時間がリセットされ、5秒間の高速認識モードになります</li>
+    </ol>
+
+    <div class="tip">
+        <strong>💡 効果的な使い方</strong>
+        <ul>
+            <li>認識困難な楽曲: 25秒ごとなど定期的にボタンを押して表示を維持</li>
+            <li>楽曲切り替わり時: 新しい曲が認識されない場合に手動で再認識を促す</li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <h2 id="settings">⚙️ 4. 初心者におすすめの設定</h2>
+
+    <p>設定画面は、画面左側の「<strong>設定</strong>」ボタンから開きます。</p>
+
+    <div class="tip">
+        <strong>💡 初心者向けに最適化された設定メニュー</strong>
+        <ul>
+            <li>デフォルトでは、初心者が迷わないように<strong>基本的な設定項目のみ</strong>が表示されています</li>
+            <li>上級者向けの専門的な機能は非表示になっています</li>
+            <li>慣れてきて、さらに詳細なカスタマイズをしたい場合は、「<strong>8. 上級者向け機能</strong>」の章を参照してください</li>
+        </ul>
+    </div>
+
+    <h3>レイアウトを変更する</h3>
+    <p>楽曲情報の表示位置を<strong>7種類のプリセット</strong>から選択できます。</p>
+    <ol>
+        <li>設定画面で「<strong>レイアウト</strong>」セクションを探す</li>
+        <li>「<strong>プリセット選択</strong>」をタップ</li>
+        <li>好みのレイアウトを選択</li>
+    </ol>
+
+    <h4>レイアウトプリセット一覧</h4>
+    <ul>
+        <li><strong>中央</strong>: アルバムアートと楽曲情報を中央に配置（デフォルト）</li>
+        <li><strong>ミニマル</strong>: シンプルで小さめの表示</li>
+        <li><strong>左寄せ</strong>: 楽曲情報を左側に配置</li>
+        <li><strong>右寄せ</strong>: 楽曲情報を右側に配置</li>
+        <li><strong>中央・画像下部</strong>: アルバムアートを下部に配置（中央）</li>
+        <li><strong>左・画像下部</strong>: アルバムアートを下部に配置（左寄せ）</li>
+        <li><strong>右・画像下部</strong>: アルバムアートを下部に配置（右寄せ）</li>
+    </ul>
+
+    <div class="tip">
+        💡 カスタム背景を設定する場合、背景に合わせてレイアウトを調整すると見やすくなります
+    </div>
+
+    <h3>イベントロゴを設定する</h3>
+    <p>画面右上にイベントロゴを表示できます。</p>
+    <ol>
+        <li>設定画面で「<strong>イベントロゴ設定</strong>」セクションを探す</li>
+        <li>「<strong>ロゴ画像を選択</strong>」をタップ</li>
+        <li>写真ライブラリからロゴ画像を選択</li>
+        <li>必要に応じて「<strong>ロゴサイズ</strong>」を調整</li>
+    </ol>
+
+    <div class="tip">
+        💡 レイアウトで右寄せを選択した場合、ロゴを非表示にすることで情報の重なりを防げます
+    </div>
+
+    <h3>DJ名を表示する</h3>
+    <p>「Powered by NeoN」の箇所に任意のDJ名を表示できます。</p>
+    <ol>
+        <li>設定画面で「<strong>DJ名表示設定</strong>」セクションを探す</li>
+        <li>「<strong>DJ名表示モードを有効にする</strong>」をONにする</li>
+        <li>DJ名欄に表示したいDJ名を入力（最大20名まで登録可能）</li>
+        <li>表示したいDJ名をラジオボタンで選択</li>
+        <li>「<strong>切替秒数</strong>」で「Powered by NeoN」とDJ名の切り替え間隔を調整（3〜60秒）</li>
+    </ol>
+
+    <h4>使用例</h4>
+    <ul>
+        <li>「DJ クロマティーゆうや Playing」</li>
+        <li>「DJ SMYLE Playing」</li>
+    </ul>
+
+    <h3>楽曲認識の精度を調整する</h3>
+    <p>現場の状況に応じて、認識精度と速度のバランスを調整できます。</p>
+    <ol>
+        <li>設定画面で「<strong>楽曲認識設定</strong>」セクションを探す</li>
+        <li>「<strong>認識プリセット選択</strong>」から以下のいずれかを選択</li>
+    </ol>
+
+    <h4>認識プリセット</h4>
+
+    <div class="important">
+        <strong>安定優先（推奨）</strong>
+        <ul>
+            <li>✅ メリット: 誤認識を防ぎ、表示結果が安定する</li>
+            <li>❌ デメリット: 初回認識と楽曲切り替わりに時間がかかる</li>
+            <li>💡 推奨用途: 表示の正確性を最重視したい場合、楽曲の変更頻度が少ない環境</li>
+        </ul>
+    </div>
+
+    <div class="important">
+        <strong>Shazamネイティブ（高速優先）</strong>
+        <ul>
+            <li>✅ メリット: 本家Shazam並みの認識速度</li>
+            <li>❌ デメリット: 誤った認識結果が表示される場合がある</li>
+            <li>💡 推奨用途: ライブDJイベントでのリアルタイム表示、楽曲の切り替わりが頻繁な環境</li>
+        </ul>
+    </div>
+
+    <div class="important">
+        <strong>カスタム</strong>
+        <ul>
+            <li>✅ メリット: 詳細設定を個別に調整できる</li>
+            <li>❌ デメリット: 調整を誤ると楽曲の認識が正常に行われない</li>
+            <li>💡 推奨用途: 上級ユーザー向け、特殊な環境に合わせた細かい調整が必要な場合</li>
+        </ul>
+    </div>
+
+    <div class="warning">
+        ⚠️ 「カスタム」は上級者向けです。基本的には「安定優先」または「Shazamネイティブ」をおすすめします。
+    </div>
+
+    <hr>
+
+    <h2 id="external">📺 5. 外部ディスプレイに出力する</h2>
+
+    <p>NeoN VJは外部ディスプレイへの接続を自動的に検出し、専用の表示を開始します。</p>
+
+    <h3>有線接続の方法（推奨）</h3>
+    <ol>
+        <li>iPad用<strong>HDMIアダプター</strong>でプロジェクターやモニターに接続</li>
+        <li>ケーブル接続と同時に自動的に外部画面表示が開始されます</li>
+        <li>iPad本体は操作用、外部画面は表示専用として自動的に動作開始</li>
+        <li>接続成功時は画面下部ログに「<strong>外部ディスプレイに表示を開始しました</strong>」と表示</li>
+    </ol>
+
+    <div class="tip">
+        💡 AirPlayも利用できますが、遅延が発生する可能性があるため、重要なイベントでは有線接続を推奨します
+    </div>
+
+    <h3>位置調整機能の使い方</h3>
+    <p>プロジェクターや外部モニターで映像が少し見切れてしまう場合に、映像全体の表示位置を微調整できます。</p>
+
+    <h4>操作方法</h4>
+    <ol>
+        <li>外部ディスプレイを接続した状態でアプリを起動</li>
+        <li>画面左側のコントロールパネルで「<strong>位置調整</strong>」ボタンをタップ（緑色に変わります）</li>
+        <li>十字キーのような調整パネルが表示されます</li>
+        <li>各ボタンで映像位置を微調整（1回のタップで画面の5%ずつ移動）
+            <ul>
+                <li><strong>↑（上矢印）</strong>: 映像全体を上に移動</li>
+                <li><strong>↓（下矢印）</strong>: 映像全体を下に移動</li>
+                <li><strong>←（左矢印）</strong>: 映像全体を左に移動</li>
+                <li><strong>→（右矢印）</strong>: 映像全体を右に移動</li>
+                <li><strong>●（中央ボタン）</strong>: 位置を初期状態（中央）にリセット</li>
+            </ul>
+        </li>
+        <li>緑色の「<strong>完了</strong>」ボタンをタップして調整モードを終了</li>
+    </ol>
+
+    <div class="warning">
+        ⚠️ <strong>注意</strong>: 位置調整は保存されません。アプリ再起動時は中央位置にリセットされます。
+    </div>
+
+    <hr>
+
+    <h2 id="features">🌟 6. 便利な機能</h2>
+
+    <h3>リアルタイムプレイリスト公開</h3>
+    <p>認識した楽曲を<strong>専用Webページ</strong>で公開し、URLをSNSで共有できます。</p>
+
+    <h4>できること</h4>
+    <ul>
+        <li>✅ 楽曲認識と同時に履歴を自動でWeb公開</li>
+        <li>✅ 60秒間隔で更新</li>
+        <li>✅ スマホのブラウザからリアルタイムで履歴を確認</li>
+        <li>✅ イベント中に他DJとの曲被りを防止</li>
+        <li>✅ イベントごとの演奏履歴がデータとして蓄積</li>
+    </ul>
+
+    <h4>設定方法</h4>
+    <ol>
+        <li>設定画面で「<strong>リアルタイムプレイリスト公開</strong>」セクションを探す</li>
+        <li>「<strong>公開設定</strong>」をONにする</li>
+        <li>「<strong>イベント名</strong>」を入力</li>
+        <li>「<strong>設定</strong>」ボタンをタップして公開URLを取得</li>
+        <li>URLをコピーしてSNSで共有</li>
+    </ol>
+
+    <div class="tip">
+        💡 DJ名表示設定で設定したDJ名もWebページに表示されます
+    </div>
+
+    <h4>注意事項</h4>
+
+    <div class="warning">
+        <strong>⚠️ 認識できなかった曲について</strong><br>
+        NeoN VJで認識できなかった曲名はプレイリストに反映されません
+    </div>
+
+    <div class="warning">
+        <strong>⚠️ DJ切り替わり時の注意</strong><br>
+        DJ切り替わりのタイミングで、DJ名の表示が意図しない内容で反映される可能性があります<br><br>
+        <strong>推奨される操作手順（DJ切り替わり時）:</strong>
+        <ol>
+            <li>メイン画面で「<strong>停止</strong>」ボタンを押して曲認識を中断</li>
+            <li>DJ名を次のDJに変更</li>
+            <li>次のDJが1曲目をセレクトしたタイミングで「<strong>開始</strong>」ボタンを押す</li>
+        </ol>
+        この手順により、プレイリストへの誤表記を防ぐことができます。
+    </div>
+
+    <h3>カスタム背景・フィルター設定</h3>
+    <p>イベント用の背景画像を設定し、フィルターで調整できます。</p>
+
+    <h4>背景画像の設定</h4>
+    <ol>
+        <li>設定画面で「<strong>カスタム背景設定</strong>」セクションを探す</li>
+        <li>「<strong>背景画像を選択</strong>」でイベント用の背景画像を設定</li>
+        <li>「<strong>カスタム背景を有効にする</strong>」をONにする</li>
+    </ol>
+
+    <h4>フィルター調整</h4>
+    <p>文字の見やすさを調整できます。</p>
+    <ul>
+        <li><strong>明度</strong>: 背景の明るさ</li>
+        <li><strong>コントラスト</strong>: 背景のコントラスト</li>
+        <li><strong>彩度</strong>: 背景の色の鮮やかさ</li>
+        <li><strong>ぼかし</strong>: 背景のぼかし具合</li>
+        <li><strong>色相</strong>: 背景の色合い</li>
+        <li><strong>透明度</strong>: 背景の透明度</li>
+    </ul>
+
+    <div class="tip">
+        💡 背景画像を設定した場合、レイアウトプリセットで配置を調整すると見やすくなります
+    </div>
+
+    <h3>動画背景（iPad専用）</h3>
+
+    <div class="warning">
+        ⚠️ この機能はiPadでのみ利用可能です
+    </div>
+
+    <p>背景に動画を表示できます。</p>
+
+    <h4>動画のアップロード</h4>
+    <ol>
+        <li>設定画面で「<strong>カスタム動画設定</strong>」セクションを探す</li>
+        <li>「<strong>動画背景を有効にする</strong>」をONにする</li>
+        <li>スロット1〜5に動画ファイルをアップロード（各スロットの「追加」ボタンをタップ）</li>
+        <li>対応形式: MP4、MOV、M4V</li>
+        <li>各スロットのON/OFF切り替え: アップロード後、各動画の有効/無効を個別に設定可能</li>
+    </ol>
+
+    <h4>再生モード</h4>
+    <ul>
+        <li><strong>単一再生</strong>: 選択した1つの動画を繰り返し再生（ラジオボタンで動画を選択）</li>
+        <li><strong>順次再生</strong>: アクティブな動画を順番に自動切り替え</li>
+        <li><strong>ランダム再生</strong>: アクティブな動画をランダムな順序で自動切り替え</li>
+    </ul>
+
+    <h4>切り替え間隔の設定</h4>
+    <p>「<strong>切り替え間隔</strong>」で5〜60秒の範囲で、動画の自動切り替え時間を設定（順次再生・ランダム再生時のみ有効）</p>
+
+    <h4>容量制限</h4>
+    <ul>
+        <li>1ファイルあたり最大<strong>100MB</strong></li>
+        <li>全動画合計で最大<strong>400MB</strong></li>
+        <li>推奨解像度: Full HD（1920×1080）以下</li>
+        <li>対応ファイル形式: MP4、MOV、M4V</li>
+    </ul>
+
+    <h3>言語設定</h3>
+    <p>アプリの表示言語を変更できます。</p>
+    <ol>
+        <li>設定画面で「<strong>言語設定</strong>」セクションを探す</li>
+        <li>好みの言語を選択</li>
+    </ol>
+
+    <h4>対応言語</h4>
+    <p>日本語、英語、スペイン語、フランス語、韓国語、タイ語、簡体字中国語、繁体字中国語</p>
+
+    <hr>
+
+    <h2 id="troubleshooting">🆘 7. 困った時は（トラブルシューティング）</h2>
+
+    <h3>楽曲が認識されない場合</h3>
+
+    <h4>チェックリスト</h4>
+    <ol>
+        <li>✅ 端末がインターネットに接続されているか</li>
+        <li>✅ マイクテストボタンで音声入力をチェック</li>
+        <li>✅ 音楽の音量が十分か</li>
+        <li>✅ 周囲の雑音が多すぎないか</li>
+        <li>✅ マイクへのアクセス許可を確認（設定→プライバシー→マイク）</li>
+    </ol>
+
+    <h4>対処法</h4>
+    <ul>
+        <li>認識安定化設定を確認: 「<strong>Shazamネイティブ</strong>」モードで認識速度を向上させる</li>
+        <li>「<strong>再判定</strong>」ボタンを使用: 認識中に手動で認識をやり直す</li>
+    </ul>
+
+    <h3>マイクアクセスが拒否されている場合</h3>
+    <p>画面に「<strong>マイクアクセス許可</strong>」アラートが表示されます。</p>
+    <ol>
+        <li>「<strong>設定を開く</strong>」ボタンをタップ</li>
+        <li>iOS設定画面で「NeoN VJ」のマイクアクセスをONにする</li>
+        <li>アプリに戻って「<strong>認識開始</strong>」を再試行</li>
+    </ol>
+
+    <h3>表示が見づらい場合</h3>
+    <ul>
+        <li>文字色設定で<strong>白文字・黒文字</strong>を切り替え</li>
+        <li>カスタム背景使用時は<strong>明度・コントラスト</strong>を調整</li>
+        <li><strong>フォントサイズ</strong>を適切に調整</li>
+        <li><strong>カスタムInfo画像サイズ</strong>を調整して見やすさを改善</li>
+    </ul>
+
+    <h3>外部ディスプレイに表示されない場合</h3>
+    <ol>
+        <li>ケーブル接続を確認</li>
+        <li>外部ディスプレイの入力切替を確認</li>
+        <li>iPad側で外部ディスプレイが認識されているか確認</li>
+        <li>ログ表示で「<strong>外部ディスプレイに表示を開始しました</strong>」メッセージを確認</li>
+    </ol>
+
+    <h3>外部ディスプレイの映像が見切れる場合</h3>
+    <ol>
+        <li><strong>位置調整機能</strong>を使用: 画面左側の「位置調整」ボタンをタップ</li>
+        <li>十字キーで映像位置を微調整（上下左右に最大20%まで）</li>
+        <li>中央ボタンで位置をリセット</li>
+        <li>調整完了後「完了」ボタンで終了</li>
+    </ol>
+
+    <h3>動画が再生されない場合（iPad専用）</h3>
+    <ol>
+        <li>動画ファイルが対応形式（MP4、MOV、M4V）か確認</li>
+        <li>ファイルサイズが制限内（100MB以下）か確認</li>
+        <li>動画スロットが「<strong>アクティブ</strong>」になっているか確認</li>
+        <li>単一再生モードの場合: ラジオボタンで動画が選択されているか確認</li>
+        <li>iPadでの動作を確認（iPhoneでは動画機能は利用不可）</li>
+    </ol>
+
+    <h3>アプリがクラッシュする場合</h3>
+    <ol>
+        <li>端末を再起動</li>
+        <li>アプリを完全に終了してから再起動</li>
+        <li>iOS設定で十分なストレージ容量があるか確認</li>
+        <li>アプリの最新版にアップデート</li>
+        <li>動画を多数使用している場合: 動画数を減らして負荷を軽減</li>
+    </ol>
+
+    <hr>
+
+    <h2 id="advanced">🎓 8. 上級者向け機能</h2>
+
+    <div class="important">
+        <strong>🔓 すべての設定メニューを表示する</strong>
+        <p>上級者向けの機能を利用するには、設定画面で「<strong>設定メニューをすべて表示する</strong>」ボタンをONにしてください。</p>
+        <ul>
+            <li>デフォルトでは、初心者が迷わないように基本機能のみが表示されています</li>
+            <li>ONにすると、OSC連携、詳細な認識パラメータ調整など、より専門的な設定項目が表示されます</li>
+            <li>慣れてきて、自分なりのカスタマイズをしたい場合にご利用ください</li>
+        </ul>
+    </div>
+
+    <h3>OSC連携（VJソフトとの連携）</h3>
+    <p><strong>OSC（Open Sound Control）</strong>機能を使うと、VJソフトウェア（Resolume、MadMapperなど）と連携できます。</p>
+
+    <h4>できること</h4>
+    <ul>
+        <li>NeoN VJで認識した楽曲情報をVJソフトにリアルタイム送信</li>
+        <li>楽曲タイトル、アーティスト名、アルバム名、信頼度、認識時刻を送信</li>
+        <li>複数の送信先スロットに対応</li>
+    </ul>
+
+    <h4>設定方法</h4>
+    <ol>
+        <li>設定画面で「<strong>OSC OUTPUT</strong>」セクションを探す</li>
+        <li>「<strong>OSC出力を有効にする</strong>」をONにする</li>
+        <li>送信先スロットを追加し、IPアドレスとポート番号を設定</li>
+        <li>送信データを選択</li>
+    </ol>
+
+    <div class="tip">
+        💡 この機能は専門性が高いため、VJソフトウェアの使用経験がある方向けです。
+    </div>
+
+    <h3>動作モード設定</h3>
+    <p>アプリの動作モードを切り替えることができます。</p>
+
+    <h4>iPhoneモード</h4>
+    <ul>
+        <li>iPhoneやiPad miniなど、小さな画面向けの表示サイズで使用できます</li>
+        <li>小さな画面や近距離での表示に適しています</li>
+    </ul>
+
+    <h4>管理者モード</h4>
+    <ul>
+        <li>NeoNメンバー専用の機能です（パスワード認証が必要）</li>
+        <li>一般ユーザーは使用する必要はありません</li>
+    </ul>
+
+    <h3>通常表示設定</h3>
+    <p>各表示要素のサイズを細かく調整できます。</p>
+
+    <h4>調整可能な項目</h4>
+    <ul>
+        <li><strong>アルバムアートサイズ</strong>: 120〜800の範囲で調整</li>
+        <li><strong>曲名フォントサイズ</strong>: 50〜150の範囲で調整</li>
+        <li><strong>アーティスト名フォントサイズ</strong>: 30〜120の範囲で調整</li>
+        <li><strong>ロゴサイズ</strong>: 30〜200の範囲で調整</li>
+        <li><strong>クレジットフォントサイズ</strong>: 10〜50の範囲で調整</li>
+        <li><strong>カスタムInfo画像サイズ</strong>: 50〜500の範囲で調整</li>
+    </ul>
+
+    <div class="tip">
+        💡 基本的には「4. 初心者におすすめの設定」で紹介したレイアウトプリセット機能で十分ですが、さらに細かくサイズを調整したい場合にご利用ください
+    </div>
+
+    <h3>大文字表示モード</h3>
+    <p>テキストのみの大きな表示モードです。</p>
+    <ul>
+        <li>「<strong>大文字表示モードを有効にする</strong>」をONにすると、アルバムアートを非表示にして、テキストのみの大きな表示になります</li>
+        <li>より遠くからでも見やすい表示方式です</li>
+        <li>大きなフロアや広い会場での使用に適しています</li>
+    </ul>
+
+    <h3>動画背景（iPad専用）</h3>
+
+    <div class="warning">
+        ⚠️ この機能は上級者向け機能です。基本的な設定方法は「6. 便利な機能」の章を参照してください
+    </div>
+
+    <p>動画背景機能は、iPad専用の上級者向け機能です。背景に動画を表示することで、より豪華な演出が可能になります。</p>
+
+    <h3>外部ディスプレイ設定</h3>
+    <p>上級者向けの外部ディスプレイ設定にアクセスできます。</p>
+
+    <h4>設定項目</h4>
+    <ol>
+        <li>設定画面で「<strong>外部ディスプレイ</strong>」セクションを探す（「<strong>設定メニューをすべて表示する</strong>」をONにする必要があります）</li>
+        <li>「<strong>外部ディスプレイ自動表示</strong>」のON/OFF切り替え</li>
+        <li>接続状態の確認（接続中の外部ディスプレイ情報が表示されます）</li>
+    </ol>
+
+    <div class="tip">
+        💡 位置調整機能は、外部ディスプレイ接続時に画面左側のコントロールボタンから利用できます（「5. 外部ディスプレイに出力する」章を参照）
+    </div>
+
+    <h3>詳細な認識パラメータ調整</h3>
+    <p>「<strong>カスタム</strong>」プリセットを選択すると、以下の項目を個別に調整できます。</p>
+    <ul>
+        <li><strong>履歴の保持期間</strong>: 5〜60秒の範囲で、過去の認識結果を参考にする時間を設定</li>
+        <li><strong>判定のしきい値</strong>: 10〜100%の範囲で、どの程度の確率で楽曲を確定するかを設定</li>
+        <li><strong>判定開始までの最低認識回数</strong>: 1〜10回の範囲で設定</li>
+        <li><strong>連続認識での即時変更回数</strong>: 2〜5回の範囲で、同じ曲が連続で認識された時の反応速度を設定</li>
+        <li><strong>無音時タイムアウト</strong>: 10〜120秒の範囲で、音楽が認識されない時に「Searching...」に戻るまでの時間を設定</li>
+    </ul>
+
+    <div class="warning">
+        ⚠️ 調整を誤ると楽曲の認識が正常に行われなくなるリスクがあります。基本的には「安定優先」または「Shazamネイティブ」の使用を推奨します。
+    </div>
+
+    <hr>
+
+    <h2 id="exit">🔚 9. アプリの終了方法</h2>
+
+    <h3>通常の終了手順</h3>
+    <ol>
+        <li><strong>楽曲認識を停止</strong>: 「停止」ボタンをタップして認識を終了</li>
+        <li><strong>設定保存確認</strong>: 設定を変更した場合は必ず「<strong>保存</strong>」ボタンで保存</li>
+        <li><strong>ホームボタン/ジェスチャー</strong>: 通常通りアプリを終了</li>
+    </ol>
+
+    <h3>長時間使用後の終了時</h3>
+    <ul>
+        <li>動画背景使用やエフェクト多用時は、端末に負荷がかかる場合があります</li>
+        <li>アプリ終了後、端末を少し休ませることを推奨します</li>
+    </ul>
+
+    <h3>強制終了が必要な場合</h3>
+    <p>アプリが応答しなくなった場合:</p>
+    <ol>
+        <li>アプリスイッチャーを開く（ホームボタン2回押し、またはホームバー上スワイプ）</li>
+        <li>NeoN VJアプリを上にスワイプして強制終了</li>
+        <li>iPadの再起動を推奨</li>
+    </ol>
+
+    <hr>
+
+    <h2 id="support">📞 10. サポート情報</h2>
+
+    <h3>アプリの更新</h3>
+    <p>定期的にアップデートを確認してください。新機能の追加やバグ修正が含まれます。</p>
+    <ul>
+        <li>モニター案内時のメールアドレスに通知が届いたら、アプリを新しいバージョンにしてください</li>
+        <li><strong>TestFlight</strong>アプリから新バージョンをダウンロードできます</li>
+        <li>通知が届かなくても、アプリを利用する前にTestFlightを開いて新バージョンが配信されているかを確認いただけると助かります</li>
+    </ul>
+
+    <h3>お問い合わせ</h3>
+    <p>ご不明な点がございましたら、開発者までお問い合わせください。</p>
+
+    <hr>
+
+    <h2>🎉 最後に</h2>
+    <p>NeoN VJをお使いいただき、ありがとうございます！</p>
+    <p>アプリには様々な機能が用意されていますが、<strong>あなたが「使ってみたい」と思った機能だけを使う、でも大丈夫です！</strong></p>
+    <p>是非、NeoN VJをあなた好みにカスタマイズしてお楽しみください！</p>
+
+    <hr>
+
+    <div class="tip">
+        📝 このマニュアルは、NeoN VJ の全機能を網羅しています。<br>
+        設定画面の各機能にある「？」アイコンでも詳細な説明を確認できます。
+    </div>
+
+    <div class="footer">
+        <p><strong>バージョン</strong>: 2025年10月版 | <strong>作成日</strong>: 2025年10月10日</p>
+        <p>© 2025 SMYLE | Produced by NeoN.</p>
+    </div>
+</body>
+</html>
