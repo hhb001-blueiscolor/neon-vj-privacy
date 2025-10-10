@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeoN VJ User Guide</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
+            line-height: 1.8;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 12px;
+            font-size: 2em;
+        }
+        h2 {
+            color: #34495e;
+            margin-top: 40px;
+            border-left: 5px solid #3498db;
+            padding-left: 15px;
+            font-size: 1.6em;
+        }
+        h3 {
+            color: #7f8c8d;
+            margin-top: 25px;
+            font-size: 1.3em;
+        }
+        h4 {
+            color: #95a5a6;
+            margin-top: 15px;
+            font-size: 1.1em;
+        }
+        .subtitle {
+            font-style: italic;
+            color: #7f8c8d;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+        .important, .warning, .tip {
+            border-left: 4px solid #3498db;
+            padding: 12px 18px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .important {
+            background-color: #e8f4f8;
+            border-color: #3498db;
+        }
+        .warning {
+            background-color: #fff3cd;
+            border-color: #ff9800;
+        }
+        .tip {
+            background-color: #f0f9ff;
+            border-color: #00bcd4;
+        }
+        ul, ol {
+            padding-left: 25px;
+            line-height: 1.9;
+        }
+        li {
+            margin: 8px 0;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .footer {
+            margin-top: 60px;
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 0.9em;
+            border-top: 1px solid #ecf0f1;
+            padding-top: 20px;
+        }
+        .language-switch {
+            margin-bottom: 25px;
+            text-align: center;
+            flex-wrap: wrap;
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+        }
+        .language-switch a {
+            padding: 6px 12px;
+            border: 1px solid #3498db;
+            border-radius: 4px;
+            text-decoration: none;
+            color: #3498db;
+            font-size: 14px;
+            white-space: nowrap;
+            transition: all 0.2s ease;
+        }
+        .language-switch a:hover {
+            background-color: #3498db;
+            color: white;
+        }
+        .language-switch a.current {
+            background-color: #3498db;
+            color: white;
+        }
+        .toc {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 6px;
+            padding: 20px 25px;
+            margin: 30px 0;
+        }
+        .toc h3 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .toc ul li {
+            margin: 6px 0;
+        }
+        .toc ul li a {
+            color: #3498db;
+        }
+        hr {
+            border: none;
+            border-top: 1px solid #ecf0f1;
+            margin: 40px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="language-switch">
+        <a href="manual-ja.html">🇯🇵 日本語</a>
+        <a href="manual-en.html" class="current">🇺🇸 English</a>
+        <a href="manual-fr.html">🇫🇷 Français</a>
+        <a href="manual-zh-Hans.html">🇨🇳 简体中文</a>
+        <a href="manual-zh-Hant.html">🇹🇼 繁體中文</a>
+        <a href="manual-ko.html">🇰🇷 한국어</a>
+        <a href="manual-th.html">🇹🇭 ไทย</a>
+        <a href="manual-es.html">🇪🇸 Español</a>
+    </div>
+
+    <h1>🎵 NeoN VJ User Guide</h1>
+
+    <p class="subtitle">For Beginners - A Guide for First-Time Users</p>
+
+    <div class="toc">
+        <h3>Table of Contents</h3>
+        <ul>
+            <li><a href="#intro">1. Introduction</a></li>
+            <li><a href="#quickstart">2. Quick Start</a></li>
+            <li><a href="#basic">3. Basic Operations</a></li>
+            <li><a href="#settings">4. Recommended Settings for Beginners</a></li>
+            <li><a href="#external">5. Outputting to External Display</a></li>
+            <li><a href="#features">6. Useful Features</a></li>
+            <li><a href="#troubleshooting">7. Troubleshooting</a></li>
+            <li><a href="#advanced">8. Advanced Features</a></li>
+            <li><a href="#exit">9. How to Exit the App</a></li>
+            <li><a href="#support">10. Support Information</a></li>
+        </ul>
+    </div>
+
+    <h2 id="intro">📱 1. Introduction</h2>
+
+    <h3>What is NeoN VJ</h3>
+    <p>NeoN VJ is an iOS/iPadOS app that <strong>automatically recognizes</strong> music playing at DJ events and <strong>displays song titles, artist names, and album artwork in real-time</strong>.</p>
+    <p>It supports external monitors and projectors, designed for use in VJ performances and live streaming.</p>
+
+    <h3>System Requirements</h3>
+    <ul>
+        <li><strong>OS</strong>: iOS 15 or later</li>
+        <li><strong>Devices</strong>: iPhone / iPad</li>
+        <li><strong>Internet Connection</strong>: Required (for using Shazam)</li>
+        <li><strong>Microphone Access</strong>: Required (for music recognition)</li>
+    </ul>
+
+    <h3>Features</h3>
+    <ul>
+        <li>✅ Automatically recognize and display playing music</li>
+        <li>✅ Output to external displays and projectors</li>
+        <li>✅ Customize event logos and backgrounds</li>
+        <li>✅ Display DJ names</li>
+        <li>✅ Publish real-time playlists on the web</li>
+        <li>✅ Customize layouts (7 preset options)</li>
+        <li>✅ 8-language support (Japanese, English, Spanish, French, Korean, Thai, Simplified Chinese, Traditional Chinese)</li>
+    </ul>
+
+    <h3>Limitations</h3>
+    <ul>
+        <li>❌ No offline music recognition</li>
+        <li>❌ Cannot recognize songs not in Shazam database</li>
+        <li>❌ Cannot analyze recorded audio files (real-time recognition only)</li>
+    </ul>
+
+    <hr>
+
+    <h2 id="quickstart">🚀 2. Quick Start</h2>
+
+    <h3>Initial Setup</h3>
+    <p>Important steps when launching the app for the first time.</p>
+
+    <h4>1. Launch the App</h4>
+    <p>When you launch the app, a <strong>welcome tutorial will automatically appear after 3 seconds</strong> on first launch.</p>
+    <ul>
+        <li>The tutorial introduces basic usage in 3 steps</li>
+        <li>You can skip it using the "Skip" button</li>
+        <li>You can view the tutorial again later from the settings screen</li>
+    </ul>
+
+    <h4>2. Grant Microphone Access</h4>
+    <p>On first launch, or when you first press the "Start" button, you will be asked for <strong>microphone access permission</strong>.</p>
+
+    <div class="warning">
+        <strong>⚠️ Important</strong>: Always select "<strong>Allow</strong>"
+        <ul>
+            <li>If you select "<strong>Don't Allow</strong>", music recognition features will not work at all</li>
+            <li>To grant permission later:
+                <ol>
+                    <li>Open the iOS "Settings" app</li>
+                    <li>"Privacy & Security" → "Microphone"</li>
+                    <li>Turn ON "NeoN VJ"</li>
+                </ol>
+            </li>
+        </ul>
+    </div>
+
+    <h4>3. Test Operation (Recommended)</h4>
+    <p>We recommend using the "<strong>Mic Test</strong>" button to verify that audio input is working properly.</p>
+
+    <h3>Start Music Recognition</h3>
+    <ol>
+        <li>Tap the <strong>"Start" button</strong></li>
+        <li>Wait in an environment where music is playing</li>
+        <li>When recognition succeeds, <strong>song title, artist name, and album artwork</strong> will be displayed</li>
+    </ol>
+
+    <h3>Stop Music Recognition</h3>
+    <p>Tap the <strong>"Stop" button</strong> to stop recognition and return to the "Searching..." screen</p>
+
+    <hr>
+
+    <h2 id="basic">🎮 3. Basic Operations</h2>
+
+    <h3>Understanding the Screen</h3>
+
+    <h4>Control Buttons (Left Side)</h4>
+    <ul>
+        <li><strong>Mic Test</strong>: Check audio input operation</li>
+        <li><strong>Start/Stop</strong>: Start or stop music recognition</li>
+        <li><strong>Retry</strong>: Re-attempt music recognition (shown only after recognition starts)</li>
+        <li><strong>Settings</strong>: Open detailed settings screen</li>
+        <li><strong>Position Adjustment</strong>: Shown only when external display is connected</li>
+        <li><strong>Hide Menu</strong>: Hide control buttons and logs to maximize display area</li>
+    </ul>
+
+    <div class="warning">
+        <strong>⚠️ Important</strong>: If showing the device screen to customers, always press the "<strong>Hide Menu</strong>" button
+        <ul>
+            <li>System menu and recognition logs will be hidden from customers</li>
+            <li>When using on the floor, you can show only the music information to customers</li>
+            <li>External monitor output automatically has clean display without menu UI and logs</li>
+        </ul>
+    </div>
+
+    <h4>Control Buttons (Right Side)</h4>
+    <ul>
+        <li><strong>Full Screen</strong>: Switch to full-screen display mode</li>
+    </ul>
+
+    <h4>Status Display (Bottom)</h4>
+    <ul>
+        <li>🟢 <strong>Green dot</strong>: Recognition active and song is displayed</li>
+        <li>🟠 <strong>Orange dot</strong>: Recognition active but no song recognized</li>
+        <li>⚫ <strong>Gray dot</strong>: Recognition stopped</li>
+    </ul>
+
+    <h3>How to Use Retry Feature</h3>
+    <p>The <strong>Retry feature</strong> is used when song recognition is difficult or when the display doesn't switch from the previous song.</p>
+
+    <h4>When to Use</h4>
+    <ul>
+        <li>When song changes are not recognized</li>
+        <li>When you want to continue recognition before returning to the "Searching..." screen</li>
+    </ul>
+
+    <h4>How to Use</h4>
+    <ol>
+        <li>Tap the <strong>orange "Retry" button</strong> on the left side of the screen</li>
+        <li>The timeout period is reset and enters high-speed recognition mode for 5 seconds</li>
+    </ol>
+
+    <div class="tip">
+        <strong>💡 Effective Usage</strong>
+        <ul>
+            <li>Hard-to-recognize songs: Press the button periodically (e.g., every 25 seconds) to maintain display</li>
+            <li>Song transitions: Manually trigger re-recognition when a new song is not recognized</li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <h2 id="settings">⚙️ 4. Recommended Settings for Beginners</h2>
+
+    <p>Open the settings screen from the "<strong>Settings</strong>" button on the left side of the screen.</p>
+
+    <div class="tip">
+        <strong>💡 Settings Menu Optimized for Beginners</strong>
+        <ul>
+            <li>By default, only <strong>basic settings</strong> are displayed to avoid confusion for beginners</li>
+            <li>Advanced specialized features are hidden</li>
+            <li>When you're ready for more detailed customization, refer to the "<strong>8. Advanced Features</strong>" section</li>
+        </ul>
+    </div>
+
+    <h3>Change Layout</h3>
+    <p>You can select the display position of music information from <strong>7 presets</strong>.</p>
+    <ol>
+        <li>Find the "<strong>Layout</strong>" section in settings screen</li>
+        <li>Tap "<strong>Preset Selection</strong>"</li>
+        <li>Select your preferred layout</li>
+    </ol>
+
+    <h4>Layout Presets</h4>
+    <ul>
+        <li><strong>Center</strong>: Album artwork and music info centered (default)</li>
+        <li><strong>Minimal</strong>: Simple and compact display</li>
+        <li><strong>Sidebar Left</strong>: Music info aligned to left</li>
+        <li><strong>Sidebar Right</strong>: Music info aligned to right</li>
+        <li><strong>Bottom Left</strong>: Album artwork at bottom (left-aligned)</li>
+        <li><strong>Bottom Center</strong>: Album artwork at bottom (centered)</li>
+        <li><strong>Bottom Right</strong>: Album artwork at bottom (right-aligned)</li>
+    </ul>
+
+    <div class="tip">
+        💡 When using custom backgrounds, adjusting the layout to match the background improves readability
+    </div>
+
+    <h3>Set Event Logo</h3>
+    <p>You can display an event logo at the top right of the screen.</p>
+    <ol>
+        <li>Find the "<strong>Event Logo Settings</strong>" section in settings screen</li>
+        <li>Tap "<strong>Select Logo Image</strong>"</li>
+        <li>Select logo image from photo library</li>
+        <li>Adjust "<strong>Logo Size</strong>" as needed</li>
+    </ol>
+
+    <div class="tip">
+        💡 If using right-aligned layout, hiding the logo prevents information overlap
+    </div>
+
+    <h3>Display DJ Name</h3>
+    <p>You can display custom DJ names in place of "Powered by NeoN".</p>
+    <ol>
+        <li>Find the "<strong>DJ Name Display Settings</strong>" section in settings screen</li>
+        <li>Turn ON "<strong>Enable DJ Name Display Mode</strong>"</li>
+        <li>Enter DJ name(s) to display in the DJ name field (up to 20 names can be registered)</li>
+        <li>Select the DJ name to display using radio buttons</li>
+        <li>Adjust the switching interval between "Powered by NeoN" and DJ name with "<strong>Switch Interval</strong>" (3-60 seconds)</li>
+    </ol>
+
+    <h4>Usage Examples</h4>
+    <ul>
+        <li>"DJ Chromaty Yuya Playing"</li>
+        <li>"DJ SMYLE Playing"</li>
+    </ul>
+
+    <h3>Adjust Recognition Accuracy</h3>
+    <p>You can adjust the balance between recognition accuracy and speed according to the situation.</p>
+    <ol>
+        <li>Find the "<strong>Music Recognition Settings</strong>" section in settings screen</li>
+        <li>Select one of the following from "<strong>Recognition Preset Selection</strong>"</li>
+    </ol>
+
+    <h4>Recognition Presets</h4>
+
+    <div class="important">
+        <strong>Stable (Recommended)</strong>
+        <ul>
+            <li>✅ Advantages: Prevents false recognition, stable display results</li>
+            <li>❌ Disadvantages: Initial recognition and song transitions take more time</li>
+            <li>💡 Recommended for: When prioritizing display accuracy, environments with infrequent song changes</li>
+        </ul>
+    </div>
+
+    <div class="important">
+        <strong>Shazam Native (Fast)</strong>
+        <ul>
+            <li>✅ Advantages: Recognition speed comparable to the original Shazam app</li>
+            <li>❌ Disadvantages: May display incorrect recognition results</li>
+            <li>💡 Recommended for: Real-time display at live DJ events, environments with frequent song changes</li>
+        </ul>
+    </div>
+
+    <div class="important">
+        <strong>Custom</strong>
+        <ul>
+            <li>✅ Advantages: Can adjust detailed settings individually</li>
+            <li>❌ Disadvantages: Incorrect adjustments may prevent proper song recognition</li>
+            <li>💡 Recommended for: Advanced users, fine-tuning required for special environments</li>
+        </ul>
+    </div>
+
+    <div class="warning">
+        ⚠️ "Custom" is for advanced users. We recommend "Stable" or "Shazam Native" for basic use.
+    </div>
+
+    <hr>
+
+    <h2 id="external">📺 5. Outputting to External Display</h2>
+
+    <p>NeoN VJ automatically detects external display connections and starts dedicated display output.</p>
+
+    <h3>Wired Connection Method (Recommended)</h3>
+    <ol>
+        <li>Connect to projector or monitor using iPad <strong>HDMI adapter</strong></li>
+        <li>External screen display starts automatically upon cable connection</li>
+        <li>iPad becomes control device, external screen becomes display-only automatically</li>
+        <li>When connection succeeds, bottom log shows "<strong>Started display on external screen</strong>"</li>
+    </ol>
+
+    <div class="tip">
+        💡 AirPlay is available but may cause delays, so wired connection is recommended for important events
+    </div>
+
+    <h3>How to Use Position Adjustment</h3>
+    <p>When video is slightly cut off on projector or external monitor, you can fine-tune the overall display position.</p>
+
+    <h4>Operation Method</h4>
+    <ol>
+        <li>Launch the app with external display connected</li>
+        <li>Tap "<strong>Position Adjustment</strong>" button in left control panel (turns green)</li>
+        <li>A cross-key-like adjustment panel appears</li>
+        <li>Fine-tune video position with each button (moves 5% of screen per tap)
+            <ul>
+                <li><strong>↑ (Up arrow)</strong>: Move entire video up</li>
+                <li><strong>↓ (Down arrow)</strong>: Move entire video down</li>
+                <li><strong>← (Left arrow)</strong>: Move entire video left</li>
+                <li><strong>→ (Right arrow)</strong>: Move entire video right</li>
+                <li><strong>● (Center button)</strong>: Reset position to initial state (center)</li>
+            </ul>
+        </li>
+        <li>Tap green "<strong>Done</strong>" button to exit adjustment mode</li>
+    </ol>
+
+    <div class="warning">
+        ⚠️ <strong>Note</strong>: Position adjustments are not saved. Position resets to center when app restarts.
+    </div>
+
+    <hr>
+
+    <h2 id="features">🌟 6. Useful Features</h2>
+
+    <h3>Real-time Playlist Publishing</h3>
+    <p>Publish recognized songs on a <strong>dedicated web page</strong> and share the URL on social media.</p>
+
+    <h4>Features</h4>
+    <ul>
+        <li>✅ Automatically publish history to web simultaneously with song recognition</li>
+        <li>✅ Updates every 60 seconds</li>
+        <li>✅ Check history in real-time from smartphone browser</li>
+        <li>✅ Prevent song overlap with other DJs during events</li>
+        <li>✅ Accumulate performance history data for each event</li>
+    </ul>
+
+    <h4>Setup Method</h4>
+    <ol>
+        <li>Find the "<strong>Real-time Playlist Publishing</strong>" section in settings screen</li>
+        <li>Turn ON "<strong>Publishing Settings</strong>"</li>
+        <li>Enter "<strong>Event Name</strong>"</li>
+        <li>Tap "<strong>Configure</strong>" button to get publishing URL</li>
+        <li>Copy URL and share on social media</li>
+    </ol>
+
+    <div class="tip">
+        💡 DJ names set in DJ Name Display Settings will also appear on the web page
+    </div>
+
+    <h4>Notes</h4>
+
+    <div class="warning">
+        <strong>⚠️ About Unrecognized Songs</strong><br>
+        Songs that NeoN VJ cannot recognize will not appear in the playlist
+    </div>
+
+    <div class="warning">
+        <strong>⚠️ DJ Transition Notes</strong><br>
+        DJ name display may reflect unintended content during DJ transitions<br><br>
+        <strong>Recommended procedure (during DJ transitions):</strong>
+        <ol>
+            <li>Press "<strong>Stop</strong>" button on main screen to pause song recognition</li>
+            <li>Change DJ name to the next DJ</li>
+            <li>Press "<strong>Start</strong>" button when next DJ selects first track</li>
+        </ol>
+        This procedure prevents incorrect entries in the playlist.
+    </div>
+
+    <h3>Custom Background & Filter Settings</h3>
+    <p>Set event background images and adjust with filters.</p>
+
+    <h4>Background Image Setup</h4>
+    <ol>
+        <li>Find the "<strong>Custom Background Settings</strong>" section in settings screen</li>
+        <li>Set event background image with "<strong>Select Background Image</strong>"</li>
+        <li>Turn ON "<strong>Enable Custom Background</strong>"</li>
+    </ol>
+
+    <h4>Filter Adjustments</h4>
+    <p>Adjust text readability.</p>
+    <ul>
+        <li><strong>Brightness</strong>: Background brightness</li>
+        <li><strong>Contrast</strong>: Background contrast</li>
+        <li><strong>Saturation</strong>: Background color vividness</li>
+        <li><strong>Blur</strong>: Background blur level</li>
+        <li><strong>Hue</strong>: Background hue</li>
+        <li><strong>Opacity</strong>: Background transparency</li>
+    </ul>
+
+    <div class="tip">
+        💡 When setting background images, adjusting layout presets improves readability
+    </div>
+
+    <h3>Video Background (iPad Only)</h3>
+
+    <div class="warning">
+        ⚠️ This feature is available on iPad only
+    </div>
+
+    <p>You can display videos as background.</p>
+
+    <h4>Uploading Videos</h4>
+    <ol>
+        <li>Find the "<strong>Custom Video Settings</strong>" section in settings screen</li>
+        <li>Turn ON "<strong>Enable Video Background</strong>"</li>
+        <li>Upload video files to slots 1-5 (tap "Add" button for each slot)</li>
+        <li>Supported formats: MP4, MOV, M4V</li>
+        <li>Toggle each slot ON/OFF: After uploading, enable/disable each video individually</li>
+    </ol>
+
+    <h4>Playback Modes</h4>
+    <ul>
+        <li><strong>Single Play</strong>: Repeat one selected video (select video with radio button)</li>
+        <li><strong>Sequential Play</strong>: Auto-switch active videos in order</li>
+        <li><strong>Random Play</strong>: Auto-switch active videos in random order</li>
+    </ul>
+
+    <h4>Switch Interval Settings</h4>
+    <p>Set auto-switch time for videos in 5-60 second range with "<strong>Switch Interval</strong>" (only for sequential/random play)</p>
+
+    <h4>Capacity Limits</h4>
+    <ul>
+        <li>Maximum <strong>100MB</strong> per file</li>
+        <li>Maximum <strong>400MB</strong> total for all videos</li>
+        <li>Recommended resolution: Full HD (1920×1080) or lower</li>
+        <li>Supported formats: MP4, MOV, M4V</li>
+    </ul>
+
+    <h3>Language Settings</h3>
+    <p>You can change the app's display language.</p>
+    <ol>
+        <li>Find the "<strong>Language Settings</strong>" section in settings screen</li>
+        <li>Select your preferred language</li>
+    </ol>
+
+    <h4>Supported Languages</h4>
+    <p>Japanese, English, Spanish, French, Korean, Thai, Simplified Chinese, Traditional Chinese</p>
+
+    <hr>
+
+    <h2 id="troubleshooting">🆘 7. Troubleshooting</h2>
+
+    <h3>When Songs Are Not Recognized</h3>
+
+    <h4>Checklist</h4>
+    <ol>
+        <li>✅ Is the device connected to the Internet</li>
+        <li>✅ Check audio input with Mic Test button</li>
+        <li>✅ Is music volume sufficient</li>
+        <li>✅ Is ambient noise too loud</li>
+        <li>✅ Verify microphone access permission (Settings → Privacy → Microphone)</li>
+    </ol>
+
+    <h4>Solutions</h4>
+    <ul>
+        <li>Check recognition stabilization settings: Improve recognition speed with "<strong>Shazam Native</strong>" mode</li>
+        <li>Use "<strong>Retry</strong>" button: Manually re-attempt recognition during recognition</li>
+    </ul>
+
+    <h3>When Microphone Access is Denied</h3>
+    <p>A "<strong>Microphone Access Permission</strong>" alert appears on screen.</p>
+    <ol>
+        <li>Tap "<strong>Open Settings</strong>" button</li>
+        <li>Turn ON microphone access for "NeoN VJ" in iOS settings screen</li>
+        <li>Return to app and retry "<strong>Start</strong>"</li>
+    </ol>
+
+    <h3>When Display is Hard to Read</h3>
+    <ul>
+        <li>Switch between <strong>white/black text</strong> in text color settings</li>
+        <li>Adjust <strong>brightness/contrast</strong> when using custom backgrounds</li>
+        <li>Adjust <strong>font size</strong> appropriately</li>
+        <li>Improve readability by adjusting <strong>Custom Info image size</strong></li>
+    </ul>
+
+    <h3>When External Display Shows Nothing</h3>
+    <ol>
+        <li>Check cable connection</li>
+        <li>Check external display input selection</li>
+        <li>Verify iPad recognizes external display</li>
+        <li>Check for "<strong>Started display on external screen</strong>" message in log display</li>
+    </ol>
+
+    <h3>When External Display Video is Cut Off</h3>
+    <ol>
+        <li>Use <strong>Position Adjustment feature</strong>: Tap "Position Adjustment" button on left side</li>
+        <li>Fine-tune video position with cross keys (up to 20% in all directions)</li>
+        <li>Reset position with center button</li>
+        <li>Tap "Done" button after adjustment</li>
+    </ol>
+
+    <h3>When Videos Don't Play (iPad Only)</h3>
+    <ol>
+        <li>Verify video file is supported format (MP4, MOV, M4V)</li>
+        <li>Verify file size is within limit (100MB or less)</li>
+        <li>Verify video slot is "<strong>Active</strong>"</li>
+        <li>For single play mode: Verify video is selected with radio button</li>
+        <li>Verify operation on iPad (video feature not available on iPhone)</li>
+    </ol>
+
+    <h3>When App Crashes</h3>
+    <ol>
+        <li>Restart device</li>
+        <li>Completely quit app and restart</li>
+        <li>Check sufficient storage space in iOS settings</li>
+        <li>Update app to latest version</li>
+        <li>If using many videos: Reduce number of videos to lighten load</li>
+    </ol>
+
+    <hr>
+
+    <h2 id="advanced">🎓 8. Advanced Features</h2>
+
+    <div class="important">
+        <strong>🔓 Show All Settings Menu</strong>
+        <p>To use advanced features, turn ON "<strong>Show All Settings Menu</strong>" button in settings screen.</p>
+        <ul>
+            <li>By default, only basic features are shown to avoid confusion for beginners</li>
+            <li>When turned ON, more specialized settings like OSC integration and detailed recognition parameter adjustments become visible</li>
+            <li>Use this when you're ready to customize according to your preferences</li>
+        </ul>
+    </div>
+
+    <h3>OSC Integration (VJ Software Integration)</h3>
+    <p>Using <strong>OSC (Open Sound Control)</strong> feature, you can integrate with VJ software (Resolume, MadMapper, etc.).</p>
+
+    <h4>Features</h4>
+    <ul>
+        <li>Send song information recognized by NeoN VJ to VJ software in real-time</li>
+        <li>Send song title, artist name, album name, confidence level, recognition time</li>
+        <li>Support for multiple destination slots</li>
+    </ul>
+
+    <h4>Setup Method</h4>
+    <ol>
+        <li>Find the "<strong>OSC OUTPUT</strong>" section in settings screen</li>
+        <li>Turn ON "<strong>Enable OSC Output</strong>"</li>
+        <li>Add destination slot and set IP address and port number</li>
+        <li>Select data to send</li>
+    </ol>
+
+    <div class="tip">
+        💡 This feature is highly specialized, intended for those with VJ software experience.
+    </div>
+
+    <h3>Operation Mode Settings</h3>
+    <p>You can switch the app's operation mode.</p>
+
+    <h4>iPhone Mode</h4>
+    <ul>
+        <li>Can use display sizes optimized for smaller screens like iPhone or iPad mini</li>
+        <li>Suitable for small screens and close-range display</li>
+    </ul>
+
+    <h4>Admin Mode</h4>
+    <ul>
+        <li>Exclusive feature for NeoN members (password authentication required)</li>
+        <li>General users don't need to use this</li>
+    </ul>
+
+    <h3>Normal Display Settings</h3>
+    <p>You can fine-tune the size of each display element.</p>
+
+    <h4>Adjustable Items</h4>
+    <ul>
+        <li><strong>Album Artwork Size</strong>: Adjust in range 120-800</li>
+        <li><strong>Song Title Font Size</strong>: Adjust in range 50-150</li>
+        <li><strong>Artist Name Font Size</strong>: Adjust in range 30-120</li>
+        <li><strong>Logo Size</strong>: Adjust in range 30-200</li>
+        <li><strong>Credit Font Size</strong>: Adjust in range 10-50</li>
+        <li><strong>Custom Info Image Size</strong>: Adjust in range 50-500</li>
+    </ul>
+
+    <div class="tip">
+        💡 Generally, the layout preset feature introduced in "4. Recommended Settings for Beginners" is sufficient, but use this for more detailed size adjustments
+    </div>
+
+    <h3>Large Text Display Mode</h3>
+    <p>Text-only large display mode.</p>
+    <ul>
+        <li>When "<strong>Enable Large Text Display Mode</strong>" is ON, album artwork is hidden for text-only large display</li>
+        <li>More visible from distance</li>
+        <li>Suitable for large floors or spacious venues</li>
+    </ul>
+
+    <h3>Video Background (iPad Only)</h3>
+
+    <div class="warning">
+        ⚠️ This is an advanced feature. For basic setup, refer to the "6. Useful Features" section
+    </div>
+
+    <p>Video background is an advanced iPad-only feature. Displaying videos as background enables more spectacular effects.</p>
+
+    <h3>External Display Settings</h3>
+    <p>Access advanced external display settings.</p>
+
+    <h4>Settings Items</h4>
+    <ol>
+        <li>Find the "<strong>External Display</strong>" section in settings screen (need to turn ON "<strong>Show All Settings Menu</strong>")</li>
+        <li>Toggle "<strong>Auto External Display</strong>" ON/OFF</li>
+        <li>Check connection status (connected external display info is shown)</li>
+    </ol>
+
+    <div class="tip">
+        💡 Position Adjustment feature is available from control buttons on left side when external display is connected (refer to "5. Outputting to External Display" section)
+    </div>
+
+    <h3>Detailed Recognition Parameter Adjustments</h3>
+    <p>When "<strong>Custom</strong>" preset is selected, you can adjust the following items individually.</p>
+    <ul>
+        <li><strong>History Retention Period</strong>: Set 5-60 second range for referencing past recognition results</li>
+        <li><strong>Judgment Threshold</strong>: Set 10-100% range for confidence level to confirm songs</li>
+        <li><strong>Minimum Recognition Count Before Judgment</strong>: Set 1-10 range</li>
+        <li><strong>Instant Change Count for Continuous Recognition</strong>: Set 2-5 range for response speed when same song is continuously recognized</li>
+        <li><strong>Silence Timeout</strong>: Set 10-120 second range for time until returning to "Searching..." when no music is recognized</li>
+    </ul>
+
+    <div class="warning">
+        ⚠️ Incorrect adjustments may prevent proper song recognition. We recommend using "Stable" or "Shazam Native" for basic use.
+    </div>
+
+    <hr>
+
+    <h2 id="exit">🔚 9. How to Exit the App</h2>
+
+    <h3>Normal Exit Procedure</h3>
+    <ol>
+        <li><strong>Stop Music Recognition</strong>: Tap "Stop" button to end recognition</li>
+        <li><strong>Confirm Settings Saved</strong>: If settings were changed, always save with "<strong>Save</strong>" button</li>
+        <li><strong>Home Button/Gesture</strong>: Exit app normally</li>
+    </ol>
+
+    <h3>When Exiting After Extended Use</h3>
+    <ul>
+        <li>When using video backgrounds or many effects, the device may be under load</li>
+        <li>We recommend letting the device rest after exiting the app</li>
+    </ul>
+
+    <h3>When Force Quit is Necessary</h3>
+    <p>If the app becomes unresponsive:</p>
+    <ol>
+        <li>Open app switcher (double-press home button, or swipe up from home bar)</li>
+        <li>Swipe NeoN VJ app upward to force quit</li>
+        <li>Recommend restarting iPad</li>
+    </ol>
+
+    <hr>
+
+    <h2 id="support">📞 10. Support Information</h2>
+
+    <h3>App Updates</h3>
+    <p>Check for updates regularly. They include new features and bug fixes.</p>
+    <ul>
+        <li>When notification arrives at email address provided during monitor program, update to new version</li>
+        <li>New versions can be downloaded from <strong>TestFlight</strong> app</li>
+        <li>Even without notifications, we appreciate checking TestFlight before using the app to see if new versions are available</li>
+    </ul>
+
+    <h3>Contact</h3>
+    <p>If you have any questions, please contact the developer.</p>
+
+    <hr>
+
+    <h2>🎉 Final Notes</h2>
+    <p>Thank you for using NeoN VJ!</p>
+    <p>The app has various features, but <strong>it's perfectly fine to use only the features you want to try!</strong></p>
+    <p>Please customize NeoN VJ to your liking and enjoy!</p>
+
+    <hr>
+
+    <div class="tip">
+        📝 This manual covers all features of NeoN VJ.<br>
+        You can also check detailed explanations via "?" icons in each settings screen function.
+    </div>
+
+    <div class="footer">
+        <p><strong>Version</strong>: October 2025 | <strong>Created</strong>: October 10, 2025</p>
+        <p>© 2025 SMYLE | Produced by NeoN.</p>
+    </div>
+</body>
+</html>

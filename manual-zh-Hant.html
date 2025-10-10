@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeoN VJ 使用者指南</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
+            line-height: 1.8;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 12px;
+            font-size: 2em;
+        }
+        h2 {
+            color: #34495e;
+            margin-top: 40px;
+            border-left: 5px solid #3498db;
+            padding-left: 15px;
+            font-size: 1.6em;
+        }
+        h3 {
+            color: #7f8c8d;
+            margin-top: 25px;
+            font-size: 1.3em;
+        }
+        h4 {
+            color: #95a5a6;
+            margin-top: 15px;
+            font-size: 1.1em;
+        }
+        .subtitle {
+            font-style: italic;
+            color: #7f8c8d;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+        .important, .warning, .tip {
+            border-left: 4px solid #3498db;
+            padding: 12px 18px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .important {
+            background-color: #e8f4f8;
+            border-color: #3498db;
+        }
+        .warning {
+            background-color: #fff3cd;
+            border-color: #ff9800;
+        }
+        .tip {
+            background-color: #f0f9ff;
+            border-color: #00bcd4;
+        }
+        ul, ol {
+            padding-left: 25px;
+            line-height: 1.9;
+        }
+        li {
+            margin: 8px 0;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .footer {
+            margin-top: 60px;
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 0.9em;
+            border-top: 1px solid #ecf0f1;
+            padding-top: 20px;
+        }
+        .language-switch {
+            margin-bottom: 25px;
+            text-align: center;
+            flex-wrap: wrap;
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+        }
+        .language-switch a {
+            padding: 6px 12px;
+            border: 1px solid #3498db;
+            border-radius: 4px;
+            text-decoration: none;
+            color: #3498db;
+            font-size: 14px;
+            white-space: nowrap;
+            transition: all 0.2s ease;
+        }
+        .language-switch a:hover {
+            background-color: #3498db;
+            color: white;
+        }
+        .language-switch a.current {
+            background-color: #3498db;
+            color: white;
+        }
+        .toc {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 6px;
+            padding: 20px 25px;
+            margin: 30px 0;
+        }
+        .toc h3 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .toc ul li {
+            margin: 6px 0;
+        }
+        .toc ul li a {
+            color: #3498db;
+        }
+        hr {
+            border: none;
+            border-top: 1px solid #ecf0f1;
+            margin: 40px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="language-switch">
+        <a href="manual-ja.html">🇯🇵 日本語</a>
+        <a href="manual-en.html">🇺🇸 English</a>
+        <a href="manual-fr.html">🇫🇷 Français</a>
+        <a href="manual-zh-Hans.html">🇨🇳 简体中文</a>
+        <a href="manual-zh-Hant.html" class="current">🇹🇼 繁體中文</a>
+        <a href="manual-ko.html">🇰🇷 한국어</a>
+        <a href="manual-th.html">🇹🇭 ไทย</a>
+        <a href="manual-es.html">🇪🇸 Español</a>
+    </div>
+
+    <h1>🎵 NeoN VJ 使用者指南</h1>
+
+    <p class="subtitle">新手指南 - 首次使用使用者指南</p>
+
+    <div class="toc">
+        <h3>目錄</h3>
+        <ul>
+            <li><a href="#intro">1. 簡介</a></li>
+            <li><a href="#quickstart">2. 快速開始</a></li>
+            <li><a href="#basic">3. 基本操作</a></li>
+            <li><a href="#settings">4. 新手推薦設定</a></li>
+            <li><a href="#external">5. 外接顯示器輸出</a></li>
+            <li><a href="#features">6. 實用功能</a></li>
+            <li><a href="#troubleshooting">7. 疑難排解</a></li>
+            <li><a href="#advanced">8. 進階功能</a></li>
+            <li><a href="#exit">9. 結束應用程式</a></li>
+            <li><a href="#support">10. 支援資訊</a></li>
+        </ul>
+    </div>
+
+    <h2 id="intro">📱 1. 簡介</h2>
+
+    <h3>什麼是 NeoN VJ</h3>
+    <p>NeoN VJ 是一款可以<strong>自動辨識</strong>DJ 活動中播放的音樂，並<strong>即時顯示曲名、藝人名稱和專輯封面</strong>的 iOS/iPadOS 應用程式。</p>
+    <p>支援外接顯示器和投影機輸出，適合在 VJ 表演和直播中使用。</p>
+
+    <h3>運作環境</h3>
+    <ul>
+        <li><strong>支援系統</strong>: iOS 15 或以上版本</li>
+        <li><strong>支援裝置</strong>: iPhone / iPad</li>
+        <li><strong>網路連線</strong>: 必須（需使用 Shazam 服務）</li>
+        <li><strong>麥克風權限</strong>: 必須（用於音樂辨識）</li>
+    </ul>
+
+    <h3>主要功能</h3>
+    <ul>
+        <li>✅ 自動辨識並顯示正在播放的音樂</li>
+        <li>✅ 輸出至外接顯示器或投影機</li>
+        <li>✅ 自訂活動標誌和背景</li>
+        <li>✅ 顯示 DJ 名稱</li>
+        <li>✅ 即時播放清單網頁發布</li>
+        <li>✅ 版面配置自訂（7 種預設版面）</li>
+        <li>✅ 8 種語言支援（日語、英語、西班牙語、法語、韓語、泰語、簡體中文、繁體中文）</li>
+    </ul>
+
+    <h3>無法執行的功能</h3>
+    <ul>
+        <li>❌ 離線辨識音樂</li>
+        <li>❌ 辨識不在 Shazam 資料庫中的音樂</li>
+        <li>❌ 分析錄音檔案（僅支援即時辨識）</li>
+    </ul>
+
+    <hr>
+
+    <h2 id="quickstart">🚀 2. 快速開始</h2>
+
+    <h3>首次設定</h3>
+    <p>首次啟動應用程式時的重要步驟。</p>
+
+    <h4>1. 啟動應用程式</h4>
+    <p>首次啟動應用程式時，<strong>3 秒後會自動顯示歡迎教學</strong>。</p>
+    <ul>
+        <li>教學分為 3 個步驟介紹基本使用方法</li>
+        <li>可以按「略過」按鈕跳過教學</li>
+        <li>之後可以在設定畫面重新檢視教學</li>
+    </ul>
+
+    <h4>2. 允許麥克風存取</h4>
+    <p>首次啟動或首次按下「開始辨識」按鈕時，系統會要求<strong>允許麥克風存取權限</strong>。</p>
+
+    <div class="warning">
+        <strong>⚠️ 重要</strong>: 務必選擇「<strong>允許</strong>」
+        <ul>
+            <li>若選擇「<strong>不允許</strong>」，將無法使用音樂辨識功能</li>
+            <li>事後允許的方法:
+                <ol>
+                    <li>開啟 iOS「設定」應用程式</li>
+                    <li>前往「隱私權與安全性」→「麥克風」</li>
+                    <li>將「NeoN VJ」設為開啟</li>
+                </ol>
+            </li>
+        </ul>
+    </div>
+
+    <h4>3. 功能測試（建議）</h4>
+    <p>建議使用「<strong>麥克風測試</strong>」按鈕確認音訊輸入是否正常運作。</p>
+
+    <h3>開始音樂辨識</h3>
+    <ol>
+        <li>點擊<strong>「開始辨識」按鈕</strong></li>
+        <li>在有音樂播放的環境中等待</li>
+        <li>辨識成功後，會顯示<strong>曲名、藝人名稱和專輯封面</strong></li>
+    </ol>
+
+    <h3>停止音樂辨識</h3>
+    <p>點擊<strong>「停止」按鈕</strong>即可停止辨識，畫面將返回「Searching...」</p>
+
+    <hr>
+
+    <h2 id="basic">🎮 3. 基本操作</h2>
+
+    <h3>畫面說明</h3>
+
+    <h4>控制按鈕（畫面左側）</h4>
+    <ul>
+        <li><strong>麥克風測試</strong>: 確認音訊輸入是否正常</li>
+        <li><strong>開始辨識/停止</strong>: 開始或停止音樂辨識</li>
+        <li><strong>重新判定</strong>: 重新辨識音樂（僅在開始辨識後顯示）</li>
+        <li><strong>設定</strong>: 開啟詳細設定畫面</li>
+        <li><strong>位置調整</strong>: 僅在連接外接顯示器時顯示</li>
+        <li><strong>隱藏選單</strong>: 隱藏控制按鈕和紀錄顯示，最大化顯示區域</li>
+    </ul>
+
+    <div class="warning">
+        <strong>⚠️ 重要</strong>: 若要將裝置畫面展示給觀眾，務必按下「<strong>隱藏選單</strong>」按鈕
+        <ul>
+            <li>可以隱藏系統選單和辨識紀錄等多餘資訊</li>
+            <li>在現場使用時，可以只向觀眾展示音樂資訊</li>
+            <li>外接顯示器輸出時，選單介面和紀錄預設不會顯示（自動呈現乾淨畫面）</li>
+        </ul>
+    </div>
+
+    <h4>控制按鈕（畫面右側）</h4>
+    <ul>
+        <li><strong>全螢幕顯示</strong>: 切換至全螢幕顯示模式</li>
+    </ul>
+
+    <h4>狀態顯示（畫面下方）</h4>
+    <ul>
+        <li>🟢 <strong>綠色點</strong>: 正在辨識音樂且已顯示曲目資訊</li>
+        <li>🟠 <strong>橙色點</strong>: 正在辨識音樂但尚未辨識成功</li>
+        <li>⚫ <strong>灰色點</strong>: 音樂辨識已停止</li>
+    </ul>
+
+    <h3>重新判定功能使用方法</h3>
+    <p><strong>重新判定功能</strong>適用於音樂辨識困難，或前一首歌曲未切換時使用。</p>
+
+    <h4>使用情境</h4>
+    <ul>
+        <li>無法辨識歌曲切換時</li>
+        <li>在返回「Searching...」畫面前想繼續辨識時</li>
+    </ul>
+
+    <h4>使用方法</h4>
+    <ol>
+        <li>點擊畫面左側的<strong>橙色「重新判定」按鈕</strong></li>
+        <li>超時時間將重置，進入 5 秒快速辨識模式</li>
+    </ol>
+
+    <div class="tip">
+        <strong>💡 有效使用方法</strong>
+        <ul>
+            <li>難以辨識的音樂: 每 25 秒定期按下按鈕以維持顯示</li>
+            <li>歌曲切換時: 若無法辨識新歌曲，手動觸發重新辨識</li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <h2 id="settings">⚙️ 4. 新手推薦設定</h2>
+
+    <p>點擊畫面左側的「<strong>設定</strong>」按鈕即可開啟設定畫面。</p>
+
+    <div class="tip">
+        <strong>💡 為新手優化的設定選單</strong>
+        <ul>
+            <li>預設僅顯示<strong>基本設定項目</strong>，讓新手不會迷失方向</li>
+            <li>進階專業功能預設隱藏</li>
+            <li>熟悉操作後，若需要更詳細的自訂設定，請參閱「<strong>8. 進階功能</strong>」章節</li>
+        </ul>
+    </div>
+
+    <h3>變更版面配置</h3>
+    <p>可從<strong>7 種預設版面</strong>中選擇音樂資訊的顯示位置。</p>
+    <ol>
+        <li>在設定畫面中尋找「<strong>版面配置</strong>」區段</li>
+        <li>點擊「<strong>預設選擇</strong>」</li>
+        <li>選擇喜歡的版面配置</li>
+    </ol>
+
+    <h4>版面配置預設選項</h4>
+    <ul>
+        <li><strong>置中</strong>: 專輯封面和音樂資訊置於中央（預設）</li>
+        <li><strong>極簡</strong>: 簡約小型顯示</li>
+        <li><strong>靠左</strong>: 音樂資訊置於左側</li>
+        <li><strong>靠右</strong>: 音樂資訊置於右側</li>
+        <li><strong>置中・圖片下方</strong>: 專輯封面置於下方（中央）</li>
+        <li><strong>靠左・圖片下方</strong>: 專輯封面置於下方（靠左）</li>
+        <li><strong>靠右・圖片下方</strong>: 專輯封面置於下方（靠右）</li>
+    </ul>
+
+    <div class="tip">
+        💡 設定自訂背景時，根據背景調整版面配置可提升可讀性
+    </div>
+
+    <h3>設定活動標誌</h3>
+    <p>可以在畫面右上方顯示活動標誌。</p>
+    <ol>
+        <li>在設定畫面中尋找「<strong>活動標誌設定</strong>」區段</li>
+        <li>點擊「<strong>選擇標誌圖片</strong>」</li>
+        <li>從相簿中選擇標誌圖片</li>
+        <li>視需要調整「<strong>標誌大小</strong>」</li>
+    </ol>
+
+    <div class="tip">
+        💡 若選擇靠右版面配置，隱藏標誌可以避免資訊重疊
+    </div>
+
+    <h3>顯示 DJ 名稱</h3>
+    <p>可以在「Powered by NeoN」處顯示自訂的 DJ 名稱。</p>
+    <ol>
+        <li>在設定畫面中尋找「<strong>DJ 名稱顯示設定</strong>」區段</li>
+        <li>開啟「<strong>啟用 DJ 名稱顯示模式</strong>」</li>
+        <li>在 DJ 名稱欄位輸入要顯示的 DJ 名稱（最多可註冊 20 個）</li>
+        <li>用選項按鈕選擇要顯示的 DJ 名稱</li>
+        <li>設定「<strong>切換秒數</strong>」以調整「Powered by NeoN」和 DJ 名稱的切換間隔（3～60 秒）</li>
+    </ol>
+
+    <h4>使用範例</h4>
+    <ul>
+        <li>「DJ クロマティーゆうや Playing」</li>
+        <li>「DJ SMYLE Playing」</li>
+    </ul>
+
+    <h3>調整音樂辨識精確度</h3>
+    <p>可根據現場狀況調整辨識精確度和速度的平衡。</p>
+    <ol>
+        <li>在設定畫面中尋找「<strong>音樂辨識設定</strong>」區段</li>
+        <li>從「<strong>辨識預設選擇</strong>」中選擇以下其中一項</li>
+    </ol>
+
+    <h4>辨識預設選項</h4>
+
+    <div class="important">
+        <strong>穩定優先（建議）</strong>
+        <ul>
+            <li>✅ 優點: 避免誤判，顯示結果穩定</li>
+            <li>❌ 缺點: 首次辨識和歌曲切換需要較長時間</li>
+            <li>💡 建議用途: 重視顯示準確性時、歌曲變更頻率較低的環境</li>
+        </ul>
+    </div>
+
+    <div class="important">
+        <strong>Shazam 原生（速度優先）</strong>
+        <ul>
+            <li>✅ 優點: 與原版 Shazam 相當的辨識速度</li>
+            <li>❌ 缺點: 可能出現錯誤的辨識結果</li>
+            <li>💡 建議用途: 現場 DJ 活動即時顯示、歌曲切換頻繁的環境</li>
+        </ul>
+    </div>
+
+    <div class="important">
+        <strong>自訂</strong>
+        <ul>
+            <li>✅ 優點: 可以個別調整詳細設定</li>
+            <li>❌ 缺點: 設定錯誤可能導致音樂辨識異常</li>
+            <li>💡 建議用途: 進階使用者、需要針對特殊環境進行細部調整時</li>
+        </ul>
+    </div>
+
+    <div class="warning">
+        ⚠️ 「自訂」適用於進階使用者。基本上建議使用「穩定優先」或「Shazam 原生」。
+    </div>
+
+    <hr>
+
+    <h2 id="external">📺 5. 外接顯示器輸出</h2>
+
+    <p>NeoN VJ 會自動偵測外接顯示器的連接，並開始專用顯示。</p>
+
+    <h3>有線連接方法（建議）</h3>
+    <ol>
+        <li>使用 iPad 專用的 <strong>HDMI 轉接器</strong>連接投影機或顯示器</li>
+        <li>連接線材後會自動開始外接畫面顯示</li>
+        <li>iPad 本體用於操作，外接畫面專用於顯示，自動開始運作</li>
+        <li>連接成功時，畫面下方紀錄會顯示「<strong>已開始在外接顯示器上顯示</strong>」</li>
+    </ol>
+
+    <div class="tip">
+        💡 也可以使用 AirPlay，但可能會發生延遲，重要活動建議使用有線連接
+    </div>
+
+    <h3>位置調整功能使用方法</h3>
+    <p>當投影機或外接顯示器的影像稍微超出邊界時，可以微調整個影像的顯示位置。</p>
+
+    <h4>操作方法</h4>
+    <ol>
+        <li>連接外接顯示器後啟動應用程式</li>
+        <li>在畫面左側的控制面板中點擊「<strong>位置調整</strong>」按鈕（會變成綠色）</li>
+        <li>會顯示類似十字鍵的調整面板</li>
+        <li>使用各按鈕微調影像位置（每次點擊移動螢幕的 5%）
+            <ul>
+                <li><strong>↑（上箭頭）</strong>: 將整個影像向上移動</li>
+                <li><strong>↓（下箭頭）</strong>: 將整個影像向下移動</li>
+                <li><strong>←（左箭頭）</strong>: 將整個影像向左移動</li>
+                <li><strong>→（右箭頭）</strong>: 將整個影像向右移動</li>
+                <li><strong>●（中央按鈕）</strong>: 將位置重置為初始狀態（中央）</li>
+            </ul>
+        </li>
+        <li>點擊綠色的「<strong>完成</strong>」按鈕結束調整模式</li>
+    </ol>
+
+    <div class="warning">
+        ⚠️ <strong>注意</strong>: 位置調整不會儲存。重新啟動應用程式時會重置為中央位置。
+    </div>
+
+    <hr>
+
+    <h2 id="features">🌟 6. 實用功能</h2>
+
+    <h3>即時播放清單發布</h3>
+    <p>可以在<strong>專用網頁</strong>上發布已辨識的音樂，並在社群媒體上分享網址。</p>
+
+    <h4>主要功能</h4>
+    <ul>
+        <li>✅ 辨識音樂的同時自動在網頁上發布歷史記錄</li>
+        <li>✅ 每 60 秒更新一次</li>
+        <li>✅ 可從手機瀏覽器即時確認歷史記錄</li>
+        <li>✅ 在活動中避免與其他 DJ 重複播放歌曲</li>
+        <li>✅ 累積各活動的演出歷史資料</li>
+    </ul>
+
+    <h4>設定方法</h4>
+    <ol>
+        <li>在設定畫面中尋找「<strong>即時播放清單發布</strong>」區段</li>
+        <li>開啟「<strong>發布設定</strong>」</li>
+        <li>輸入「<strong>活動名稱</strong>」</li>
+        <li>點擊「<strong>設定</strong>」按鈕取得發布網址</li>
+        <li>複製網址並在社群媒體上分享</li>
+    </ol>
+
+    <div class="tip">
+        💡 在 DJ 名稱顯示設定中設定的 DJ 名稱也會顯示在網頁上
+    </div>
+
+    <h4>注意事項</h4>
+
+    <div class="warning">
+        <strong>⚠️ 關於無法辨識的歌曲</strong><br>
+        NeoN VJ 無法辨識的曲名不會反映在播放清單中
+    </div>
+
+    <div class="warning">
+        <strong>⚠️ DJ 切換時的注意事項</strong><br>
+        在 DJ 切換時，DJ 名稱的顯示可能會出現非預期的內容<br><br>
+        <strong>建議的操作步驟（DJ 切換時）:</strong>
+        <ol>
+            <li>在主畫面按下「<strong>停止</strong>」按鈕中斷歌曲辨識</li>
+            <li>將 DJ 名稱更改為下一位 DJ</li>
+            <li>在下一位 DJ 選擇第一首歌曲時按下「<strong>開始</strong>」按鈕</li>
+        </ol>
+        遵循此步驟可以避免播放清單中出現錯誤記錄。
+    </div>
+
+    <h3>自訂背景和濾鏡設定</h3>
+    <p>可以設定活動專用的背景圖片，並使用濾鏡進行調整。</p>
+
+    <h4>設定背景圖片</h4>
+    <ol>
+        <li>在設定畫面中尋找「<strong>自訂背景設定</strong>」區段</li>
+        <li>透過「<strong>選擇背景圖片</strong>」設定活動專用的背景圖片</li>
+        <li>開啟「<strong>啟用自訂背景</strong>」</li>
+    </ol>
+
+    <h4>濾鏡調整</h4>
+    <p>可以調整文字的可讀性。</p>
+    <ul>
+        <li><strong>亮度</strong>: 背景的明亮度</li>
+        <li><strong>對比度</strong>: 背景的對比度</li>
+        <li><strong>飽和度</strong>: 背景的色彩鮮豔度</li>
+        <li><strong>模糊</strong>: 背景的模糊程度</li>
+        <li><strong>色相</strong>: 背景的色調</li>
+        <li><strong>透明度</strong>: 背景的透明度</li>
+    </ul>
+
+    <div class="tip">
+        💡 設定背景圖片後，使用版面配置預設調整配置可提升可讀性
+    </div>
+
+    <h3>影片背景（iPad 專用）</h3>
+
+    <div class="warning">
+        ⚠️ 此功能僅適用於 iPad
+    </div>
+
+    <p>可以在背景顯示影片。</p>
+
+    <h4>上傳影片</h4>
+    <ol>
+        <li>在設定畫面中尋找「<strong>自訂影片設定</strong>」區段</li>
+        <li>開啟「<strong>啟用影片背景</strong>」</li>
+        <li>在插槽 1～5 上傳影片檔案（點擊各插槽的「新增」按鈕）</li>
+        <li>支援格式: MP4、MOV、M4V</li>
+        <li>各插槽的開/關切換: 上傳後可以個別設定各影片的啟用/停用</li>
+    </ol>
+
+    <h4>播放模式</h4>
+    <ul>
+        <li><strong>單一播放</strong>: 重複播放選擇的 1 個影片（用選項按鈕選擇影片）</li>
+        <li><strong>順序播放</strong>: 按順序自動切換啟用的影片</li>
+        <li><strong>隨機播放</strong>: 以隨機順序自動切換啟用的影片</li>
+    </ul>
+
+    <h4>設定切換間隔</h4>
+    <p>在「<strong>切換間隔</strong>」中可設定 5～60 秒範圍內的影片自動切換時間（僅適用於順序播放和隨機播放）</p>
+
+    <h4>容量限制</h4>
+    <ul>
+        <li>單一檔案最大 <strong>100MB</strong></li>
+        <li>所有影片總計最大 <strong>400MB</strong></li>
+        <li>建議解析度: Full HD（1920×1080）或以下</li>
+        <li>支援檔案格式: MP4、MOV、M4V</li>
+    </ul>
+
+    <h3>語言設定</h3>
+    <p>可以變更應用程式的顯示語言。</p>
+    <ol>
+        <li>在設定畫面中尋找「<strong>語言設定</strong>」區段</li>
+        <li>選擇喜歡的語言</li>
+    </ol>
+
+    <h4>支援語言</h4>
+    <p>日語、英語、西班牙語、法語、韓語、泰語、簡體中文、繁體中文</p>
+
+    <hr>
+
+    <h2 id="troubleshooting">🆘 7. 疑難排解</h2>
+
+    <h3>無法辨識音樂時</h3>
+
+    <h4>檢查清單</h4>
+    <ol>
+        <li>✅ 裝置是否已連接網路</li>
+        <li>✅ 使用麥克風測試按鈕檢查音訊輸入</li>
+        <li>✅ 音樂音量是否足夠</li>
+        <li>✅ 周圍雜音是否過多</li>
+        <li>✅ 確認麥克風存取權限（設定→隱私權→麥克風）</li>
+    </ol>
+
+    <h4>處理方法</h4>
+    <ul>
+        <li>確認辨識穩定化設定: 使用「<strong>Shazam 原生</strong>」模式提升辨識速度</li>
+        <li>使用「<strong>重新判定</strong>」按鈕: 在辨識過程中手動重新辨識</li>
+    </ul>
+
+    <h3>麥克風存取被拒絕時</h3>
+    <p>畫面會顯示「<strong>麥克風存取權限</strong>」警示。</p>
+    <ol>
+        <li>點擊「<strong>開啟設定</strong>」按鈕</li>
+        <li>在 iOS 設定畫面中將「NeoN VJ」的麥克風存取設為開啟</li>
+        <li>返回應用程式並重新嘗試「<strong>開始辨識</strong>」</li>
+    </ol>
+
+    <h3>顯示不清楚時</h3>
+    <ul>
+        <li>在文字顏色設定中切換<strong>白色文字/黑色文字</strong></li>
+        <li>使用自訂背景時調整<strong>亮度和對比度</strong></li>
+        <li>適當調整<strong>字型大小</strong></li>
+        <li>調整<strong>自訂資訊圖片大小</strong>以提升可讀性</li>
+    </ul>
+
+    <h3>無法在外接顯示器上顯示時</h3>
+    <ol>
+        <li>確認線材連接</li>
+        <li>確認外接顯示器的輸入切換</li>
+        <li>確認 iPad 是否已辨識外接顯示器</li>
+        <li>在紀錄顯示中確認「<strong>已開始在外接顯示器上顯示</strong>」訊息</li>
+    </ol>
+
+    <h3>外接顯示器的影像超出邊界時</h3>
+    <ol>
+        <li>使用<strong>位置調整功能</strong>: 點擊畫面左側的「位置調整」按鈕</li>
+        <li>使用十字鍵微調影像位置（上下左右最多 20%）</li>
+        <li>使用中央按鈕重置位置</li>
+        <li>調整完成後點擊「完成」按鈕結束</li>
+    </ol>
+
+    <h3>影片無法播放時（iPad 專用）</h3>
+    <ol>
+        <li>確認影片檔案是否為支援格式（MP4、MOV、M4V）</li>
+        <li>確認檔案大小是否在限制內（100MB 以下）</li>
+        <li>確認影片插槽是否設為「<strong>啟用</strong>」</li>
+        <li>單一播放模式時: 確認是否已用選項按鈕選擇影片</li>
+        <li>確認是否在 iPad 上運作（iPhone 無法使用影片功能）</li>
+    </ol>
+
+    <h3>應用程式當機時</h3>
+    <ol>
+        <li>重新啟動裝置</li>
+        <li>完全關閉應用程式後重新啟動</li>
+        <li>在 iOS 設定中確認是否有足夠的儲存空間</li>
+        <li>更新至最新版本的應用程式</li>
+        <li>若使用大量影片: 減少影片數量以降低負載</li>
+    </ol>
+
+    <hr>
+
+    <h2 id="advanced">🎓 8. 進階功能</h2>
+
+    <div class="important">
+        <strong>🔓 顯示所有設定選單</strong>
+        <p>要使用進階功能，請在設定畫面中開啟「<strong>顯示所有設定選單</strong>」按鈕。</p>
+        <ul>
+            <li>預設僅顯示基本功能，讓新手不會迷失方向</li>
+            <li>開啟後會顯示 OSC 整合、詳細辨識參數調整等更專業的設定項目</li>
+            <li>熟悉操作後，若想進行個人化自訂設定時請使用此功能</li>
+        </ul>
+    </div>
+
+    <h3>OSC 整合（與 VJ 軟體整合）</h3>
+    <p>使用 <strong>OSC（Open Sound Control）</strong>功能可以與 VJ 軟體（Resolume、MadMapper 等）整合。</p>
+
+    <h4>主要功能</h4>
+    <ul>
+        <li>將 NeoN VJ 辨識的音樂資訊即時傳送至 VJ 軟體</li>
+        <li>傳送歌曲標題、藝人名稱、專輯名稱、可信度、辨識時間</li>
+        <li>支援多個傳送目標插槽</li>
+    </ul>
+
+    <h4>設定方法</h4>
+    <ol>
+        <li>在設定畫面中尋找「<strong>OSC OUTPUT</strong>」區段</li>
+        <li>開啟「<strong>啟用 OSC 輸出</strong>」</li>
+        <li>新增傳送目標插槽，並設定 IP 位址和連接埠號碼</li>
+        <li>選擇要傳送的資料</li>
+    </ol>
+
+    <div class="tip">
+        💡 此功能專業性較高，適合有 VJ 軟體使用經驗的使用者。
+    </div>
+
+    <h3>運作模式設定</h3>
+    <p>可以切換應用程式的運作模式。</p>
+
+    <h4>iPhone 模式</h4>
+    <ul>
+        <li>可以使用適合 iPhone 或 iPad mini 等小螢幕的顯示大小</li>
+        <li>適合在小螢幕或近距離顯示</li>
+    </ul>
+
+    <h4>管理員模式</h4>
+    <ul>
+        <li>NeoN 成員專用功能（需要密碼驗證）</li>
+        <li>一般使用者不需要使用</li>
+    </ul>
+
+    <h3>常規顯示設定</h3>
+    <p>可以細部調整各顯示元素的大小。</p>
+
+    <h4>可調整項目</h4>
+    <ul>
+        <li><strong>專輯封面大小</strong>: 在 120～800 範圍內調整</li>
+        <li><strong>曲名字型大小</strong>: 在 50～150 範圍內調整</li>
+        <li><strong>藝人名稱字型大小</strong>: 在 30～120 範圍內調整</li>
+        <li><strong>標誌大小</strong>: 在 30～200 範圍內調整</li>
+        <li><strong>版權字型大小</strong>: 在 10～50 範圍內調整</li>
+        <li><strong>自訂資訊圖片大小</strong>: 在 50～500 範圍內調整</li>
+    </ul>
+
+    <div class="tip">
+        💡 基本上使用「4. 新手推薦設定」中介紹的版面配置預設功能即可滿足需求，若需要更細部的大小調整時請使用此功能
+    </div>
+
+    <h3>大型文字顯示模式</h3>
+    <p>僅顯示文字的大型顯示模式。</p>
+    <ul>
+        <li>開啟「<strong>啟用大型文字顯示模式</strong>」後，會隱藏專輯封面，僅以大型文字顯示</li>
+        <li>從更遠的距離也能輕鬆閱讀</li>
+        <li>適合在大型舞池或寬廣場地使用</li>
+    </ul>
+
+    <h3>影片背景（iPad 專用）</h3>
+
+    <div class="warning">
+        ⚠️ 此功能為進階功能。基本設定方法請參閱「6. 實用功能」章節
+    </div>
+
+    <p>影片背景功能是 iPad 專用的進階功能。在背景顯示影片可以實現更豪華的演出效果。</p>
+
+    <h3>外接顯示器設定</h3>
+    <p>可以存取進階的外接顯示器設定。</p>
+
+    <h4>設定項目</h4>
+    <ol>
+        <li>在設定畫面中尋找「<strong>外接顯示器</strong>」區段（需要開啟「<strong>顯示所有設定選單</strong>」）</li>
+        <li>切換「<strong>外接顯示器自動顯示</strong>」的開/關</li>
+        <li>確認連接狀態（會顯示已連接的外接顯示器資訊）</li>
+    </ol>
+
+    <div class="tip">
+        💡 位置調整功能可在連接外接顯示器時，從畫面左側的控制按鈕使用（請參閱「5. 外接顯示器輸出」章節）
+    </div>
+
+    <h3>詳細辨識參數調整</h3>
+    <p>選擇「<strong>自訂</strong>」預設後，可以個別調整以下項目。</p>
+    <ul>
+        <li><strong>歷史記錄保留期間</strong>: 在 5～60 秒範圍內設定參考過去辨識結果的時間</li>
+        <li><strong>判定閾值</strong>: 在 10～100% 範圍內設定確定音樂所需的機率</li>
+        <li><strong>開始判定所需的最低辨識次數</strong>: 在 1～10 次範圍內設定</li>
+        <li><strong>連續辨識時的立即變更次數</strong>: 在 2～5 次範圍內設定連續辨識到相同歌曲時的反應速度</li>
+        <li><strong>無聲超時</strong>: 在 10～120 秒範圍內設定無法辨識音樂時返回「Searching...」的時間</li>
+    </ul>
+
+    <div class="warning">
+        ⚠️ 設定錯誤可能導致音樂辨識異常。基本上建議使用「穩定優先」或「Shazam 原生」。
+    </div>
+
+    <hr>
+
+    <h2 id="exit">🔚 9. 結束應用程式</h2>
+
+    <h3>正常結束步驟</h3>
+    <ol>
+        <li><strong>停止音樂辨識</strong>: 點擊「停止」按鈕結束辨識</li>
+        <li><strong>確認設定儲存</strong>: 若有變更設定，務必使用「<strong>儲存</strong>」按鈕儲存</li>
+        <li><strong>Home 按鈕/手勢</strong>: 照常結束應用程式</li>
+    </ol>
+
+    <h3>長時間使用後結束時</h3>
+    <ul>
+        <li>使用影片背景或大量特效時，裝置可能會有負載</li>
+        <li>建議結束應用程式後讓裝置稍作休息</li>
+    </ul>
+
+    <h3>需要強制結束時</h3>
+    <p>當應用程式無回應時:</p>
+    <ol>
+        <li>開啟應用程式切換器（按兩次 Home 按鈕，或從 Home 列向上滑動）</li>
+        <li>將 NeoN VJ 應用程式向上滑動以強制結束</li>
+        <li>建議重新啟動 iPad</li>
+    </ol>
+
+    <hr>
+
+    <h2 id="support">📞 10. 支援資訊</h2>
+
+    <h3>應用程式更新</h3>
+    <p>請定期檢查更新。更新包含新功能和錯誤修正。</p>
+    <ul>
+        <li>當收到監測通知郵件時，請將應用程式更新至新版本</li>
+        <li>可從 <strong>TestFlight</strong> 應用程式下載新版本</li>
+        <li>即使未收到通知，使用應用程式前若能開啟 TestFlight 確認是否有新版本發布，將不勝感激</li>
+    </ul>
+
+    <h3>聯絡我們</h3>
+    <p>若有任何疑問，請聯絡開發者。</p>
+
+    <hr>
+
+    <h2>🎉 結語</h2>
+    <p>感謝您使用 NeoN VJ！</p>
+    <p>應用程式提供了各種功能，但<strong>只使用您想嘗試的功能也完全沒問題！</strong></p>
+    <p>請盡情將 NeoN VJ 自訂為您喜歡的樣式！</p>
+
+    <hr>
+
+    <div class="tip">
+        📝 本手冊涵蓋 NeoN VJ 的所有功能。<br>
+        也可以透過設定畫面各功能的「？」圖示確認詳細說明。
+    </div>
+
+    <div class="footer">
+        <p><strong>版本</strong>: 2025年10月版 | <strong>建立日期</strong>: 2025年10月10日</p>
+        <p>© 2025 SMYLE | Produced by NeoN.</p>
+    </div>
+</body>
+</html>
