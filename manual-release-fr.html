@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guide de l'Utilisateur NeoN VJ</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
+            line-height: 1.8;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 12px;
+            font-size: 2em;
+        }
+        h2 {
+            color: #34495e;
+            margin-top: 40px;
+            border-left: 5px solid #3498db;
+            padding-left: 15px;
+            font-size: 1.6em;
+        }
+        h3 {
+            color: #7f8c8d;
+            margin-top: 25px;
+            font-size: 1.3em;
+        }
+        h4 {
+            color: #95a5a6;
+            margin-top: 15px;
+            font-size: 1.1em;
+        }
+        .subtitle {
+            font-style: italic;
+            color: #7f8c8d;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+        .important, .warning, .tip {
+            border-left: 4px solid #3498db;
+            padding: 12px 18px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .important {
+            background-color: #e8f4f8;
+            border-color: #3498db;
+        }
+        .warning {
+            background-color: #fff3cd;
+            border-color: #ff9800;
+        }
+        .tip {
+            background-color: #f0f9ff;
+            border-color: #00bcd4;
+        }
+        ul, ol {
+            padding-left: 25px;
+            line-height: 1.9;
+        }
+        li {
+            margin: 8px 0;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .footer {
+            margin-top: 60px;
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 0.9em;
+            border-top: 1px solid #ecf0f1;
+            padding-top: 20px;
+        }
+        .language-switch {
+            margin-bottom: 25px;
+            text-align: center;
+            flex-wrap: wrap;
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+        }
+        .language-switch a {
+            padding: 6px 12px;
+            border: 1px solid #3498db;
+            border-radius: 4px;
+            text-decoration: none;
+            color: #3498db;
+            font-size: 14px;
+            white-space: nowrap;
+            transition: all 0.2s ease;
+        }
+        .language-switch a:hover {
+            background-color: #3498db;
+            color: white;
+        }
+        .language-switch a.current {
+            background-color: #3498db;
+            color: white;
+        }
+        .toc {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 6px;
+            padding: 20px 25px;
+            margin: 30px 0;
+        }
+        .toc h3 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .toc ul li {
+            margin: 6px 0;
+        }
+        .toc ul li a {
+            color: #3498db;
+        }
+        hr {
+            border: none;
+            border-top: 1px solid #ecf0f1;
+            margin: 40px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="language-switch">
+        <a href="manual-ja.html">日本語</a>
+        <a href="manual-en.html">English</a>
+        <a href="manual-fr.html" class="current">Français</a>
+        <a href="manual-zh-Hans.html">简体中文</a>
+        <a href="manual-zh-Hant.html">繁體中文</a>
+        <a href="manual-ko.html">한국어</a>
+        <a href="manual-th.html">ไทย</a>
+        <a href="manual-es.html">Español</a>
+    </div>
+
+    <h1>Guide de l'Utilisateur NeoN VJ</h1>
+
+    <p class="subtitle">Pour Débutants - Guide pour Utilisateurs Débutants</p>
+
+    <div class="toc">
+        <h3>Table des Matières</h3>
+        <ul>
+            <li><a href="#intro">1. Introduction</a></li>
+            <li><a href="#quickstart">2. Démarrage Rapide</a></li>
+            <li><a href="#basic">3. Opérations de Base</a></li>
+            <li><a href="#settings">4. Paramètres Recommandés pour les Débutants</a></li>
+            <li><a href="#external">5. Affichage sur Écran Externe</a></li>
+            <li><a href="#features">6. Fonctions Pratiques</a></li>
+            <li><a href="#troubleshooting">7. Dépannage</a></li>
+            <li><a href="#advanced">8. Fonctions Avancées</a></li>
+            <li><a href="#exit">9. Comment Quitter l'Application</a></li>
+            <li><a href="#support">10. Informations de Support</a></li>
+        </ul>
+    </div>
+
+    <h2 id="intro">1. Introduction</h2>
+
+    <h3>Qu'est-ce que NeoN VJ</h3>
+    <p>NeoN VJ est une application iOS/iPadOS qui <strong>reconnaît automatiquement</strong> la musique diffusée lors d'événements DJ et <strong>affiche en temps réel le titre de la chanson, le nom de l'artiste et la pochette d'album</strong>.</p>
+    <p>Elle prend en charge les moniteurs externes et les projecteurs, et est conçue pour les performances VJ et le streaming.</p>
+
+    <h3>Configuration Requise</h3>
+    <ul>
+        <li><strong>Système d'Exploitation</strong> : iOS 17 ou supérieur</li>
+        <li><strong>Appareils Compatibles</strong> : iPhone / iPad</li>
+        <li><strong>Connexion Internet</strong> : Requise</li>
+        <li><strong>Accès au Microphone</strong> : Requis (pour la reconnaissance musicale)</li>
+    </ul>
+
+    <h3>Fonctionnalités</h3>
+    <ul>
+        <li>Reconnaissance automatique et affichage de la musique en cours</li>
+        <li>Sortie vers écrans externes et projecteurs</li>
+        <li>Personnalisation du logo de l'événement et de l'arrière-plan</li>
+        <li>Affichage du nom du DJ</li>
+        <li>Personnalisation de la mise en page (7 préréglages)</li>
+        <li>Support de 8 langues (japonais, anglais, espagnol, français, coréen, thaï, chinois simplifié, chinois traditionnel)</li>
+    </ul>
+
+    <h3>Limitations</h3>
+    <ul>
+        <li>Reconnaissance de musique hors ligne</li>
+        <li>Reconnaissance de morceaux absents de la base de données Shazam</li>
+        <li>Analyse de fichiers audio enregistrés (reconnaissance en temps réel uniquement)</li>
+    </ul>
+
+    <hr>
+
+    <h2 id="quickstart">2. Démarrage Rapide</h2>
+
+    <h3>Configuration Initiale</h3>
+    <p>Étapes importantes lors du premier lancement de l'application.</p>
+
+    <h4>1. Lancer l'Application</h4>
+    <p>Au premier lancement, un <strong>tutoriel de bienvenue s'affiche automatiquement après 3 secondes</strong>.</p>
+    <ul>
+        <li>Le tutoriel présente les bases en 3 étapes</li>
+        <li>Vous pouvez le passer avec le bouton « Ignorer »</li>
+        <li>Vous pouvez revoir le tutoriel ultérieurement dans l'écran de paramètres</li>
+    </ul>
+
+    <h4>2. Autoriser l'Accès au Microphone</h4>
+    <p>Au premier lancement ou lors de la première pression sur le bouton « Démarrer la reconnaissance », une <strong>demande d'autorisation d'accès au microphone</strong> apparaît.</p>
+
+    <div class="warning">
+        <strong>Important</strong> : Sélectionnez obligatoirement « <strong>Autoriser</strong> »
+        <ul>
+            <li>Si vous sélectionnez « <strong>Ne pas autoriser</strong> », la fonction de reconnaissance musicale ne fonctionnera pas du tout</li>
+            <li>Pour autoriser ultérieurement :
+                <ol>
+                    <li>Ouvrez l'application « Réglages » d'iOS</li>
+                    <li>« Confidentialité et sécurité » → « Microphone »</li>
+                    <li>Activez « NeoN VJ »</li>
+                </ol>
+            </li>
+        </ul>
+    </div>
+
+    <h4>3. Vérification du Fonctionnement (Recommandé)</h4>
+    <p>Il est recommandé de vérifier le bon fonctionnement de l'entrée audio avec le bouton « <strong>Test du Microphone</strong> ».</p>
+
+    <h3>Démarrer la Reconnaissance Musicale</h3>
+    <ol>
+        <li>Appuyez sur le bouton <strong>« Démarrer la reconnaissance »</strong></li>
+        <li>Attendez dans un environnement où de la musique est diffusée</li>
+        <li>En cas de reconnaissance réussie, le <strong>titre, le nom de l'artiste et la pochette d'album</strong> s'affichent</li>
+    </ol>
+
+    <h3>Arrêter la Reconnaissance Musicale</h3>
+    <p>Appuyez sur le bouton <strong>« Arrêter »</strong> pour arrêter la reconnaissance et revenir à l'écran « Recherche en cours... »</p>
+
+    <hr>
+
+    <h2 id="basic">3. Opérations de Base</h2>
+
+    <h3>Navigation de l'Écran</h3>
+
+    <h4>Boutons de Contrôle (Côté Gauche de l'Écran)</h4>
+    <ul>
+        <li><strong>Test du Microphone</strong> : Vérifier le fonctionnement de l'entrée audio</li>
+        <li><strong>Démarrer/Arrêter la reconnaissance</strong> : Démarrer ou arrêter la reconnaissance musicale</li>
+        <li><strong>Nouvelle analyse</strong> : Relancer la reconnaissance musicale (affiché uniquement après le démarrage de la reconnaissance)</li>
+        <li><strong>Paramètres</strong> : Ouvrir l'écran de paramètres détaillés</li>
+        <li><strong>Ajustement de position</strong> : Affiché uniquement lors de la connexion d'un écran externe</li>
+        <li><strong>Masquer le menu</strong> : Masquer les boutons de contrôle et l'affichage des journaux pour maximiser la zone d'affichage</li>
+    </ul>
+
+    <div class="warning">
+        <strong>Important</strong> : Si vous montrez l'écran de l'appareil aux clients, appuyez obligatoirement sur le bouton « <strong>Masquer le menu</strong> »
+        <ul>
+            <li>Les informations superflues telles que le menu système et les journaux de reconnaissance ne seront plus visibles par les clients</li>
+            <li>Lors de l'utilisation sur le dancefloor, seules les informations musicales seront montrées aux clients</li>
+            <li>Sur la sortie moniteur externe, l'interface du menu et les journaux ne sont pas affichés dès le départ (affichage automatiquement propre)</li>
+        </ul>
+    </div>
+
+    <h4>Boutons de Contrôle (Côté Droit de l'Écran)</h4>
+    <ul>
+        <li><strong>Plein écran</strong> : Passer en mode plein écran</li>
+    </ul>
+
+    <h4>Affichage du Statut (Bas de l'Écran)</h4>
+    <ul>
+        <li><strong>Point vert</strong> : Reconnaissance musicale en cours et chanson affichée</li>
+        <li><strong>Point orange</strong> : Reconnaissance musicale en cours mais aucune reconnaissance</li>
+        <li><strong>Point gris</strong> : Reconnaissance musicale arrêtée</li>
+    </ul>
+
+    <h3>Comment Utiliser la Fonction de Nouvelle Analyse</h3>
+    <p>La <strong>fonction de nouvelle analyse</strong> est utilisée lorsque la reconnaissance de la chanson est difficile ou lorsque la chanson précédente ne se met pas à jour.</p>
+
+    <h4>Cas d'Utilisation</h4>
+    <ul>
+        <li>Lorsque le changement de chanson n'est pas reconnu</li>
+        <li>Lorsque vous souhaitez continuer la reconnaissance avant de revenir à l'écran « Recherche en cours... »</li>
+    </ul>
+
+    <h4>Mode d'Emploi</h4>
+    <ol>
+        <li>Appuyez sur le <strong>bouton orange « Nouvelle analyse »</strong> sur le côté gauche de l'écran</li>
+        <li>Le délai d'expiration est réinitialisé et passe en mode de reconnaissance rapide pendant 5 secondes</li>
+    </ol>
+
+    <div class="tip">
+        <strong>Utilisation Efficace</strong>
+        <ul>
+            <li>Musique difficile à reconnaître : Appuyez périodiquement sur le bouton (par ex. toutes les 25 secondes) pour maintenir l'affichage</li>
+            <li>Lors du changement de chanson : Relancer manuellement la reconnaissance si la nouvelle chanson n'est pas reconnue</li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <h2 id="settings">4. Paramètres Recommandés pour les Débutants</h2>
+
+    <p>L'écran de paramètres s'ouvre depuis le bouton « <strong>Paramètres</strong> » sur le côté gauche de l'écran.</p>
+
+    <h3>Modifier la Mise en Page</h3>
+    <p>La position d'affichage des informations musicales peut être sélectionnée parmi <strong>7 préréglages</strong>.</p>
+    <ol>
+        <li>Dans l'écran de paramètres, recherchez la section « <strong>Mise en page</strong> »</li>
+        <li>Appuyez sur « <strong>Sélection de préréglage</strong> »</li>
+        <li>Sélectionnez la mise en page de votre choix</li>
+    </ol>
+
+    <h4>Liste des Préréglages de Mise en Page</h4>
+    <ul>
+        <li><strong>Centre</strong> : Pochette d'album et informations musicales au centre (par défaut)</li>
+        <li><strong>Minimal</strong> : Affichage simple et compact</li>
+        <li><strong>Aligné à gauche</strong> : Informations musicales positionnées à gauche</li>
+        <li><strong>Aligné à droite</strong> : Informations musicales positionnées à droite</li>
+        <li><strong>Centre avec image en bas</strong> : Pochette d'album en bas (centré)</li>
+        <li><strong>Gauche avec image en bas</strong> : Pochette d'album en bas (aligné à gauche)</li>
+        <li><strong>Droite avec image en bas</strong> : Pochette d'album en bas (aligné à droite)</li>
+    </ul>
+
+    <div class="tip">
+        Si vous définissez un arrière-plan personnalisé, ajuster la mise en page en fonction de l'arrière-plan améliore la lisibilité
+    </div>
+
+    <h3>Définir le Logo de l'Événement</h3>
+    <p>Vous pouvez afficher le logo de l'événement en haut à droite de l'écran.</p>
+    <ol>
+        <li>Dans l'écran de paramètres, recherchez la section « <strong>Paramètres du logo de l'événement</strong> »</li>
+        <li>Appuyez sur « <strong>Sélectionner l'image du logo</strong> »</li>
+        <li>Sélectionnez l'image du logo depuis la photothèque</li>
+        <li>Ajustez la « <strong>Taille du logo</strong> » si nécessaire</li>
+    </ol>
+
+    <div class="tip">
+        Si vous sélectionnez un alignement à droite dans la mise en page, masquer le logo évite le chevauchement des informations
+    </div>
+
+    <h3>Afficher le Nom du DJ</h3>
+    <p>Vous pouvez afficher un nom de DJ personnalisé à la place de « Powered by NeoN ».</p>
+    <ol>
+        <li>Dans l'écran de paramètres, recherchez la section « <strong>Paramètres d'affichage du nom du DJ</strong> »</li>
+        <li>Activez « <strong>Activer le mode d'affichage du nom du DJ</strong> »</li>
+        <li>Saisissez le nom du DJ dans le champ prévu (jusqu'à 20 noms peuvent être enregistrés)</li>
+        <li>Sélectionnez le nom du DJ à afficher avec le bouton radio</li>
+        <li>Réglez l'« <strong>Intervalle de changement</strong> » pour ajuster la fréquence de basculement entre « Powered by NeoN » et le nom du DJ (3 à 60 secondes)</li>
+    </ol>
+
+    <h4>Exemples d'Utilisation</h4>
+    <ul>
+        <li>« DJ Chromaty Yuya Playing »</li>
+        <li>« DJ SMYLE Playing »</li>
+    </ul>
+
+    <h3>Ajuster la Précision de la Reconnaissance Musicale</h3>
+    <p>Vous pouvez ajuster l'équilibre entre la précision et la vitesse de reconnaissance selon la situation sur place.</p>
+    <ol>
+        <li>Dans l'écran de paramètres, recherchez la section « <strong>Paramètres de reconnaissance musicale</strong> »</li>
+        <li>Sélectionnez l'une des options suivantes dans « <strong>Sélection de préréglage de reconnaissance</strong> »</li>
+    </ol>
+
+    <h4>Préréglages de Reconnaissance</h4>
+
+    <div class="important">
+        <strong>Priorité Stabilité (Recommandé)</strong>
+        <ul>
+            <li>Avantages : Évite les reconnaissances erronées et stabilise les résultats affichés</li>
+            <li>Inconvénients : La reconnaissance initiale et le changement de chanson prennent du temps</li>
+            <li>Utilisation recommandée : Lorsque la précision d'affichage est primordiale, environnements avec peu de changements de musique</li>
+        </ul>
+    </div>
+
+    <div class="important">
+        <strong>Shazam Natif (Priorité Vitesse)</strong>
+        <ul>
+            <li>Avantages : Vitesse de reconnaissance comparable à Shazam original</li>
+            <li>Inconvénients : Des résultats de reconnaissance erronés peuvent s'afficher</li>
+            <li>Utilisation recommandée : Affichage en temps réel lors d'événements DJ en direct, environnements avec changements fréquents de musique</li>
+        </ul>
+    </div>
+
+    <div class="important">
+        <strong>Personnalisé</strong>
+        <ul>
+            <li>Avantages : Possibilité d'ajuster individuellement les paramètres détaillés</li>
+            <li>Inconvénients : Un mauvais réglage peut empêcher la reconnaissance musicale de fonctionner correctement</li>
+            <li>Utilisation recommandée : Utilisateurs avancés, lorsque des ajustements fins sont nécessaires pour des environnements spéciaux</li>
+        </ul>
+    </div>
+
+    <div class="warning">
+        « Personnalisé » est destiné aux utilisateurs avancés. Il est généralement recommandé d'utiliser « Priorité Stabilité » ou « Shazam Natif ».
+    </div>
+
+    <hr>
+
+    <h2 id="external">5. Affichage sur Écran Externe</h2>
+
+    <p>NeoN VJ détecte automatiquement la connexion d'un écran externe et démarre un affichage dédié.</p>
+
+    <h3>Méthode de Connexion Filaire (Recommandée)</h3>
+    <ol>
+        <li>Connectez-vous à un projecteur ou un moniteur avec un <strong>adaptateur HDMI</strong> pour iPad</li>
+        <li>L'affichage sur écran externe démarre automatiquement dès la connexion du câble</li>
+        <li>L'iPad est automatiquement utilisé pour le contrôle, l'écran externe pour l'affichage uniquement</li>
+        <li>En cas de connexion réussie, « <strong>Affichage sur écran externe démarré</strong> » s'affiche dans le journal en bas de l'écran</li>
+    </ol>
+
+    <div class="tip">
+        AirPlay peut également être utilisé, mais une connexion filaire est recommandée pour les événements importants car un délai peut se produire
+    </div>
+
+    <h3>Comment Utiliser la Fonction d'Ajustement de Position</h3>
+    <p>Si l'image est légèrement coupée sur le projecteur ou le moniteur externe, vous pouvez ajuster finement la position d'affichage globale.</p>
+
+    <h4>Mode d'Emploi</h4>
+    <ol>
+        <li>Lancez l'application avec un écran externe connecté</li>
+        <li>Dans le panneau de contrôle sur le côté gauche de l'écran, appuyez sur le bouton « <strong>Ajustement de position</strong> » (il devient vert)</li>
+        <li>Un panneau d'ajustement en forme de croix directionnelle s'affiche</li>
+        <li>Ajustez finement la position de l'image avec chaque bouton (chaque pression déplace de 5% de l'écran)
+            <ul>
+                <li><strong>Flèche haut</strong> : Déplacer toute l'image vers le haut</li>
+                <li><strong>Flèche bas</strong> : Déplacer toute l'image vers le bas</li>
+                <li><strong>Flèche gauche</strong> : Déplacer toute l'image vers la gauche</li>
+                <li><strong>Flèche droite</strong> : Déplacer toute l'image vers la droite</li>
+                <li><strong>Bouton central</strong> : Réinitialiser la position à l'état initial (centré)</li>
+            </ul>
+        </li>
+        <li>Appuyez sur le bouton vert « <strong>Terminé</strong> » pour quitter le mode d'ajustement</li>
+    </ol>
+
+    <div class="warning">
+        <strong>Attention</strong> : L'ajustement de position n'est pas sauvegardé. Il sera réinitialisé à la position centrale lors du redémarrage de l'application.
+    </div>
+
+    <hr>
+
+    <h2 id="features">6. Fonctions Pratiques</h2>
+
+    <h3>Arrière-plan Personnalisé et Paramètres de Filtre</h3>
+    <p>Définissez une image d'arrière-plan pour l'événement et ajustez-la avec des filtres.</p>
+
+    <h4>Configuration de l'Image d'Arrière-plan</h4>
+    <ol>
+        <li>Dans l'écran de paramètres, recherchez la section « <strong>Paramètres d'arrière-plan personnalisé</strong> »</li>
+        <li>Définissez l'image d'arrière-plan de l'événement avec « <strong>Sélectionner l'image d'arrière-plan</strong> »</li>
+        <li>Activez « <strong>Activer l'arrière-plan personnalisé</strong> »</li>
+    </ol>
+
+    <h4>Ajustement des Filtres</h4>
+    <p>Ajustez la lisibilité du texte.</p>
+    <ul>
+        <li><strong>Luminosité</strong> : Luminosité de l'arrière-plan</li>
+        <li><strong>Contraste</strong> : Contraste de l'arrière-plan</li>
+        <li><strong>Saturation</strong> : Intensité des couleurs de l'arrière-plan</li>
+        <li><strong>Flou</strong> : Degré de flou de l'arrière-plan</li>
+        <li><strong>Teinte</strong> : Tonalité des couleurs de l'arrière-plan</li>
+        <li><strong>Opacité</strong> : Transparence de l'arrière-plan</li>
+    </ul>
+
+    <div class="tip">
+        Si vous définissez une image d'arrière-plan, ajuster la disposition avec les préréglages de mise en page améliore la lisibilité
+    </div>
+
+    <h3>Arrière-plan Vidéo (Exclusif iPad)</h3>
+
+    <div class="warning">
+        Cette fonction est disponible uniquement sur iPad
+    </div>
+
+    <p>Vous pouvez afficher une vidéo en arrière-plan.</p>
+
+    <h4>Téléchargement de Vidéos</h4>
+    <ol>
+        <li>Dans l'écran de paramètres, recherchez la section « <strong>Paramètres vidéo personnalisés</strong> »</li>
+        <li>Activez « <strong>Activer l'arrière-plan vidéo</strong> »</li>
+        <li>Téléchargez des fichiers vidéo dans les emplacements 1 à 5 (appuyez sur le bouton « Ajouter » de chaque emplacement)</li>
+        <li>Formats pris en charge : MP4, MOV, M4V</li>
+        <li>Activation/désactivation de chaque emplacement : Après le téléchargement, possibilité d'activer/désactiver individuellement chaque vidéo</li>
+    </ol>
+
+    <h4>Modes de Lecture</h4>
+    <ul>
+        <li><strong>Lecture unique</strong> : Répéter la lecture d'une vidéo sélectionnée (sélectionnez la vidéo avec le bouton radio)</li>
+        <li><strong>Lecture séquentielle</strong> : Basculer automatiquement entre les vidéos actives dans l'ordre</li>
+        <li><strong>Lecture aléatoire</strong> : Basculer automatiquement entre les vidéos actives dans un ordre aléatoire</li>
+    </ul>
+
+    <h4>Configuration de l'Intervalle de Changement</h4>
+    <p>Définissez le temps de changement automatique de vidéo dans la plage de 5 à 60 secondes avec « <strong>Intervalle de changement</strong> » (valide uniquement pour la lecture séquentielle et aléatoire)</p>
+
+    <h4>Limites de Capacité</h4>
+    <ul>
+        <li>Maximum <strong>100 Mo</strong> par fichier</li>
+        <li>Maximum <strong>400 Mo</strong> au total pour toutes les vidéos</li>
+        <li>Résolution recommandée : Full HD (1920x1080) ou inférieure</li>
+        <li>Formats de fichiers pris en charge : MP4, MOV, M4V</li>
+    </ul>
+
+    <h3>Paramètres de Langue</h3>
+    <p>Vous pouvez changer la langue d'affichage de l'application.</p>
+    <ol>
+        <li>Dans l'écran de paramètres, recherchez la section « <strong>Paramètres de langue</strong> »</li>
+        <li>Sélectionnez la langue de votre choix</li>
+    </ol>
+
+    <h4>Langues Prises en Charge</h4>
+    <p>Japonais, anglais, espagnol, français, coréen, thaï, chinois simplifié, chinois traditionnel</p>
+
+    <hr>
+
+    <h2 id="troubleshooting">7. Dépannage</h2>
+
+    <h3>En Cas de Non-reconnaissance de Musique</h3>
+
+    <h4>Liste de Vérification</h4>
+    <ol>
+        <li>L'appareil est-il connecté à Internet</li>
+        <li>Vérifiez l'entrée audio avec le bouton de test du microphone</li>
+        <li>Le volume de la musique est-il suffisant</li>
+        <li>Y a-t-il trop de bruit ambiant</li>
+        <li>Vérifiez l'autorisation d'accès au microphone (Réglages → Confidentialité → Microphone)</li>
+    </ol>
+
+    <h4>Solutions</h4>
+    <ul>
+        <li>Vérifiez les paramètres de stabilisation de reconnaissance : Améliorez la vitesse de reconnaissance avec le mode « <strong>Shazam Natif</strong> »</li>
+        <li>Utilisez le bouton « <strong>Nouvelle analyse</strong> » : Relancez manuellement la reconnaissance pendant la reconnaissance</li>
+    </ul>
+
+    <h3>En Cas de Refus d'Accès au Microphone</h3>
+    <p>Une alerte « <strong>Autorisation d'accès au microphone</strong> » s'affiche à l'écran.</p>
+    <ol>
+        <li>Appuyez sur le bouton « <strong>Ouvrir les réglages</strong> »</li>
+        <li>Dans l'écran de réglages iOS, activez l'accès au microphone pour « NeoN VJ »</li>
+        <li>Revenez à l'application et réessayez « <strong>Démarrer la reconnaissance</strong> »</li>
+    </ol>
+
+    <h3>En Cas d'Affichage Difficile à Lire</h3>
+    <ul>
+        <li>Basculez entre <strong>texte blanc et texte noir</strong> dans les paramètres de couleur du texte</li>
+        <li>Lors de l'utilisation d'un arrière-plan personnalisé, ajustez la <strong>luminosité et le contraste</strong></li>
+        <li>Ajustez la <strong>taille de police</strong> de manière appropriée</li>
+        <li>Ajustez la <strong>taille de l'image Info personnalisée</strong> pour améliorer la lisibilité</li>
+    </ul>
+
+    <h3>En Cas de Non-affichage sur Écran Externe</h3>
+    <ol>
+        <li>Vérifiez la connexion du câble</li>
+        <li>Vérifiez la commutation d'entrée de l'écran externe</li>
+        <li>Vérifiez si l'écran externe est reconnu du côté de l'iPad</li>
+        <li>Vérifiez le message « <strong>Affichage sur écran externe démarré</strong> » dans l'affichage du journal</li>
+    </ol>
+
+    <h3>En Cas d'Image Coupée sur Écran Externe</h3>
+    <ol>
+        <li>Utilisez la <strong>fonction d'ajustement de position</strong> : Appuyez sur le bouton « Ajustement de position » sur le côté gauche de l'écran</li>
+        <li>Ajustez finement la position de l'image avec les touches directionnelles (jusqu'à 20% dans toutes les directions)</li>
+        <li>Réinitialisez la position avec le bouton central</li>
+        <li>Appuyez sur le bouton « Terminé » après l'ajustement</li>
+    </ol>
+
+    <h3>En Cas de Non-lecture de Vidéo (Exclusif iPad)</h3>
+    <ol>
+        <li>Vérifiez si le fichier vidéo est dans un format pris en charge (MP4, MOV, M4V)</li>
+        <li>Vérifiez si la taille du fichier est dans la limite (100 Mo ou moins)</li>
+        <li>Vérifiez si l'emplacement vidéo est « <strong>Actif</strong> »</li>
+        <li>En mode lecture unique : Vérifiez si la vidéo est sélectionnée avec le bouton radio</li>
+        <li>Vérifiez le fonctionnement sur iPad (la fonction vidéo n'est pas disponible sur iPhone)</li>
+    </ol>
+
+    <h3>En Cas de Crash de l'Application</h3>
+    <ol>
+        <li>Redémarrez l'appareil</li>
+        <li>Fermez complètement l'application puis redémarrez-la</li>
+        <li>Vérifiez qu'il y a suffisamment d'espace de stockage dans les réglages iOS</li>
+        <li>Mettez à jour l'application vers la dernière version</li>
+        <li>Si vous utilisez de nombreuses vidéos : Réduisez le nombre de vidéos pour alléger la charge</li>
+    </ol>
+
+    <hr>
+
+    <h2 id="advanced">8. Fonctions Avancées</h2>
+
+    <div class="important">
+        <strong>Afficher Tous les Menus de Paramètres</strong>
+        <p>Pour utiliser les fonctions avancées, activez le bouton « <strong>Afficher tous les menus de paramètres</strong> » dans l'écran de paramètres.</p>
+        <ul>
+            <li>Par défaut, seules les fonctions de base sont affichées pour ne pas perturber les débutants</li>
+            <li>En activant cette option, des paramètres plus spécialisés comme les paramètres de reconnaissance détaillés s'affichent</li>
+            <li>Utilisez-le lorsque vous êtes habitué et que vous souhaitez personnaliser à votre manière</li>
+        </ul>
+    </div>
+
+    <h3>Paramètres de Mode de Fonctionnement</h3>
+    <p>Vous pouvez changer le mode de fonctionnement de l'application.</p>
+
+    <h4>Mode iPhone</h4>
+    <ul>
+        <li>Peut être utilisé avec une taille d'affichage adaptée aux petits écrans comme l'iPhone ou l'iPad mini</li>
+        <li>Adapté aux petits écrans et à l'affichage à courte distance</li>
+    </ul>
+
+    <h3>Paramètres d'Affichage Normal</h3>
+    <p>Vous pouvez ajuster finement la taille de chaque élément d'affichage.</p>
+
+    <h4>Éléments Ajustables</h4>
+    <ul>
+        <li><strong>Taille de la pochette d'album</strong> : Ajustable dans la plage 120 à 800</li>
+        <li><strong>Taille de police du titre</strong> : Ajustable dans la plage 50 à 150</li>
+        <li><strong>Taille de police du nom de l'artiste</strong> : Ajustable dans la plage 30 à 120</li>
+        <li><strong>Taille du logo</strong> : Ajustable dans la plage 30 à 200</li>
+        <li><strong>Taille de police des crédits</strong> : Ajustable dans la plage 10 à 50</li>
+        <li><strong>Taille de l'image Info personnalisée</strong> : Ajustable dans la plage 50 à 500</li>
+    </ul>
+
+    <div class="tip">
+        Fondamentalement, la fonction de préréglage de mise en page présentée dans « 4. Paramètres Recommandés pour les Débutants » est suffisante, mais utilisez-le si vous souhaitez ajuster les tailles plus finement
+    </div>
+
+    <h3>Mode d'Affichage en Majuscules</h3>
+    <p>Mode d'affichage large en texte uniquement.</p>
+    <ul>
+        <li>Activez « <strong>Activer le mode d'affichage en majuscules</strong> » pour masquer la pochette d'album et afficher uniquement du texte en grand</li>
+        <li>Mode d'affichage plus visible de loin</li>
+        <li>Adapté aux grandes salles et aux espaces larges</li>
+    </ul>
+
+    <h3>Arrière-plan Vidéo (Exclusif iPad)</h3>
+
+    <div class="warning">
+        Cette fonction est destinée aux utilisateurs avancés. Pour la méthode de configuration de base, consultez le chapitre « 6. Fonctions Pratiques »
+    </div>
+
+    <p>La fonction d'arrière-plan vidéo est une fonction avancée exclusive à l'iPad. Afficher une vidéo en arrière-plan permet une présentation plus luxueuse.</p>
+
+    <h3>Paramètres d'Écran Externe</h3>
+    <p>Accédez aux paramètres avancés d'écran externe.</p>
+
+    <h4>Éléments de Configuration</h4>
+    <ol>
+        <li>Dans l'écran de paramètres, recherchez la section « <strong>Écran externe</strong> » (vous devez activer « <strong>Afficher tous les menus de paramètres</strong> »)</li>
+        <li>Basculer « <strong>Affichage automatique sur écran externe</strong> » ON/OFF</li>
+        <li>Vérification de l'état de connexion (les informations de l'écran externe connecté s'affichent)</li>
+    </ol>
+
+    <div class="tip">
+        La fonction d'ajustement de position est accessible depuis les boutons de contrôle sur le côté gauche de l'écran lors de la connexion d'un écran externe (voir le chapitre « 5. Affichage sur Écran Externe »)
+    </div>
+
+    <h3>Ajustement Détaillé des Paramètres de Reconnaissance</h3>
+    <p>En sélectionnant le préréglage « <strong>Personnalisé</strong> », vous pouvez ajuster individuellement les éléments suivants.</p>
+    <ul>
+        <li><strong>Période de conservation de l'historique</strong> : Définir dans la plage de 5 à 60 secondes le temps de référence aux résultats de reconnaissance passés</li>
+        <li><strong>Seuil de jugement</strong> : Définir dans la plage de 10 à 100 % le niveau de probabilité pour confirmer une chanson</li>
+        <li><strong>Nombre minimum de reconnaissances avant jugement</strong> : Définir dans la plage de 1 à 10 fois</li>
+        <li><strong>Nombre de changements immédiats en reconnaissance continue</strong> : Définir dans la plage de 2 à 5 fois la vitesse de réaction lorsque la même chanson est reconnue en continu</li>
+        <li><strong>Délai d'expiration en silence</strong> : Définir dans la plage de 10 à 120 secondes le temps avant de revenir à « Recherche en cours... » lorsque la musique n'est pas reconnue</li>
+    </ul>
+
+    <div class="warning">
+        Un mauvais ajustement présente le risque d'empêcher la reconnaissance musicale de fonctionner correctement. Il est généralement recommandé d'utiliser « Priorité Stabilité » ou « Shazam Natif ».
+    </div>
+
+    <hr>
+
+    <h2 id="exit">9. Comment Quitter l'Application</h2>
+
+    <h3>Procédure de Fermeture Normale</h3>
+    <ol>
+        <li><strong>Arrêter la reconnaissance musicale</strong> : Appuyez sur le bouton « Arrêter » pour terminer la reconnaissance</li>
+        <li><strong>Confirmation de sauvegarde des paramètres</strong> : Si vous avez modifié les paramètres, sauvegardez-les obligatoirement avec le bouton « <strong>Sauvegarder</strong> »</li>
+        <li><strong>Bouton Home/Geste</strong> : Quittez l'application normalement</li>
+    </ol>
+
+    <h3>Après une Utilisation Prolongée</h3>
+    <ul>
+        <li>L'utilisation d'arrière-plan vidéo ou d'effets multiples peut solliciter l'appareil</li>
+        <li>Il est recommandé de laisser l'appareil se reposer un peu après avoir quitté l'application</li>
+    </ul>
+
+    <h3>En Cas de Fermeture Forcée Nécessaire</h3>
+    <p>Si l'application ne répond plus :</p>
+    <ol>
+        <li>Ouvrez le sélecteur d'applications (double pression sur le bouton Home, ou glissement vers le haut de la barre d'accueil)</li>
+        <li>Faites glisser l'application NeoN VJ vers le haut pour la fermer de force</li>
+        <li>Redémarrage de l'iPad recommandé</li>
+    </ol>
+
+    <hr>
+
+    <h2 id="support">10. Informations de Support</h2>
+
+    <h3>Mise à Jour de l'Application</h3>
+    <p>Vérifiez régulièrement les mises à jour. Elles contiennent l'ajout de nouvelles fonctionnalités et des corrections de bugs.</p>
+    <ul>
+        <li>Vous pouvez vérifier la dernière version dans l'onglet « Mises à jour » de l'App Store</li>
+        <li>Il est recommandé d'activer les mises à jour automatiques</li>
+    </ul>
+
+    <h3>Contact</h3>
+    <p>Si vous avez des questions, veuillez nous contacter à :</p>
+    <p><strong>neondjcrew.contact@gmail.com</strong></p>
+
+    <hr>
+
+    <h2>Pour Finir</h2>
+    <p>Merci d'utiliser NeoN VJ !</p>
+    <p>L'application propose diverses fonctionnalités, mais <strong>il est tout à fait acceptable d'utiliser uniquement les fonctions que vous souhaitez essayer !</strong></p>
+    <p>N'hésitez pas à personnaliser NeoN VJ selon vos préférences et profitez-en !</p>
+
+    <hr>
+
+    <div class="tip">
+        Ce manuel couvre toutes les fonctionnalités de NeoN VJ.<br>
+        Vous pouvez également consulter des explications détaillées en cliquant sur l'icône « ? » de chaque fonction dans l'écran de paramètres.
+    </div>
+
+    <div class="footer">
+        <p><strong>Version</strong> : Édition décembre 2025 | <strong>Date de création</strong> : 20 décembre 2025</p>
+        <p>&copy; 2025 SMYLE | Produced by NeoN.</p>
+    </div>
+</body>
+</html>
