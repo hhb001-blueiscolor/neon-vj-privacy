@@ -156,13 +156,14 @@
         <a href="manual-es.html">🇪🇸 Español</a>
     </div>
 
-    <h1>🎵 NeoN VJ 用户指南</h1>
+    <h1>NeoN VJ 用户指南</h1>
 
     <p class="subtitle">新手指南 - 首次使用用户指南</p>
 
     <div class="toc">
         <h3>目录</h3>
         <ul>
+            <li><a href="#before-purchase"><strong>购买前请阅读</strong></a></li>
             <li><a href="#intro">1. 简介</a></li>
             <li><a href="#quickstart">2. 快速入门</a></li>
             <li><a href="#basic">3. 基本操作</a></li>
@@ -176,7 +177,23 @@
         </ul>
     </div>
 
-    <h2 id="intro">📱 1. 简介</h2>
+    <h2 id="before-purchase">购买前请阅读</h2>
+
+    <div class="warning">
+        <strong>音乐识别限制</strong>
+        <p>本应用使用 Apple ShazamKit 进行音乐识别。在以下情况下，识别准确率可能会降低：</p>
+        <ul>
+            <li><strong>BPM 变化 ±5% 或更多的曲目</strong> - 大幅度的音高或节奏变化会使识别变得困难</li>
+            <li><strong>混音两首曲目时</strong> - 过渡期间识别准确率会降低</li>
+            <li><strong>混音版或编辑版</strong> - 如果与原版不同，可能无法识别</li>
+        </ul>
+        <p>请理解，根据您的 DJ 风格，识别效果可能不如预期。</p>
+        <p><strong>这些是开发者测试中观察到的趋势，并非 ShazamKit 的官方规格。</strong></p>
+    </div>
+
+    <hr>
+
+    <h2 id="intro">1. 简介</h2>
 
     <h3>什么是 NeoN VJ</h3>
     <p>NeoN VJ 是一款 iOS/iPadOS 应用，能够<strong>自动识别</strong> DJ 活动中播放的音乐，并<strong>实时显示歌曲名称、艺术家名称和专辑封面</strong>。</p>
@@ -196,7 +213,6 @@
         <li>✅ 输出到外部显示器/投影仪</li>
         <li>✅ 自定义活动标志和背景</li>
         <li>✅ 显示 DJ 名称</li>
-        <li>✅ 实时播放列表网页发布</li>
         <li>✅ 布局自定义（7 种预设）</li>
         <li>✅ 8 种语言支持（日语、英语、西班牙语、法语、韩语、泰语、简体中文、繁体中文）</li>
     </ul>
@@ -210,7 +226,7 @@
 
     <hr>
 
-    <h2 id="quickstart">🚀 2. 快速入门</h2>
+    <h2 id="quickstart">2. 快速入门</h2>
 
     <h3>首次设置</h3>
     <p>首次启动应用时的重要步骤。</p>
@@ -227,7 +243,7 @@
     <p>首次启动时，或首次点击"开始识别"按钮时，会请求<strong>麦克风访问权限</strong>。</p>
 
     <div class="warning">
-        <strong>⚠️ 重要</strong>: 必须选择"<strong>允许</strong>"
+        <strong>重要</strong>: 必须选择"<strong>允许</strong>"
         <ul>
             <li>如果选择"<strong>不允许</strong>"，将无法使用歌曲识别功能</li>
             <li>后续允许权限的方法:
@@ -255,7 +271,7 @@
 
     <hr>
 
-    <h2 id="basic">🎮 3. 基本操作</h2>
+    <h2 id="basic">3. 基本操作</h2>
 
     <h3>界面说明</h3>
 
@@ -270,7 +286,7 @@
     </ul>
 
     <div class="warning">
-        <strong>⚠️ 重要</strong>: 如果要向观众展示设备屏幕，请务必点击"<strong>隐藏菜单</strong>"按钮
+        <strong>重要</strong>: 如果要向观众展示设备屏幕，请务必点击"<strong>隐藏菜单</strong>"按钮
         <ul>
             <li>系统菜单和识别日志等信息将不会显示给观众</li>
             <li>在现场使用时，可以只向观众显示歌曲信息</li>
@@ -306,7 +322,7 @@
     </ol>
 
     <div class="tip">
-        <strong>💡 有效使用方法</strong>
+        <strong>有效使用方法</strong>
         <ul>
             <li>难以识别的歌曲: 每 25 秒等间隔点击按钮以维持显示</li>
             <li>歌曲切换时: 新歌未被识别时手动触发重新识别</li>
@@ -315,12 +331,12 @@
 
     <hr>
 
-    <h2 id="settings">⚙️ 4. 新手推荐设置</h2>
+    <h2 id="settings">4. 新手推荐设置</h2>
 
     <p>点击屏幕左侧的"<strong>设置</strong>"按钮打开设置界面。</p>
 
     <div class="tip">
-        <strong>💡 为新手优化的设置菜单</strong>
+        <strong>为新手优化的设置菜单</strong>
         <ul>
             <li>默认情况下，为避免新手困惑，仅显示<strong>基本设置项</strong></li>
             <li>高级专业功能默认隐藏</li>
@@ -348,7 +364,7 @@
     </ul>
 
     <div class="tip">
-        💡 设置自定义背景时，根据背景调整布局会更清晰
+        设置自定义背景时，根据背景调整布局会更清晰
     </div>
 
     <h3>设置活动标志</h3>
@@ -361,7 +377,7 @@
     </ol>
 
     <div class="tip">
-        💡 选择右对齐布局时，隐藏标志可以避免信息重叠
+        选择右对齐布局时，隐藏标志可以避免信息重叠
     </div>
 
     <h3>显示 DJ 名称</h3>
@@ -417,12 +433,12 @@
     </div>
 
     <div class="warning">
-        ⚠️ "自定义"适合高级用户。通常推荐使用"稳定优先"或"Shazam 原生"。
+        "自定义"适合高级用户。通常推荐使用"稳定优先"或"Shazam 原生"。
     </div>
 
     <hr>
 
-    <h2 id="external">📺 5. 外部显示器输出</h2>
+    <h2 id="external">5. 外部显示器输出</h2>
 
     <p>NeoN VJ 会自动检测外部显示器的连接，并开始专用显示。</p>
 
@@ -435,7 +451,7 @@
     </ol>
 
     <div class="tip">
-        💡 也可以使用 AirPlay，但可能会出现延迟，重要活动建议使用有线连接
+        也可以使用 AirPlay，但可能会出现延迟，重要活动建议使用有线连接
     </div>
 
     <h3>位置调整功能使用方法</h3>
@@ -459,56 +475,12 @@
     </ol>
 
     <div class="warning">
-        ⚠️ <strong>注意</strong>: 位置调整不会保存。应用重启时会重置为中央位置。
+        <strong>注意</strong>: 位置调整不会保存。应用重启时会重置为中央位置。
     </div>
 
     <hr>
 
-    <h2 id="features">🌟 6. 实用功能</h2>
-
-    <h3>实时播放列表发布</h3>
-    <p>可以在<strong>专用网页</strong>上发布识别的歌曲，并在社交媒体上分享 URL。</p>
-
-    <h4>功能特性</h4>
-    <ul>
-        <li>✅ 歌曲识别的同时自动发布历史记录到网页</li>
-        <li>✅ 每 60 秒更新一次</li>
-        <li>✅ 可从手机浏览器实时查看历史记录</li>
-        <li>✅ 活动期间避免与其他 DJ 的歌曲重复</li>
-        <li>✅ 每个活动的播放历史作为数据积累</li>
-    </ul>
-
-    <h4>设置方法</h4>
-    <ol>
-        <li>在设置界面找到"<strong>实时播放列表发布</strong>"部分</li>
-        <li>启用"<strong>发布设置</strong>"</li>
-        <li>输入"<strong>活动名称</strong>"</li>
-        <li>点击"<strong>设置</strong>"按钮获取发布 URL</li>
-        <li>复制 URL 并在社交媒体上分享</li>
-    </ol>
-
-    <div class="tip">
-        💡 在 DJ 名称显示设置中设置的 DJ 名称也会显示在网页上
-    </div>
-
-    <h4>注意事项</h4>
-
-    <div class="warning">
-        <strong>⚠️ 关于无法识别的歌曲</strong><br>
-        NeoN VJ 无法识别的歌曲名称不会反映在播放列表中
-    </div>
-
-    <div class="warning">
-        <strong>⚠️ DJ 切换时的注意事项</strong><br>
-        DJ 切换时，DJ 名称的显示可能会以非预期内容反映<br><br>
-        <strong>推荐的操作流程（DJ 切换时）:</strong>
-        <ol>
-            <li>在主界面点击"<strong>停止</strong>"按钮中断歌曲识别</li>
-            <li>将 DJ 名称更改为下一位 DJ</li>
-            <li>在下一位 DJ 选择第一首歌曲时点击"<strong>开始</strong>"按钮</li>
-        </ol>
-        此流程可以防止播放列表中的错误记录。
-    </div>
+    <h2 id="features">6. 实用功能</h2>
 
     <h3>自定义背景与滤镜设置</h3>
     <p>可以设置活动用的背景图片，并使用滤镜进行调整。</p>
@@ -532,13 +504,13 @@
     </ul>
 
     <div class="tip">
-        💡 设置背景图片后，使用布局预设调整位置会更清晰
+        设置背景图片后，使用布局预设调整位置会更清晰
     </div>
 
     <h3>视频背景（仅 iPad）</h3>
 
     <div class="warning">
-        ⚠️ 此功能仅在 iPad 上可用
+        此功能仅在 iPad 上可用
     </div>
 
     <p>可以显示视频背景。</p>
@@ -582,7 +554,7 @@
 
     <hr>
 
-    <h2 id="troubleshooting">🆘 7. 故障排除</h2>
+    <h2 id="troubleshooting">7. 故障排除</h2>
 
     <h3>歌曲无法识别时</h3>
 
@@ -653,38 +625,16 @@
 
     <hr>
 
-    <h2 id="advanced">🎓 8. 高级功能</h2>
+    <h2 id="advanced">8. 高级功能</h2>
 
     <div class="important">
-        <strong>🔓 显示所有设置菜单</strong>
+        <strong>显示所有设置菜单</strong>
         <p>要使用高级功能，请在设置界面启用"<strong>显示所有设置菜单</strong>"按钮。</p>
         <ul>
             <li>默认情况下，为避免新手困惑，仅显示基本功能</li>
-            <li>启用后，会显示 OSC 联动、详细识别参数调整等更专业的设置项</li>
+            <li>启用后，会显示详细识别参数调整等更专业的设置项</li>
             <li>熟悉后想要进行个性化自定义时请使用</li>
         </ul>
-    </div>
-
-    <h3>OSC 联动（与 VJ 软件联动）</h3>
-    <p>使用 <strong>OSC（Open Sound Control）</strong>功能可以与 VJ 软件（Resolume、MadMapper 等）联动。</p>
-
-    <h4>功能特性</h4>
-    <ul>
-        <li>将 NeoN VJ 识别的歌曲信息实时发送到 VJ 软件</li>
-        <li>发送歌曲标题、艺术家名称、专辑名称、置信度、识别时间</li>
-        <li>支持多个发送目标插槽</li>
-    </ul>
-
-    <h4>设置方法</h4>
-    <ol>
-        <li>在设置界面找到"<strong>OSC OUTPUT</strong>"部分</li>
-        <li>启用"<strong>OSC 输出</strong>"</li>
-        <li>添加发送目标插槽，设置 IP 地址和端口号</li>
-        <li>选择发送数据</li>
-    </ol>
-
-    <div class="tip">
-        💡 此功能专业性较强，适合有 VJ 软件使用经验的用户。
     </div>
 
     <h3>运行模式设置</h3>
@@ -694,12 +644,6 @@
     <ul>
         <li>适用于 iPhone 或 iPad mini 等小屏幕的显示尺寸</li>
         <li>适合小屏幕或近距离显示</li>
-    </ul>
-
-    <h4>管理员模式</h4>
-    <ul>
-        <li>NeoN 成员专用功能（需要密码认证）</li>
-        <li>普通用户无需使用</li>
     </ul>
 
     <h3>常规显示设置</h3>
@@ -716,7 +660,7 @@
     </ul>
 
     <div class="tip">
-        💡 通常"4. 新手推荐设置"中介绍的布局预设功能已足够，但如需更详细的尺寸调整时可使用
+        通常"4. 新手推荐设置"中介绍的布局预设功能已足够，但如需更详细的尺寸调整时可使用
     </div>
 
     <h3>大文字显示模式</h3>
@@ -730,7 +674,7 @@
     <h3>视频背景（仅 iPad）</h3>
 
     <div class="warning">
-        ⚠️ 此功能为高级功能。基本设置方法请参阅"6. 实用功能"章节
+        此功能为高级功能。基本设置方法请参阅"6. 实用功能"章节
     </div>
 
     <p>视频背景功能是 iPad 专用的高级功能。通过显示背景视频可以实现更豪华的演出效果。</p>
@@ -746,7 +690,7 @@
     </ol>
 
     <div class="tip">
-        💡 位置调整功能可在连接外部显示器时从屏幕左侧的控制按钮使用（参阅"5. 外部显示器输出"章节）
+        位置调整功能可在连接外部显示器时从屏幕左侧的控制按钮使用（参阅"5. 外部显示器输出"章节）
     </div>
 
     <h3>详细识别参数调整</h3>
@@ -760,12 +704,12 @@
     </ul>
 
     <div class="warning">
-        ⚠️ 调整不当可能导致歌曲识别异常。通常推荐使用"稳定优先"或"Shazam 原生"。
+        调整不当可能导致歌曲识别异常。通常推荐使用"稳定优先"或"Shazam 原生"。
     </div>
 
     <hr>
 
-    <h2 id="exit">🔚 9. 退出应用</h2>
+    <h2 id="exit">9. 退出应用</h2>
 
     <h3>正常退出流程</h3>
     <ol>
@@ -790,22 +734,22 @@
 
     <hr>
 
-    <h2 id="support">📞 10. 支持信息</h2>
+    <h2 id="support">10. 支持信息</h2>
 
     <h3>应用更新</h3>
     <p>请定期检查更新。包含新功能添加和错误修复。</p>
     <ul>
-        <li>监测通知时的邮箱收到通知后，请将应用更新到新版本</li>
-        <li>可从 <strong>TestFlight</strong> 应用下载新版本</li>
-        <li>即使未收到通知，在使用应用前打开 TestFlight 确认是否有新版本发布，我们将不胜感激</li>
+        <li>您可以在App Store的"更新"标签中查看最新版本</li>
+        <li>建议开启自动更新</li>
     </ul>
 
     <h3>联系我们</h3>
     <p>如有任何疑问，请联系开发者。</p>
+    <p>邮箱: <a href="mailto:neondjcrew.contact@gmail.com">neondjcrew.contact@gmail.com</a></p>
 
     <hr>
 
-    <h2>🎉 最后</h2>
+    <h2>最后</h2>
     <p>感谢您使用 NeoN VJ！</p>
     <p>应用提供了各种功能，但<strong>只使用您"想尝试"的功能也完全没问题！</strong></p>
     <p>请按照您的喜好自定义 NeoN VJ，尽情享受吧！</p>
@@ -813,13 +757,13 @@
     <hr>
 
     <div class="tip">
-        📝 本手册涵盖了 NeoN VJ 的所有功能。<br>
+        本手册涵盖了 NeoN VJ 的所有功能。<br>
         您也可以通过设置界面各功能的"？"图标查看详细说明。
     </div>
 
     <div class="footer">
-        <p><strong>版本</strong>: 2025年10月版 | <strong>创建日期</strong>: 2025年10月10日</p>
-        <p>© 2025 SMYLE | Produced by NeoN.</p>
+        <p><strong>版本</strong>: 2026年2月版 | <strong>创建日期</strong>: 2026年2月11日</p>
+        <p>© 2026 SMYLE | Produced by NeoN.</p>
     </div>
 </body>
 </html>
