@@ -169,11 +169,12 @@
             <li><a href="#basic">3. 基本操作</a></li>
             <li><a href="#settings">4. 新手推荐设置</a></li>
             <li><a href="#external">5. 外部显示器输出</a></li>
-            <li><a href="#features">6. 实用功能</a></li>
-            <li><a href="#troubleshooting">7. 故障排除</a></li>
-            <li><a href="#advanced">8. 高级功能</a></li>
-            <li><a href="#exit">9. 退出应用</a></li>
-            <li><a href="#support">10. 支持信息</a></li>
+                        <li><a href="#source-mode">6. Source 模式（NDI / HDMI 输出）</a></li>
+<li><a href="#features">7. 实用功能</a></li>
+            <li><a href="#troubleshooting">8. 故障排除</a></li>
+            <li><a href="#advanced">9. 高级功能</a></li>
+            <li><a href="#exit">10. 退出应用</a></li>
+            <li><a href="#support">11. 支持信息</a></li>
         </ul>
     </div>
 
@@ -340,7 +341,7 @@
         <ul>
             <li>默认情况下，为避免新手困惑，仅显示<strong>基本设置项</strong></li>
             <li>高级专业功能默认隐藏</li>
-            <li>熟悉后如需更详细的自定义，请参阅"<strong>8. 高级功能</strong>"章节</li>
+            <li>熟悉后如需更详细的自定义，请参阅"<strong>9. 高级功能</strong>"章节</li>
         </ul>
     </div>
 
@@ -478,9 +479,171 @@
         <strong>注意</strong>: 位置调整不会保存。应用重启时会重置为中央位置。
     </div>
 
+    
+    <h2 id="source-mode">6. Source 模式（NDI / HDMI 输出）</h2>
+
+    <p>Source 模式将歌曲信息发送到外部 VJ 软件（OBS、Resolume 等）。使用 NDI 协议，同一网络上的 PC 和 Mac 可以直接接收输出。</p>
+
+    <div class="important">
+        <strong>什么是 NDI？</strong>
+        <p>NDI（Network Device Interface）是一种通过网络实时传输视频和音频的行业标准协议。OBS、Resolume、vMix、Wirecast 等主流 VJ/直播软件均支持接收。</p>
+    </div>
+
+    <h3>Display 模式与 Source 模式的区别</h3>
+
+    <p>NeoN VJ 有两种工作模式。</p>
+
+    <ul>
+        <li><strong>Display 模式</strong>（默认）：在 iPad 或外接显示器上显示包含背景、标志和特效的完整画面。普通使用时选择此模式</li>
+        <li><strong>Source 模式</strong>：通过 NDI 将歌曲信息（曲名、艺术家、专辑封面）发送到外部软件。接收端的 VJ 软件可以自由合成内容。在 Source 模式下连接 HDMI 时，外接显示器也会显示 Source 模式画面，但背景为黑色</li>
+    </ul>
+
+    <div class="tip">
+        <strong>选择哪个模式</strong>
+        <ul>
+            <li><strong>iPad 单独使用或直接连接外接显示器</strong> → Display 模式</li>
+            <li><strong>向 OBS 或 Resolume 等 VJ 软件发送歌曲信息</strong> → Source 模式（NDI）</li>
+        </ul>
+    </div>
+
+    <h3>外部输出行为比较</h3>
+    <p>Display 模式和 Source 模式的外部输出行为不同。</p>
+
+    <h4>Display 模式 + HDMI</h4>
+    <ul>
+        <li>通过 HDMI 连接的外接显示器直接显示<strong>包含背景、标志和特效的完整画面</strong></li>
+        <li>iPad 作为操控设备，外接屏幕仅用于显示</li>
+        <li>适合直接投影到投影仪或显示器</li>
+    </ul>
+
+    <h4>Source 模式 + NDI（推荐）</h4>
+    <ul>
+        <li>歌曲信息以<strong>透明图层（带 Alpha 通道）</strong>的形式通过网络发送</li>
+        <li>接收端的 VJ 软件可以将歌曲信息叠加到自己的画面上</li>
+        <li>由于背景透明，只显示文字和专辑封面</li>
+    </ul>
+
+    <h4>Source 模式 + HDMI</h4>
+    <ul>
+        <li>在 Source 模式激活状态下连接 HDMI，外接显示器也会显示 Source 模式画面</li>
+        <li>但是，<strong>HDMI 不支持透明图层，因此背景显示为黑色</strong></li>
+        <li>歌曲信息显示在黑色背景上</li>
+    </ul>
+
+    <div class="warning">
+        <strong>如需透明合成，请使用 NDI。</strong>HDMI 连接无法传输 Alpha 通道（透明信息），因此接收端无法进行透明合成。
+    </div>
+
+    <h3>启用 Source 模式</h3>
+    <ol>
+        <li>打开设置画面</li>
+        <li>在"<strong>工作模式</strong>"部分，开启"<strong>启用 Source Mode (NDI/HDMI) [Beta]</strong>"</li>
+        <li>画面切换到 Source 模式专用显示，NDI 发送自动开始</li>
+    </ol>
+
+    <div class="warning">
+        <strong>注意</strong>：启用 Source 模式后会从普通的 Display 模式画面切换。如需返回，请点击 Source 模式画面上的"<strong>Display</strong>"按钮。
+    </div>
+
+    <h3>Source 模式画面布局</h3>
+
+    <h4>预览区域</h4>
+    <p>画面中央显示通过 NDI 发送的视频的实时预览。您可以看到歌曲信息在透明图层上的渲染效果。</p>
+
+    <h4>状态栏</h4>
+    <p>画面顶部实时显示发送状态。</p>
+    <ul>
+        <li><strong>NDI（绿色圆点）</strong>：NDI 正在发送</li>
+        <li><strong>fps</strong>：帧率</li>
+        <li><strong>ms</strong>：捕获延迟</li>
+        <li><strong>接收器图标 + 数字</strong>：已连接的 NDI 接收器数量</li>
+        <li><strong>分辨率</strong>：输出分辨率（1920x1080）</li>
+    </ul>
+
+    <h4>操控按钮</h4>
+    <ul>
+        <li><strong>Display</strong>：返回 Display 模式</li>
+        <li><strong>Start / Stop</strong>：开始/停止音乐识别</li>
+        <li><strong>Hold Display</strong>：锁定当前显示的歌曲信息（即使歌曲切换也保持显示）</li>
+        <li><strong>Retry</strong>：重新尝试音乐识别</li>
+        <li><strong>Blackout</strong>：保持 NDI 连接的同时暂时隐藏视频输出</li>
+        <li><strong>Settings</strong>：打开设置画面</li>
+    </ul>
+
+    <h3>输出元素选择</h3>
+    <p>可以单独开启/关闭通过 NDI 发送的元素。</p>
+    <ul>
+        <li><strong>Album Art</strong>：专辑封面</li>
+        <li><strong>Song Title</strong>：曲名</li>
+        <li><strong>Artist</strong>：艺术家名</li>
+        <li><strong>Powered by / DJ</strong>：署名显示 / DJ 名</li>
+        <li><strong>Searching Text</strong>：识别中的"Searching..."文字</li>
+    </ul>
+
+    <div class="tip">
+        例如，如果 VJ 软件端正在显示自己的专辑封面，您可以关闭 NeoN VJ 端的 Album Art，只发送曲名和艺术家名。
+    </div>
+
+    <h3>布局预设（9 种）</h3>
+    <p>Source 模式有专用的布局预设，用于选择输出元素的放置位置。</p>
+    <ul>
+        <li><strong>Center</strong>：居中放置（默认）</li>
+        <li><strong>Center Top</strong>：居中靠上</li>
+        <li><strong>Center Bottom</strong>：居中靠下</li>
+        <li><strong>Center Left</strong>：靠左居中</li>
+        <li><strong>Center Right</strong>：靠右居中</li>
+        <li><strong>Top Left</strong>：左上角</li>
+        <li><strong>Top Right</strong>：右上角</li>
+        <li><strong>Bottom Left</strong>：左下角</li>
+        <li><strong>Bottom Right</strong>：右下角</li>
+    </ul>
+
+    <div class="tip">
+        根据 VJ 软件的画面布局选择歌曲信息的放置位置。例如，如果想在 VJ 画面底部以字幕形式显示歌曲信息，"Center Bottom"是合适的选择。
+    </div>
+
+    <h3>NDI 接收端设置</h3>
+
+    <h4>前提条件</h4>
+    <ul>
+        <li>iPad 和接收端 PC/Mac 必须在<strong>同一网络</strong>上</li>
+        <li>支持 NDI 的软件（OBS + NDI 插件、Resolume、vMix 等）</li>
+    </ul>
+
+    <h4>OBS 设置示例</h4>
+    <ol>
+        <li>安装 <strong>OBS NDI 插件</strong></li>
+        <li>在 OBS 中添加"来源" → "NDI Source"</li>
+        <li>从来源名称列表中选择"<strong>NeoN VJ</strong>"</li>
+        <li>视频以透明图层形式接收，可以合成到其他来源之上</li>
+    </ol>
+
+    <div class="tip">
+        有关透明合成的详细信息，请参阅上方"外部输出行为比较"部分。
+    </div>
+
+    <h3>Source 模式故障排除</h3>
+
+    <h4>接收端找不到 NDI 源</h4>
+    <ol>
+        <li>确认 iPad 和接收设备在<strong>同一 Wi-Fi 网络</strong>上</li>
+        <li>确认 Source 模式已启用（状态栏中有绿色"NDI"指示器）</li>
+        <li>检查防火墙是否阻止了 NDI 通信</li>
+        <li>刷新 NDI 接收软件中的来源列表</li>
+    </ol>
+
+    <h4>视频卡顿或延迟</h4>
+    <ul>
+        <li>检查 Wi-Fi 信号强度（推荐使用 5GHz 频段）</li>
+        <li>减少网络上的其他流量</li>
+        <li>检查状态栏中的"drop"（丢帧数）是否在增加</li>
+    </ul>
+
     <hr>
 
-    <h2 id="features">6. 实用功能</h2>
+<hr>
+
+    <h2 id="features">7. 实用功能</h2>
 
     <h3>自定义背景与滤镜设置</h3>
     <p>可以设置活动用的背景图片，并使用滤镜进行调整。</p>
@@ -554,7 +717,7 @@
 
     <hr>
 
-    <h2 id="troubleshooting">7. 故障排除</h2>
+    <h2 id="troubleshooting">8. 故障排除</h2>
 
     <h3>歌曲无法识别时</h3>
 
@@ -625,7 +788,7 @@
 
     <hr>
 
-    <h2 id="advanced">8. 高级功能</h2>
+    <h2 id="advanced">9. 高级功能</h2>
 
     <div class="important">
         <strong>显示所有设置菜单</strong>
@@ -674,7 +837,7 @@
     <h3>视频背景（仅 iPad）</h3>
 
     <div class="warning">
-        此功能为高级功能。基本设置方法请参阅"6. 实用功能"章节
+        此功能为高级功能。基本设置方法请参阅"7. 实用功能"章节
     </div>
 
     <p>视频背景功能是 iPad 专用的高级功能。通过显示背景视频可以实现更豪华的演出效果。</p>
@@ -709,7 +872,7 @@
 
     <hr>
 
-    <h2 id="exit">9. 退出应用</h2>
+    <h2 id="exit">10. 退出应用</h2>
 
     <h3>正常退出流程</h3>
     <ol>
@@ -734,7 +897,7 @@
 
     <hr>
 
-    <h2 id="support">10. 支持信息</h2>
+    <h2 id="support">11. 支持信息</h2>
 
     <h3>应用更新</h3>
     <p>请定期检查更新。包含新功能添加和错误修复。</p>
@@ -762,7 +925,7 @@
     </div>
 
     <div class="footer">
-        <p><strong>版本</strong>: 2026年2月版 | <strong>创建日期</strong>: 2026年2月11日</p>
+        <p><strong>版本</strong>: 2026年3月版（v1.5） | <strong>创建日期</strong>: 2026年3月17日</p>
         <p>© 2026 SMYLE | Produced by NeoN.</p>
     </div>
 </body>

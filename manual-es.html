@@ -169,11 +169,12 @@
             <li><a href="#basic">3. Operaciones Básicas</a></li>
             <li><a href="#settings">4. Configuración Recomendada para Principiantes</a></li>
             <li><a href="#external">5. Salida a Pantalla Externa</a></li>
-            <li><a href="#features">6. Funciones Útiles</a></li>
-            <li><a href="#troubleshooting">7. Solución de Problemas</a></li>
-            <li><a href="#advanced">8. Funciones Avanzadas</a></li>
-            <li><a href="#exit">9. Cómo Cerrar la Aplicación</a></li>
-            <li><a href="#support">10. Información de Soporte</a></li>
+                        <li><a href="#source-mode">6. Modo Source (Salida NDI / HDMI)</a></li>
+<li><a href="#features">7. Funciones Útiles</a></li>
+            <li><a href="#troubleshooting">8. Solución de Problemas</a></li>
+            <li><a href="#advanced">9. Funciones Avanzadas</a></li>
+            <li><a href="#exit">10. Cómo Cerrar la Aplicación</a></li>
+            <li><a href="#support">11. Información de Soporte</a></li>
         </ul>
     </div>
 
@@ -211,6 +212,7 @@
     <ul>
         <li>✅ Reconocimiento y visualización automática de música reproducida</li>
         <li>✅ Salida a pantallas externas y proyectores</li>
+        <li><strong>Salida NDI</strong>: Envía información de canciones de forma inalámbrica a software VJ y OBS (compatible con capa transparente)</li>
         <li>✅ Personalización de logotipos de eventos y fondos</li>
         <li>✅ Visualización del nombre del DJ</li>
         <li>✅ Personalización de diseños (7 preajustes disponibles)</li>
@@ -340,7 +342,7 @@
         <ul>
             <li>Por defecto, solo se muestran <strong>las opciones de configuración básicas</strong> para que los principiantes no se confundan</li>
             <li>Las funciones especializadas para usuarios avanzados están ocultas</li>
-            <li>Cuando se familiarice y desee personalizar más, consulte el capítulo "<strong>8. Funciones Avanzadas</strong>"</li>
+            <li>Cuando se familiarice y desee personalizar más, consulte el capítulo "<strong>9. Funciones Avanzadas</strong>"</li>
         </ul>
     </div>
 
@@ -478,9 +480,171 @@
         <strong>Nota</strong>: Los ajustes de posición no se guardan. Se restablecerán a la posición central al reiniciar la aplicación.
     </div>
 
+    
+    <h2 id="source-mode">6. Modo Source (Salida NDI / HDMI)</h2>
+
+    <p>El Modo Source envía información de canciones a software VJ externo (OBS, Resolume, etc.). Usando el protocolo NDI, los PCs y Macs en la misma red pueden recibir la salida directamente.</p>
+
+    <div class="important">
+        <strong>¿Qué es NDI?</strong>
+        <p>NDI (Network Device Interface) es un protocolo estándar de la industria para la transmisión en tiempo real de video y audio a través de la red. Es compatible con los principales software de VJ y streaming, incluyendo OBS, Resolume, vMix y Wirecast.</p>
+    </div>
+
+    <h3>Modo Display vs Modo Source</h3>
+
+    <p>NeoN VJ tiene dos modos de funcionamiento.</p>
+
+    <ul>
+        <li><strong>Modo Display</strong> (predeterminado): Muestra una pantalla completa con fondo, logotipo y efectos en el iPad o la pantalla externa. Úsalo para el funcionamiento normal</li>
+        <li><strong>Modo Source</strong>: Envía la información de la canción (título, artista, arte del álbum) al software externo a través de NDI. El software VJ receptor puede componer el contenido libremente. Cuando se conecta HDMI en Modo Source, la pantalla del Modo Source también se muestra en la pantalla externa, pero el fondo será negro</li>
+    </ul>
+
+    <div class="tip">
+        <strong>Cuándo usar cada modo</strong>
+        <ul>
+            <li><strong>iPad solo o monitor externo directo</strong> → Modo Display</li>
+            <li><strong>Enviar info de canciones a software VJ como OBS o Resolume</strong> → Modo Source (NDI)</li>
+        </ul>
+    </div>
+
+    <h3>Comparación del comportamiento de salida externa</h3>
+    <p>El Modo Display y el Modo Source se comportan de manera diferente para la salida externa.</p>
+
+    <h4>Modo Display + HDMI</h4>
+    <ul>
+        <li>La <strong>pantalla completa con fondo, logotipo y efectos</strong> se muestra directamente en la pantalla externa conectada por HDMI</li>
+        <li>El iPad sirve como dispositivo de control, mientras que la pantalla externa es solo para visualización</li>
+        <li>Ideal para proyectar directamente en un proyector o monitor</li>
+    </ul>
+
+    <h4>Modo Source + NDI (Recomendado)</h4>
+    <ul>
+        <li>La información de la canción se envía como una <strong>capa transparente (con canal alfa)</strong> a través de la red</li>
+        <li>El software VJ receptor puede superponer solo la información de la canción sobre sus propios visuales</li>
+        <li>Como el fondo es transparente, solo el texto y el arte del álbum son visibles</li>
+    </ul>
+
+    <h4>Modo Source + HDMI</h4>
+    <ul>
+        <li>Cuando se conecta HDMI con el Modo Source activo, la pantalla del Modo Source también se muestra en la pantalla externa</li>
+        <li>Sin embargo, <strong>HDMI no admite capas transparentes, por lo que el fondo aparece negro</strong></li>
+        <li>La información de la canción se muestra sobre un fondo negro</li>
+    </ul>
+
+    <div class="warning">
+        <strong>Use NDI para la composición transparente.</strong> HDMI no puede transmitir el canal alfa (datos de transparencia), por lo que la composición transparente no es posible en el extremo receptor.
+    </div>
+
+    <h3>Activar el Modo Source</h3>
+    <ol>
+        <li>Abra la pantalla de Configuración</li>
+        <li>En la sección "<strong>Modo de operación</strong>", active "<strong>Habilitar Source Mode (NDI/HDMI) [Beta]</strong>"</li>
+        <li>La pantalla cambia a la vista del Modo Source y la transmisión NDI comienza automáticamente</li>
+    </ol>
+
+    <div class="warning">
+        <strong>Nota</strong>: Al activar el Modo Source, se cambia de la pantalla normal del Modo Display. Para volver, toque el botón "<strong>Display</strong>" en la pantalla del Modo Source.
+    </div>
+
+    <h3>Diseño de la pantalla del Modo Source</h3>
+
+    <h4>Área de vista previa</h4>
+    <p>El centro de la pantalla muestra una vista previa en tiempo real del video que se envía por NDI. Puede ver la información de la canción renderizada en la capa transparente.</p>
+
+    <h4>Barra de estado</h4>
+    <p>La parte superior de la pantalla muestra el estado de transmisión en tiempo real.</p>
+    <ul>
+        <li><strong>NDI (punto verde)</strong>: Transmisión NDI activa</li>
+        <li><strong>fps</strong>: Tasa de fotogramas</li>
+        <li><strong>ms</strong>: Latencia de captura</li>
+        <li><strong>Icono de receptor + número</strong>: Número de receptores NDI conectados</li>
+        <li><strong>Resolución</strong>: Resolución de salida (1920x1080)</li>
+    </ul>
+
+    <h4>Botones de control</h4>
+    <ul>
+        <li><strong>Display</strong>: Volver al Modo Display</li>
+        <li><strong>Start / Stop</strong>: Iniciar o detener el reconocimiento musical</li>
+        <li><strong>Hold Display</strong>: Bloquear la info de canción actual (mantiene la visualización aunque cambie la canción)</li>
+        <li><strong>Retry</strong>: Reintentar el reconocimiento musical</li>
+        <li><strong>Blackout</strong>: Ocultar temporalmente la salida de video manteniendo la conexión NDI</li>
+        <li><strong>Settings</strong>: Abrir la pantalla de Configuración</li>
+    </ul>
+
+    <h3>Selección de elementos de salida</h3>
+    <p>Puede activar/desactivar individualmente los elementos enviados por NDI.</p>
+    <ul>
+        <li><strong>Album Art</strong>: Arte del álbum</li>
+        <li><strong>Song Title</strong>: Título de la canción</li>
+        <li><strong>Artist</strong>: Nombre del artista</li>
+        <li><strong>Powered by / DJ</strong>: Créditos / nombre del DJ</li>
+        <li><strong>Searching Text</strong>: Texto "Searching..." durante el reconocimiento</li>
+    </ul>
+
+    <div class="tip">
+        Por ejemplo, si el software VJ muestra su propia portada del álbum, puede desactivar Album Art en NeoN VJ y enviar solo el título y el nombre del artista.
+    </div>
+
+    <h3>Presets de diseño (9 tipos)</h3>
+    <p>El Modo Source tiene presets de diseño dedicados para posicionar los elementos de salida.</p>
+    <ul>
+        <li><strong>Center</strong>: Posición central (predeterminado)</li>
+        <li><strong>Center Top</strong>: Centro, alineado arriba</li>
+        <li><strong>Center Bottom</strong>: Centro, alineado abajo</li>
+        <li><strong>Center Left</strong>: Izquierda, centrado vertical</li>
+        <li><strong>Center Right</strong>: Derecha, centrado vertical</li>
+        <li><strong>Top Left</strong>: Esquina superior izquierda</li>
+        <li><strong>Top Right</strong>: Esquina superior derecha</li>
+        <li><strong>Bottom Left</strong>: Esquina inferior izquierda</li>
+        <li><strong>Bottom Right</strong>: Esquina inferior derecha</li>
+    </ul>
+
+    <div class="tip">
+        Elija la posición que coincida con el diseño de su software VJ. Por ejemplo, use "Center Bottom" para mostrar la info de la canción como un ticker inferior.
+    </div>
+
+    <h3>Configuración del receptor NDI</h3>
+
+    <h4>Requisitos</h4>
+    <ul>
+        <li>El iPad y el PC/Mac receptor deben estar en la <strong>misma red</strong></li>
+        <li>Software compatible con NDI (OBS + plugin NDI, Resolume, vMix, etc.)</li>
+    </ul>
+
+    <h4>Ejemplo de configuración en OBS</h4>
+    <ol>
+        <li>Instale el <strong>plugin NDI de OBS</strong></li>
+        <li>En OBS, agregue "Fuentes" → "NDI Source"</li>
+        <li>Seleccione "<strong>NeoN VJ</strong>" de la lista de nombres de fuente</li>
+        <li>El video se recibe como capa transparente y se puede componer sobre otras fuentes</li>
+    </ol>
+
+    <div class="tip">
+        Para más detalles sobre la composición transparente, consulte la sección "Comparación del comportamiento de salida externa" anterior.
+    </div>
+
+    <h3>Solución de problemas del Modo Source</h3>
+
+    <h4>No se encuentra la fuente NDI en el receptor</h4>
+    <ol>
+        <li>Verifique que el iPad y el dispositivo receptor estén en la <strong>misma red Wi-Fi</strong></li>
+        <li>Verifique que el Modo Source esté activo (indicador verde "NDI" en la barra de estado)</li>
+        <li>Compruebe que el firewall no esté bloqueando la comunicación NDI</li>
+        <li>Actualice la lista de fuentes en el software receptor NDI</li>
+    </ol>
+
+    <h4>Video entrecortado o con retraso</h4>
+    <ul>
+        <li>Verifique la intensidad de la señal Wi-Fi (se recomienda banda de 5GHz)</li>
+        <li>Reduzca otro tráfico en la red</li>
+        <li>Verifique si el contador de "drop" (fotogramas perdidos) aumenta en la barra de estado</li>
+    </ul>
+
     <hr>
 
-    <h2 id="features">6. Funciones Útiles</h2>
+<hr>
+
+    <h2 id="features">7. Funciones Útiles</h2>
 
     <h3>Configuración de Fondo y Filtros Personalizados</h3>
     <p>Puede configurar imágenes de fondo para eventos y ajustarlas con filtros.</p>
@@ -554,7 +718,7 @@
 
     <hr>
 
-    <h2 id="troubleshooting">7. Solución de Problemas</h2>
+    <h2 id="troubleshooting">8. Solución de Problemas</h2>
 
     <h3>Si las Canciones no se Reconocen</h3>
 
@@ -625,7 +789,7 @@
 
     <hr>
 
-    <h2 id="advanced">8. Funciones Avanzadas</h2>
+    <h2 id="advanced">9. Funciones Avanzadas</h2>
 
     <div class="important">
         <strong>Mostrar Todos los Menús de Configuración</strong>
@@ -674,7 +838,7 @@
     <h3>Fondo de Video (Solo iPad)</h3>
 
     <div class="warning">
-        Esta es una función para usuarios avanzados. Para el método de configuración básico, consulte el capítulo "6. Funciones Útiles"
+        Esta es una función para usuarios avanzados. Para el método de configuración básico, consulte el capítulo "7. Funciones Útiles"
     </div>
 
     <p>La función de fondo de video es una función avanzada exclusiva de iPad. Al mostrar videos de fondo, es posible realizar producciones más lujosas.</p>
@@ -709,7 +873,7 @@
 
     <hr>
 
-    <h2 id="exit">9. Cómo Cerrar la Aplicación</h2>
+    <h2 id="exit">10. Cómo Cerrar la Aplicación</h2>
 
     <h3>Procedimiento de Cierre Normal</h3>
     <ol>
@@ -734,7 +898,7 @@
 
     <hr>
 
-    <h2 id="support">10. Información de Soporte</h2>
+    <h2 id="support">11. Información de Soporte</h2>
 
     <h3>Actualización de la Aplicación</h3>
     <p>Verifique las actualizaciones periódicamente. Incluyen nuevas funciones y correcciones de errores.</p>
@@ -762,7 +926,7 @@
     </div>
 
     <div class="footer">
-        <p><strong>Versión</strong>: Edición de Febrero 2026 | <strong>Fecha de Creación</strong>: 11 de febrero de 2026</p>
+        <p><strong>Versión</strong>: Edición de Marzo 2026 (v1.5) | <strong>Fecha de Creación</strong>: 17 de marzo de 2026</p>
         <p>© 2026 SMYLE | Produced by NeoN.</p>
     </div>
 </body>

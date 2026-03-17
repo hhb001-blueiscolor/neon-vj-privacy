@@ -169,11 +169,12 @@
             <li><a href="#basic">3. Basic Operations</a></li>
             <li><a href="#settings">4. Recommended Settings for Beginners</a></li>
             <li><a href="#external">5. Outputting to External Display</a></li>
-            <li><a href="#features">6. Useful Features</a></li>
-            <li><a href="#troubleshooting">7. Troubleshooting</a></li>
-            <li><a href="#advanced">8. Advanced Features</a></li>
-            <li><a href="#exit">9. How to Exit the App</a></li>
-            <li><a href="#support">10. Support Information</a></li>
+                        <li><a href="#source-mode">6. Source Mode (NDI / HDMI Output)</a></li>
+<li><a href="#features">7. Useful Features</a></li>
+            <li><a href="#troubleshooting">8. Troubleshooting</a></li>
+            <li><a href="#advanced">9. Advanced Features</a></li>
+            <li><a href="#exit">10. How to Exit the App</a></li>
+            <li><a href="#support">11. Support Information</a></li>
         </ul>
     </div>
 
@@ -211,6 +212,7 @@
     <ul>
         <li>Automatically recognize and display playing music</li>
         <li>Output to external displays and projectors</li>
+        <li><strong>NDI Output</strong>: Send song info wirelessly to VJ software and OBS (transparent layer support)</li>
         <li>Customize event logos and backgrounds</li>
         <li>Display DJ names</li>
         <li>Customize layouts (7 preset options)</li>
@@ -469,9 +471,171 @@
         <strong>Note</strong>: Position adjustments are not saved. Position resets to center when app restarts.
     </div>
 
+    
+    <h2 id="source-mode">6. Source Mode (NDI / HDMI Output)</h2>
+
+    <p>Source Mode sends song information to external VJ software (OBS, Resolume, etc.). Using the NDI protocol, PCs and Macs on the same network can receive the output directly.</p>
+
+    <div class="important">
+        <strong>What is NDI</strong>
+        <p>NDI (Network Device Interface) is an industry-standard protocol for real-time video and audio transmission over a network. It is supported by major VJ and streaming software including OBS, Resolume, vMix, and Wirecast.</p>
+    </div>
+
+    <h3>Display Mode vs Source Mode</h3>
+
+    <p>NeoN VJ has two operating modes.</p>
+
+    <ul>
+        <li><strong>Display Mode</strong> (default): Shows a complete screen with background, logo, and effects on the iPad or external display. Use this for standard operation</li>
+        <li><strong>Source Mode</strong>: Sends song information (title, artist, album art) to external software via NDI. The receiving VJ software can freely composite the content. When HDMI is connected in Source Mode, the Source Mode screen is also shown on the external display, but the background will be black</li>
+    </ul>
+
+    <div class="tip">
+        <strong>Which mode to use</strong>
+        <ul>
+            <li><strong>iPad standalone or direct external monitor</strong> → Display Mode</li>
+            <li><strong>Send song info to VJ software like OBS or Resolume</strong> → Source Mode (NDI)</li>
+        </ul>
+    </div>
+
+    <h3>External Output Behavior Comparison</h3>
+    <p>Display Mode and Source Mode behave differently for external output.</p>
+
+    <h4>Display Mode + HDMI</h4>
+    <ul>
+        <li>The <strong>complete screen with background, logo, and effects</strong> is displayed directly on the HDMI-connected external display</li>
+        <li>The iPad serves as the control device, while the external screen is display-only</li>
+        <li>Ideal for projecting directly to a projector or monitor</li>
+    </ul>
+
+    <h4>Source Mode + NDI (Recommended)</h4>
+    <ul>
+        <li>Song information is sent as a <strong>transparent layer (with alpha channel)</strong> over the network</li>
+        <li>The receiving VJ software can overlay just the song information on top of its own visuals</li>
+        <li>Since the background is transparent, only the text and album art are visible</li>
+    </ul>
+
+    <h4>Source Mode + HDMI</h4>
+    <ul>
+        <li>When HDMI is connected with Source Mode active, the Source Mode screen is also shown on the external display</li>
+        <li>However, <strong>HDMI does not support transparent layers, so the background appears black</strong></li>
+        <li>Song information is displayed on a black background</li>
+    </ul>
+
+    <div class="warning">
+        <strong>Use NDI for transparent compositing.</strong> HDMI cannot transmit alpha channel (transparency data), so transparent compositing is not possible on the receiving end.
+    </div>
+
+    <h3>Activating Source Mode</h3>
+    <ol>
+        <li>Open the Settings screen</li>
+        <li>In the "<strong>Operation Mode</strong>" section, turn ON "<strong>Enable Source Mode (NDI/HDMI) [Beta]</strong>"</li>
+        <li>The screen switches to the Source Mode view and NDI transmission starts automatically</li>
+    </ol>
+
+    <div class="warning">
+        <strong>Note</strong>: Activating Source Mode switches away from the normal Display Mode screen. To return, tap the "<strong>Display</strong>" button on the Source Mode screen.
+    </div>
+
+    <h3>Source Mode Screen Layout</h3>
+
+    <h4>Preview Area</h4>
+    <p>The center of the screen shows a real-time preview of the video being sent via NDI. You can see the song information rendered on the transparent layer.</p>
+
+    <h4>Status Bar</h4>
+    <p>The top of the screen displays real-time transmission status.</p>
+    <ul>
+        <li><strong>NDI (green dot)</strong>: NDI transmission active</li>
+        <li><strong>fps</strong>: Frame rate</li>
+        <li><strong>ms</strong>: Capture latency</li>
+        <li><strong>Receiver icon + number</strong>: Number of connected NDI receivers</li>
+        <li><strong>Resolution</strong>: Output resolution (1920x1080)</li>
+    </ul>
+
+    <h4>Control Buttons</h4>
+    <ul>
+        <li><strong>Display</strong>: Return to Display Mode</li>
+        <li><strong>Start / Stop</strong>: Start or stop music recognition</li>
+        <li><strong>Hold Display</strong>: Lock the currently displayed song info (maintains display even when the song changes)</li>
+        <li><strong>Retry</strong>: Re-attempt music recognition</li>
+        <li><strong>Blackout</strong>: Temporarily hide video output while maintaining the NDI connection</li>
+        <li><strong>Settings</strong>: Open Settings screen</li>
+    </ul>
+
+    <h3>Output Element Selection</h3>
+    <p>You can individually toggle ON/OFF the elements sent via NDI.</p>
+    <ul>
+        <li><strong>Album Art</strong>: Album artwork</li>
+        <li><strong>Song Title</strong>: Song title</li>
+        <li><strong>Artist</strong>: Artist name</li>
+        <li><strong>Powered by / DJ</strong>: Credit display / DJ name</li>
+        <li><strong>Searching Text</strong>: "Searching..." text during recognition</li>
+    </ul>
+
+    <div class="tip">
+        For example, if the VJ software is displaying its own album art, you can turn OFF Album Art on NeoN VJ and send only the song title and artist name.
+    </div>
+
+    <h3>Layout Presets (9 Types)</h3>
+    <p>Source Mode has dedicated layout presets to position the output elements.</p>
+    <ul>
+        <li><strong>Center</strong>: Center placement (default)</li>
+        <li><strong>Center Top</strong>: Center, top-aligned</li>
+        <li><strong>Center Bottom</strong>: Center, bottom-aligned</li>
+        <li><strong>Center Left</strong>: Left, center-aligned</li>
+        <li><strong>Center Right</strong>: Right, center-aligned</li>
+        <li><strong>Top Left</strong>: Top-left corner</li>
+        <li><strong>Top Right</strong>: Top-right corner</li>
+        <li><strong>Bottom Left</strong>: Bottom-left corner</li>
+        <li><strong>Bottom Right</strong>: Bottom-right corner</li>
+    </ul>
+
+    <div class="tip">
+        Choose the position to match your VJ software layout. For example, use "Center Bottom" to display song info as a lower-third ticker.
+    </div>
+
+    <h3>NDI Receiver Setup</h3>
+
+    <h4>Requirements</h4>
+    <ul>
+        <li>iPad and receiving PC/Mac must be on the <strong>same network</strong></li>
+        <li>NDI-compatible software (OBS + NDI plugin, Resolume, vMix, etc.)</li>
+    </ul>
+
+    <h4>OBS Setup Example</h4>
+    <ol>
+        <li>Install the <strong>OBS NDI plugin</strong></li>
+        <li>In OBS, add "Sources" → "NDI Source"</li>
+        <li>Select "<strong>NeoN VJ</strong>" from the source name list</li>
+        <li>The video is received as a transparent layer and can be composited on top of other sources</li>
+    </ol>
+
+    <div class="tip">
+        For details on transparent compositing, see the "External Output Behavior Comparison" section above.
+    </div>
+
+    <h3>Source Mode Troubleshooting</h3>
+
+    <h4>NDI source not found on receiver</h4>
+    <ol>
+        <li>Verify iPad and receiving device are on the <strong>same Wi-Fi network</strong></li>
+        <li>Verify Source Mode is active (green "NDI" indicator in status bar)</li>
+        <li>Check that the firewall is not blocking NDI communication</li>
+        <li>Refresh the source list in NDI receiver software</li>
+    </ol>
+
+    <h4>Video stuttering or lagging</h4>
+    <ul>
+        <li>Check Wi-Fi signal strength (5GHz band recommended)</li>
+        <li>Reduce other network traffic</li>
+        <li>Check if "drop" (dropped frames) count is increasing in the status bar</li>
+    </ul>
+
     <hr>
 
-    <h2 id="features">6. Useful Features</h2>
+<hr>
+
+    <h2 id="features">7. Useful Features</h2>
 
     <h3>Custom Background & Filter Settings</h3>
     <p>Set event background images and adjust with filters.</p>
@@ -545,7 +709,7 @@
 
     <hr>
 
-    <h2 id="troubleshooting">7. Troubleshooting</h2>
+    <h2 id="troubleshooting">8. Troubleshooting</h2>
 
     <h3>When Songs Are Not Recognized</h3>
 
@@ -616,7 +780,7 @@
 
     <hr>
 
-    <h2 id="advanced">8. Advanced Features</h2>
+    <h2 id="advanced">9. Advanced Features</h2>
 
     <div class="important">
         <strong>Show All Settings Menu</strong>
@@ -665,7 +829,7 @@
     <h3>Video Background (iPad Only)</h3>
 
     <div class="warning">
-        This is an advanced feature. For basic setup, refer to the "6. Useful Features" section
+        This is an advanced feature. For basic setup, refer to the "7. Useful Features" section
     </div>
 
     <p>Video background is an advanced iPad-only feature. Displaying videos as background enables more spectacular effects.</p>
@@ -700,7 +864,7 @@
 
     <hr>
 
-    <h2 id="exit">9. How to Exit the App</h2>
+    <h2 id="exit">10. How to Exit the App</h2>
 
     <h3>Normal Exit Procedure</h3>
     <ol>
@@ -725,7 +889,7 @@
 
     <hr>
 
-    <h2 id="support">10. Support Information</h2>
+    <h2 id="support">11. Support Information</h2>
 
     <h3>App Updates</h3>
     <p>Check for updates regularly. They include new features and bug fixes.</p>
@@ -753,7 +917,7 @@
     </div>
 
     <div class="footer">
-        <p><strong>Version</strong>: February 2026 | <strong>Created</strong>: February 11, 2026</p>
+        <p><strong>Version</strong>: March 2026 (v1.5) | <strong>Created</strong>: March 17, 2026</p>
         <p>&copy; 2026 SMYLE | Produced by NeoN.</p>
     </div>
 </body>

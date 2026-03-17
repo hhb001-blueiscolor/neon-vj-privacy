@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NeoN VJ ユーザーガイド</title>
+    <title>NeoN VJ ユーザーガイド [DEV PREVIEW]</title>
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
@@ -169,11 +169,12 @@
             <li><a href="#basic">3. 基本操作</a></li>
             <li><a href="#settings">4. 初心者におすすめの設定</a></li>
             <li><a href="#external">5. 外部ディスプレイに出力する</a></li>
-            <li><a href="#features">6. 便利な機能</a></li>
-            <li><a href="#troubleshooting">7. 困った時は（トラブルシューティング）</a></li>
-            <li><a href="#advanced">8. 上級者向け機能</a></li>
-            <li><a href="#exit">9. アプリの終了方法</a></li>
-            <li><a href="#support">10. サポート情報</a></li>
+            <li><a href="#source-mode">6. Source モード（NDI / HDMI 出力）</a></li>
+            <li><a href="#features">7. 便利な機能</a></li>
+            <li><a href="#troubleshooting">8. 困った時は（トラブルシューティング）</a></li>
+            <li><a href="#advanced">9. 上級者向け機能</a></li>
+            <li><a href="#exit">10. アプリの終了方法</a></li>
+            <li><a href="#support">11. サポート情報</a></li>
         </ul>
     </div>
 
@@ -211,6 +212,7 @@
     <ul>
         <li>流れている音楽を自動認識して表示</li>
         <li>外部ディスプレイ・プロジェクターへの出力</li>
+        <li><strong>NDI出力</strong>: 曲情報をワイヤレスでVJソフトやOBSに送信（透過レイヤー対応）</li>
         <li>イベントロゴや背景のカスタマイズ</li>
         <li>DJ名の表示</li>
         <li>レイアウトのカスタマイズ（7種類のプリセット）</li>
@@ -471,7 +473,168 @@
 
     <hr>
 
-    <h2 id="features">6. 便利な機能</h2>
+    <h2 id="source-mode">6. Source モード（NDI / HDMI 出力）</h2>
+
+    <p>Source モードは、曲情報を外部のVJソフト（OBS、Resolume 等）に送信する機能です。NDIプロトコルを使用し、同一ネットワーク上のPCやMacで直接受信できます。</p>
+
+    <div class="important">
+        <strong>NDI とは</strong>
+        <p>NDI（Network Device Interface）は、映像・音声をネットワーク経由でリアルタイム伝送する業界標準プロトコルです。OBS、Resolume、vMix、Wirecast など主要なVJ/配信ソフトで受信できます。</p>
+    </div>
+
+    <h3>Display モードと Source モードの違い</h3>
+
+    <p>NeoN VJ には2つの動作モードがあります。</p>
+
+    <ul>
+        <li><strong>Display モード</strong>（デフォルト）: iPad本体や外部ディスプレイに、背景・ロゴ・エフェクト付きの完成された画面を表示するモードです。通常の使用ではこちらを使います</li>
+        <li><strong>Source モード</strong>: 曲情報（曲名・アーティスト名・アルバムアート）をNDI経由で外部に送信するモードです。受信側のVJソフトで自由に合成できます。HDMI接続時にもSource モードの画面は表示されますが、背景は黒になります</li>
+    </ul>
+
+    <div class="tip">
+        <strong>使い分けの目安</strong>
+        <ul>
+            <li><strong>iPad単体 or 外部モニター直結で使う</strong> → Display モード</li>
+            <li><strong>OBSやResolumeなどVJソフトに曲情報を送りたい</strong> → Source モード（NDI）</li>
+        </ul>
+    </div>
+
+    <h3>外部出力の動作比較</h3>
+    <p>Display モードと Source モードでは、外部出力の動作が異なります。</p>
+
+    <h4>Display モード + HDMI</h4>
+    <ul>
+        <li>HDMI接続した外部ディスプレイに、<strong>背景・ロゴ・エフェクト付きの完成された画面</strong>がそのまま表示されます</li>
+        <li>iPad本体は操作用、外部画面は表示専用として動作します</li>
+        <li>プロジェクターやモニターに直接映す用途に最適です</li>
+    </ul>
+
+    <h4>Source モード + NDI（推奨）</h4>
+    <ul>
+        <li>曲情報を<strong>透過レイヤー（アルファチャンネル付き）</strong>としてネットワーク経由で送信します</li>
+        <li>受信側のVJソフトで、自分の映像の上に曲情報だけをオーバーレイ合成できます</li>
+        <li>背景が透明なので、曲情報のテキストとアルバムアートだけが表示されます</li>
+    </ul>
+
+    <h4>Source モード + HDMI</h4>
+    <ul>
+        <li>Source モード有効時にHDMIを接続すると、外部ディスプレイにもSource モードの画面が表示されます</li>
+        <li>ただし、<strong>HDMI は透過レイヤーに対応していないため、背景は黒</strong>で表示されます</li>
+        <li>黒背景の上に曲情報が表示される形になります</li>
+    </ul>
+
+    <div class="warning">
+        <strong>透過合成を行いたい場合は NDI をご使用ください。</strong>HDMI 接続ではアルファチャンネル（透過情報）を伝送できないため、受信側での透過合成はできません。
+    </div>
+
+    <h3>Source モードの有効化</h3>
+    <ol>
+        <li>設定画面を開く</li>
+        <li>「<strong>動作モード</strong>」セクションで「<strong>Source Mode (NDI/HDMI) を有効にする [Beta]</strong>」をONにする</li>
+        <li>画面が Source モード専用の表示に切り替わり、NDI送信が自動的に開始されます</li>
+    </ol>
+
+    <div class="warning">
+        <strong>注意</strong>: Source モードを有効にすると、通常の Display モード画面から切り替わります。元に戻すには Source モード画面の「<strong>Display</strong>」ボタンをタップしてください。
+    </div>
+
+    <h3>Source モード画面の見方</h3>
+
+    <h4>プレビューエリア</h4>
+    <p>画面中央に、NDI で送信される映像のプレビューが表示されます。透過レイヤー上に曲情報が描画されている様子をリアルタイムで確認できます。</p>
+
+    <h4>ステータスバー</h4>
+    <p>画面上部に送信状態がリアルタイムで表示されます。</p>
+    <ul>
+        <li><strong>NDI（緑色の点）</strong>: NDI 送信中</li>
+        <li><strong>fps</strong>: フレームレート</li>
+        <li><strong>ms</strong>: キャプチャ遅延</li>
+        <li><strong>受信機アイコン + 数字</strong>: 接続中の NDI 受信機の数</li>
+        <li><strong>解像度</strong>: 出力解像度（1920x1080）</li>
+    </ul>
+
+    <h4>操作ボタン</h4>
+    <ul>
+        <li><strong>Display</strong>: Display モードに戻る</li>
+        <li><strong>Start / Stop</strong>: 楽曲認識の開始・停止</li>
+        <li><strong>Hold Display</strong>: 現在表示中の曲情報を固定する（曲が変わっても表示を維持）</li>
+        <li><strong>Retry</strong>: 楽曲認識のやり直し</li>
+        <li><strong>Blackout</strong>: NDI接続を維持したまま、映像出力を一時的に非表示にする</li>
+        <li><strong>Settings</strong>: 設定画面を開く</li>
+    </ul>
+
+    <h3>出力要素の選択</h3>
+    <p>NDI で送信する要素を個別にON/OFFできます。</p>
+    <ul>
+        <li><strong>Album Art</strong>: アルバムアートワーク</li>
+        <li><strong>Song Title</strong>: 曲名</li>
+        <li><strong>Artist</strong>: アーティスト名</li>
+        <li><strong>Powered by / DJ</strong>: クレジット表示・DJ名</li>
+        <li><strong>Searching Text</strong>: 認識中の「Searching...」テキスト</li>
+    </ul>
+
+    <div class="tip">
+        例えば、VJソフト側で独自のアルバムアートを表示している場合は、NeoN VJ側の Album Art をOFFにして曲名とアーティスト名だけを送信できます。
+    </div>
+
+    <h3>レイアウトプリセット（9種類）</h3>
+    <p>Source モード専用のレイアウトプリセットで、出力要素の配置位置を選択できます。</p>
+    <ul>
+        <li><strong>Center</strong>: 中央配置（デフォルト）</li>
+        <li><strong>Center Top</strong>: 中央・上寄せ</li>
+        <li><strong>Center Bottom</strong>: 中央・下寄せ</li>
+        <li><strong>Center Left</strong>: 左・中央</li>
+        <li><strong>Center Right</strong>: 右・中央</li>
+        <li><strong>Top Left</strong>: 左上</li>
+        <li><strong>Top Right</strong>: 右上</li>
+        <li><strong>Bottom Left</strong>: 左下</li>
+        <li><strong>Bottom Right</strong>: 右下</li>
+    </ul>
+
+    <div class="tip">
+        VJソフト側の映像レイアウトに合わせて、曲情報の配置位置を選んでください。例えば、VJ映像の下部にテロップとして曲情報を表示したい場合は「Center Bottom」が適しています。
+    </div>
+
+    <h3>NDI 受信側のセットアップ</h3>
+
+    <h4>必要なもの</h4>
+    <ul>
+        <li>iPad と受信PC/Mac が<strong>同じネットワーク</strong>に接続されていること</li>
+        <li>NDI 対応ソフトウェア（OBS + NDI プラグイン、Resolume、vMix 等）</li>
+    </ul>
+
+    <h4>OBS での受信例</h4>
+    <ol>
+        <li><strong>OBS NDI プラグイン</strong>をインストール</li>
+        <li>OBS で「ソース」→「NDI Source」を追加</li>
+        <li>ソース名リストから「<strong>NeoN VJ</strong>」を選択</li>
+        <li>映像が透過レイヤーとして受信され、他のソースの上に合成できます</li>
+    </ol>
+
+    <div class="tip">
+        透過合成の詳細については、上記「外部出力の動作比較」セクションを参照してください。
+    </div>
+
+    <h3>Source モードのトラブルシューティング</h3>
+
+    <h4>NDI 受信側でソースが見つからない場合</h4>
+    <ol>
+        <li>iPad と受信デバイスが<strong>同じWi-Fiネットワーク</strong>に接続されているか確認</li>
+        <li>Source モードが有効になっているか確認（ステータスバーに緑色の「NDI」が表示されているか）</li>
+        <li>ファイアウォールがNDI通信をブロックしていないか確認</li>
+        <li>NDI 受信ソフトのソースリストを更新（リフレッシュ）</li>
+    </ol>
+
+    <h4>映像が途切れる・遅延する場合</h4>
+    <ul>
+        <li>Wi-Fi の電波強度を確認（5GHz帯の使用を推奨）</li>
+        <li>ネットワーク上の他のトラフィックを減らす</li>
+        <li>ステータスバーの「drop」（ドロップフレーム数）が増加していないか確認</li>
+    </ul>
+
+    <hr>
+
+    <h2 id="features">7. 便利な機能</h2>
 
     <h3>カスタム背景・フィルター設定</h3>
     <p>イベント用の背景画像を設定し、フィルターで調整できます。</p>
@@ -545,7 +708,7 @@
 
     <hr>
 
-    <h2 id="troubleshooting">7. 困った時は（トラブルシューティング）</h2>
+    <h2 id="troubleshooting">8. 困った時は（トラブルシューティング）</h2>
 
     <h3>楽曲が認識されない場合</h3>
 
@@ -616,7 +779,7 @@
 
     <hr>
 
-    <h2 id="advanced">8. 上級者向け機能</h2>
+    <h2 id="advanced">9. 上級者向け機能</h2>
 
     <div class="important">
         <strong>すべての設定メニューを表示する</strong>
@@ -700,7 +863,7 @@
 
     <hr>
 
-    <h2 id="exit">9. アプリの終了方法</h2>
+    <h2 id="exit">10. アプリの終了方法</h2>
 
     <h3>通常の終了手順</h3>
     <ol>
@@ -725,7 +888,7 @@
 
     <hr>
 
-    <h2 id="support">10. サポート情報</h2>
+    <h2 id="support">11. サポート情報</h2>
 
     <h3>アプリの更新</h3>
     <p>定期的にアップデートを確認してください。新機能の追加やバグ修正が含まれます。</p>
@@ -753,7 +916,7 @@
     </div>
 
     <div class="footer">
-        <p><strong>バージョン</strong>: 2026年2月版 | <strong>作成日</strong>: 2026年2月11日</p>
+        <p><strong>バージョン</strong>: 2026年3月版（v1.5対応） | <strong>作成日</strong>: 2026年3月17日</p>
         <p>&copy; 2026 SMYLE | Produced by NeoN.</p>
     </div>
 </body>

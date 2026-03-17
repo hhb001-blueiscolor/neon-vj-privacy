@@ -169,11 +169,12 @@
             <li><a href="#basic">3. 기본 조작</a></li>
             <li><a href="#settings">4. 초보자를 위한 추천 설정</a></li>
             <li><a href="#external">5. 외부 디스플레이로 출력하기</a></li>
-            <li><a href="#features">6. 유용한 기능</a></li>
-            <li><a href="#troubleshooting">7. 문제 해결 (트러블슈팅)</a></li>
-            <li><a href="#advanced">8. 고급 사용자 기능</a></li>
-            <li><a href="#exit">9. 앱 종료 방법</a></li>
-            <li><a href="#support">10. 지원 정보</a></li>
+                        <li><a href="#source-mode">6. Source 모드 (NDI / HDMI 출력)</a></li>
+<li><a href="#features">7. 유용한 기능</a></li>
+            <li><a href="#troubleshooting">8. 문제 해결 (트러블슈팅)</a></li>
+            <li><a href="#advanced">9. 고급 사용자 기능</a></li>
+            <li><a href="#exit">10. 앱 종료 방법</a></li>
+            <li><a href="#support">11. 지원 정보</a></li>
         </ul>
     </div>
 
@@ -211,6 +212,7 @@
     <ul>
         <li>✅ 재생 중인 음악을 자동으로 인식하여 표시</li>
         <li>✅ 외부 디스플레이 및 프로젝터로 출력</li>
+        <li><strong>NDI 출력</strong>: 곡 정보를 VJ 소프트웨어와 OBS에 무선으로 전송 (투명 레이어 지원)</li>
         <li>✅ 이벤트 로고 및 배경 커스터마이징</li>
         <li>✅ DJ 이름 표시</li>
         <li>✅ 레이아웃 커스터마이징 (7가지 프리셋)</li>
@@ -340,7 +342,7 @@
         <ul>
             <li>기본적으로 초보자가 헷갈리지 않도록 <strong>기본 설정 항목만</strong> 표시됩니다</li>
             <li>고급 사용자를 위한 전문 기능은 숨겨져 있습니다</li>
-            <li>익숙해지고 더 자세한 커스터마이징을 원할 경우 "<strong>8. 고급 사용자 기능</strong>" 장을 참조하세요</li>
+            <li>익숙해지고 더 자세한 커스터마이징을 원할 경우 "<strong>9. 고급 사용자 기능</strong>" 장을 참조하세요</li>
         </ul>
     </div>
 
@@ -478,9 +480,171 @@
         <strong>주의</strong>: 위치 조정은 저장되지 않습니다. 앱 재시작 시 중앙 위치로 리셋됩니다.
     </div>
 
+    
+    <h2 id="source-mode">6. Source 모드 (NDI / HDMI 출력)</h2>
+
+    <p>Source 모드는 곡 정보를 외부 VJ 소프트웨어(OBS, Resolume 등)로 전송하는 기능입니다. NDI 프로토콜을 사용하여 동일 네트워크상의 PC나 Mac에서 직접 수신할 수 있습니다.</p>
+
+    <div class="important">
+        <strong>NDI란?</strong>
+        <p>NDI(Network Device Interface)는 네트워크를 통해 실시간으로 영상 및 오디오를 전송하는 업계 표준 프로토콜입니다. OBS, Resolume, vMix, Wirecast 등 주요 VJ/스트리밍 소프트웨어에서 수신할 수 있습니다.</p>
+    </div>
+
+    <h3>Display 모드와 Source 모드의 차이</h3>
+
+    <p>NeoN VJ에는 두 가지 동작 모드가 있습니다.</p>
+
+    <ul>
+        <li><strong>Display 모드</strong>(기본값): iPad 본체나 외부 디스플레이에 배경, 로고, 이펙트가 포함된 완성된 화면을 표시하는 모드입니다. 일반적인 사용에서는 이 모드를 사용합니다</li>
+        <li><strong>Source 모드</strong>: 곡 정보(곡명, 아티스트명, 앨범 아트)를 NDI를 통해 외부로 전송하는 모드입니다. 수신 측의 VJ 소프트웨어에서 자유롭게 합성할 수 있습니다. HDMI 연결 시에도 Source 모드 화면이 표시되지만, 배경은 검은색으로 표시됩니다</li>
+    </ul>
+
+    <div class="tip">
+        <strong>모드 선택 기준</strong>
+        <ul>
+            <li><strong>iPad 단독 또는 외부 모니터 직결 사용</strong> → Display 모드</li>
+            <li><strong>OBS나 Resolume 등 VJ 소프트웨어에 곡 정보를 보내고 싶을 때</strong> → Source 모드 (NDI)</li>
+        </ul>
+    </div>
+
+    <h3>외부 출력 동작 비교</h3>
+    <p>Display 모드와 Source 모드는 외부 출력 동작이 다릅니다.</p>
+
+    <h4>Display 모드 + HDMI</h4>
+    <ul>
+        <li>HDMI로 연결된 외부 디스플레이에 <strong>배경, 로고, 이펙트가 포함된 완성된 화면</strong>이 그대로 표시됩니다</li>
+        <li>iPad 본체는 조작용, 외부 화면은 표시 전용으로 동작합니다</li>
+        <li>프로젝터나 모니터에 직접 투영하는 용도에 최적입니다</li>
+    </ul>
+
+    <h4>Source 모드 + NDI (권장)</h4>
+    <ul>
+        <li>곡 정보가 <strong>투명 레이어(알파 채널 포함)</strong>로 네트워크를 통해 전송됩니다</li>
+        <li>수신 측의 VJ 소프트웨어에서 자신의 영상 위에 곡 정보만 오버레이 합성할 수 있습니다</li>
+        <li>배경이 투명하므로 곡 정보 텍스트와 앨범 아트만 표시됩니다</li>
+    </ul>
+
+    <h4>Source 모드 + HDMI</h4>
+    <ul>
+        <li>Source 모드 활성 상태에서 HDMI를 연결하면 외부 디스플레이에도 Source 모드 화면이 표시됩니다</li>
+        <li>단, <strong>HDMI는 투명 레이어를 지원하지 않으므로 배경은 검은색</strong>으로 표시됩니다</li>
+        <li>검은 배경 위에 곡 정보가 표시되는 형태가 됩니다</li>
+    </ul>
+
+    <div class="warning">
+        <strong>투명 합성을 원하시면 NDI를 사용하세요.</strong> HDMI 연결에서는 알파 채널(투명 정보)을 전송할 수 없으므로 수신 측에서의 투명 합성이 불가능합니다.
+    </div>
+
+    <h3>Source 모드 활성화</h3>
+    <ol>
+        <li>설정 화면을 엽니다</li>
+        <li>"<strong>동작 모드</strong>" 섹션에서 "<strong>Source Mode (NDI/HDMI) 활성화 [Beta]</strong>"를 켭니다</li>
+        <li>화면이 Source 모드 전용 표시로 전환되고 NDI 전송이 자동으로 시작됩니다</li>
+    </ol>
+
+    <div class="warning">
+        <strong>주의</strong>: Source 모드를 활성화하면 일반 Display 모드 화면에서 전환됩니다. 되돌리려면 Source 모드 화면의 "<strong>Display</strong>" 버튼을 탭하세요.
+    </div>
+
+    <h3>Source 모드 화면 구성</h3>
+
+    <h4>미리보기 영역</h4>
+    <p>화면 중앙에 NDI로 전송되는 영상의 미리보기가 표시됩니다. 투명 레이어 위에 곡 정보가 렌더링되는 모습을 실시간으로 확인할 수 있습니다.</p>
+
+    <h4>상태 표시줄</h4>
+    <p>화면 상단에 전송 상태가 실시간으로 표시됩니다.</p>
+    <ul>
+        <li><strong>NDI(녹색 점)</strong>: NDI 전송 중</li>
+        <li><strong>fps</strong>: 프레임 레이트</li>
+        <li><strong>ms</strong>: 캡처 지연</li>
+        <li><strong>수신기 아이콘 + 숫자</strong>: 연결된 NDI 수신기 수</li>
+        <li><strong>해상도</strong>: 출력 해상도 (1920x1080)</li>
+    </ul>
+
+    <h4>조작 버튼</h4>
+    <ul>
+        <li><strong>Display</strong>: Display 모드로 돌아가기</li>
+        <li><strong>Start / Stop</strong>: 음악 인식 시작/중지</li>
+        <li><strong>Hold Display</strong>: 현재 표시 중인 곡 정보 고정 (곡이 바뀌어도 표시 유지)</li>
+        <li><strong>Retry</strong>: 음악 인식 재시도</li>
+        <li><strong>Blackout</strong>: NDI 연결을 유지한 채 영상 출력을 일시적으로 숨기기</li>
+        <li><strong>Settings</strong>: 설정 화면 열기</li>
+    </ul>
+
+    <h3>출력 요소 선택</h3>
+    <p>NDI로 전송하는 요소를 개별적으로 ON/OFF할 수 있습니다.</p>
+    <ul>
+        <li><strong>Album Art</strong>: 앨범 아트워크</li>
+        <li><strong>Song Title</strong>: 곡명</li>
+        <li><strong>Artist</strong>: 아티스트명</li>
+        <li><strong>Powered by / DJ</strong>: 크레딧 표시 / DJ명</li>
+        <li><strong>Searching Text</strong>: 인식 중 "Searching..." 텍스트</li>
+    </ul>
+
+    <div class="tip">
+        예를 들어, VJ 소프트웨어 측에서 자체 앨범 아트를 표시하고 있다면, NeoN VJ 측의 Album Art를 OFF로 하고 곡명과 아티스트명만 전송할 수 있습니다.
+    </div>
+
+    <h3>레이아웃 프리셋 (9종)</h3>
+    <p>Source 모드 전용 레이아웃 프리셋으로 출력 요소의 배치 위치를 선택할 수 있습니다.</p>
+    <ul>
+        <li><strong>Center</strong>: 중앙 배치 (기본값)</li>
+        <li><strong>Center Top</strong>: 중앙 상단</li>
+        <li><strong>Center Bottom</strong>: 중앙 하단</li>
+        <li><strong>Center Left</strong>: 좌측 중앙</li>
+        <li><strong>Center Right</strong>: 우측 중앙</li>
+        <li><strong>Top Left</strong>: 좌측 상단</li>
+        <li><strong>Top Right</strong>: 우측 상단</li>
+        <li><strong>Bottom Left</strong>: 좌측 하단</li>
+        <li><strong>Bottom Right</strong>: 우측 하단</li>
+    </ul>
+
+    <div class="tip">
+        VJ 소프트웨어의 영상 레이아웃에 맞춰 곡 정보 배치 위치를 선택하세요. 예를 들어, VJ 영상 하단에 자막처럼 곡 정보를 표시하려면 "Center Bottom"이 적합합니다.
+    </div>
+
+    <h3>NDI 수신 측 설정</h3>
+
+    <h4>필요 사항</h4>
+    <ul>
+        <li>iPad와 수신 PC/Mac이 <strong>동일 네트워크</strong>에 연결되어 있어야 합니다</li>
+        <li>NDI 호환 소프트웨어 (OBS + NDI 플러그인, Resolume, vMix 등)</li>
+    </ul>
+
+    <h4>OBS 설정 예시</h4>
+    <ol>
+        <li><strong>OBS NDI 플러그인</strong>을 설치합니다</li>
+        <li>OBS에서 "소스" → "NDI Source"를 추가합니다</li>
+        <li>소스 이름 목록에서 "<strong>NeoN VJ</strong>"를 선택합니다</li>
+        <li>영상이 투명 레이어로 수신되어 다른 소스 위에 합성할 수 있습니다</li>
+    </ol>
+
+    <div class="tip">
+        투명 합성에 대한 자세한 내용은 위의 "외부 출력 동작 비교" 섹션을 참조하세요.
+    </div>
+
+    <h3>Source 모드 문제 해결</h3>
+
+    <h4>NDI 수신 측에서 소스를 찾을 수 없는 경우</h4>
+    <ol>
+        <li>iPad와 수신 기기가 <strong>동일 Wi-Fi 네트워크</strong>에 연결되어 있는지 확인</li>
+        <li>Source 모드가 활성화되어 있는지 확인 (상태 표시줄에 녹색 "NDI" 표시)</li>
+        <li>방화벽이 NDI 통신을 차단하고 있지 않은지 확인</li>
+        <li>NDI 수신 소프트웨어의 소스 목록을 새로고침</li>
+    </ol>
+
+    <h4>영상이 끊기거나 지연되는 경우</h4>
+    <ul>
+        <li>Wi-Fi 신호 강도 확인 (5GHz 대역 권장)</li>
+        <li>네트워크상의 다른 트래픽 줄이기</li>
+        <li>상태 표시줄의 "drop"(드롭 프레임 수)이 증가하고 있지 않은지 확인</li>
+    </ul>
+
     <hr>
 
-    <h2 id="features">6. 유용한 기능</h2>
+<hr>
+
+    <h2 id="features">7. 유용한 기능</h2>
 
     <h3>커스텀 배경 및 필터 설정</h3>
     <p>이벤트용 배경 이미지를 설정하고 필터로 조정할 수 있습니다.</p>
@@ -554,7 +718,7 @@
 
     <hr>
 
-    <h2 id="troubleshooting">7. 문제 해결 (트러블슈팅)</h2>
+    <h2 id="troubleshooting">8. 문제 해결 (트러블슈팅)</h2>
 
     <h3>곡이 인식되지 않는 경우</h3>
 
@@ -625,7 +789,7 @@
 
     <hr>
 
-    <h2 id="advanced">8. 고급 사용자 기능</h2>
+    <h2 id="advanced">9. 고급 사용자 기능</h2>
 
     <div class="important">
         <strong>모든 설정 메뉴 표시하기</strong>
@@ -674,7 +838,7 @@
     <h3>동영상 배경 (iPad 전용)</h3>
 
     <div class="warning">
-        이 기능은 고급 사용자용 기능입니다. 기본 설정 방법은 "6. 유용한 기능" 장을 참조하세요
+        이 기능은 고급 사용자용 기능입니다. 기본 설정 방법은 "7. 유용한 기능" 장을 참조하세요
     </div>
 
     <p>동영상 배경 기능은 iPad 전용 고급 사용자 기능입니다. 배경에 동영상을 표시하여 더욱 화려한 연출이 가능합니다.</p>
@@ -709,7 +873,7 @@
 
     <hr>
 
-    <h2 id="exit">9. 앱 종료 방법</h2>
+    <h2 id="exit">10. 앱 종료 방법</h2>
 
     <h3>일반 종료 순서</h3>
     <ol>
@@ -734,7 +898,7 @@
 
     <hr>
 
-    <h2 id="support">10. 지원 정보</h2>
+    <h2 id="support">11. 지원 정보</h2>
 
     <h3>앱 업데이트</h3>
     <p>정기적으로 업데이트를 확인하세요. 새로운 기능 추가 및 버그 수정이 포함됩니다.</p>
@@ -762,7 +926,7 @@
     </div>
 
     <div class="footer">
-        <p><strong>버전</strong>: 2026년 2월판 | <strong>작성일</strong>: 2026년 2월 11일</p>
+        <p><strong>버전</strong>: 2026년 3월판 (v1.5) | <strong>작성일</strong>: 2026년 3월 17일</p>
         <p>© 2026 SMYLE | Produced by NeoN.</p>
     </div>
 </body>
