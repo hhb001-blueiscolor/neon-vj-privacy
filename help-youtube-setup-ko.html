@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube API 키 발급 가이드 - NeoN VJ</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
+            line-height: 1.8;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+        }
+        h1 { color: #2c3e50; border-bottom: 3px solid #3498db; padding-bottom: 12px; font-size: 2em; }
+        h2 { color: #34495e; margin-top: 40px; border-left: 5px solid #3498db; padding-left: 15px; font-size: 1.6em; }
+        h3 { color: #7f8c8d; margin-top: 25px; font-size: 1.3em; }
+        .subtitle { font-style: italic; color: #7f8c8d; margin-bottom: 30px; font-size: 1.1em; }
+        .important, .warning, .tip { border-left: 4px solid #3498db; padding: 12px 18px; margin: 20px 0; border-radius: 4px; }
+        .important { background-color: #e8f4f8; border-color: #3498db; }
+        .warning { background-color: #fff3cd; border-color: #ff9800; }
+        .tip { background-color: #f0f9ff; border-color: #00bcd4; }
+        ul, ol { padding-left: 25px; line-height: 1.9; }
+        li { margin: 8px 0; }
+        code { background-color: #f4f4f4; padding: 2px 6px; border-radius: 3px; font-family: 'Courier New', monospace; font-size: 0.9em; }
+        a { color: #3498db; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        table { border-collapse: collapse; width: 100%; margin: 15px 0; }
+        th, td { border: 1px solid #ddd; padding: 10px 12px; text-align: left; vertical-align: top; }
+        th { background-color: #f4f8fb; }
+        .language-switch { text-align: right; font-size: 0.9em; margin-bottom: 10px; }
+        .language-switch a { margin-left: 8px; }
+        .language-switch a.current { font-weight: bold; color: #2c3e50; }
+        .back-link { margin: 10px 0 20px; }
+        figure { margin: 15px 0; }
+        figure img { max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 6px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
+        figcaption { font-size: 0.85em; color: #7f8c8d; margin-top: 6px; }
+    </style>
+</head>
+<body>
+    <div class="language-switch">
+        <a href="help-youtube-setup-ja.html">日本語</a>
+        <a href="help-youtube-setup-en.html">English</a>
+        <a href="help-youtube-setup-es.html">Español</a>
+        <a href="help-youtube-setup-fr.html">Français</a>
+        <a href="help-youtube-setup-ko.html" class="current">한국어</a>
+        <a href="help-youtube-setup-th.html">ไทย</a>
+        <a href="help-youtube-setup-zh-Hans.html">简体中文</a>
+        <a href="help-youtube-setup-zh-Hant.html">繁體中文</a>
+    </div>
+
+    <div class="back-link"><a href="manual-ko.html#features">← NeoN VJ 사용자 가이드로 돌아가기</a></div>
+
+    <h1>YouTube API 키 발급 가이드</h1>
+    <p class="subtitle">YouTube 동영상 배경을 사용하기 위한 준비 — 처음 하시는 분을 위해 하나씩 설명합니다</p>
+
+    <h2 id="overview">이 페이지에서 할 일</h2>
+    <p>NeoN VJ의 「YouTube 동영상 배경」은 인식한 곡의 뮤직비디오를 YouTube에서 찾아 배경에 표시하는 기능입니다. 이 「찾기」 역할을 하는 것이 <strong>API 키</strong>로, YouTube의 데이터 검색을 이용하기 위한 <strong>나만의 열쇠</strong> 같은 것입니다.</p>
+    <p>이 페이지에서는 Google 사이트에서 API 키를 만들고 NeoN VJ에 설정하는 과정을 설명합니다.</p>
+    <div class="important">
+        <strong>시작하기 전에 알아 두면 좋은 점</strong>
+        <ul>
+            <li>소요 시간은 <strong>약 15분</strong>입니다.</li>
+            <li><strong>요금은 들지 않습니다.</strong> 신용카드 등록도 필요 없습니다.</li>
+            <li>필요한 것은 <strong>Google 계정</strong>(Gmail이나 YouTube에서 사용하는 계정)뿐입니다.</li>
+            <li>중간에 「API」, 「프로젝트」 같은 낯선 용어가 나오지만 그때마다 설명합니다. <strong>의미를 몰라도 순서대로 진행하면 완성됩니다.</strong></li>
+        </ul>
+    </div>
+    <div class="tip">
+        💡 이 페이지의 화면 사진은 일본어로 표시된 Google Cloud입니다. 버튼의 위치는 어느 언어에서도 동일합니다. 버튼의 이름이나 위치는 Google 측 업데이트로 바뀔 수 있습니다. 찾지 못할 때는 비슷한 의미의 버튼을 찾거나 화면 내 검색을 사용하세요.
+    </div>
+
+    <h2 id="step1">1단계: Google 계정을 확인한다</h2>
+    <p>평소 Gmail이나 YouTube를 사용하시는 분은 그 계정을 그대로 사용할 수 있습니다. 새로 만들 필요는 없습니다.</p>
+    <p>Google 계정이 없는 경우 먼저 <a href="https://accounts.google.com/" target="_blank">Google 계정 만들기</a>(무료)를 완료해 주세요.</p>
+
+    <h2 id="step2">2단계: Google Cloud Console을 연다</h2>
+    <p>「Google Cloud Console」은 Google이 제공하는 서비스의 관리 화면입니다. 개발자용 화면이라 다소 딱딱해 보이지만, 사용하는 부분은 극히 일부입니다.</p>
+    <ol>
+        <li>브라우저(iPad의 Safari도 가능)에서 <a href="https://console.cloud.google.com/" target="_blank">console.cloud.google.com</a>을 엽니다.</li>
+        <li>Google 계정으로 로그인합니다.</li>
+        <li>처음에는 이용약관 동의 화면이 나오므로 내용을 확인하고 체크한 뒤 <strong>「동의 후 계속」</strong>(Agree and continue)을 누릅니다.</li>
+    </ol>
+    <div class="tip">
+        💡 「무료 체험」이나 「결제 계정」 안내가 표시될 수 있지만 <strong>등록하지 않아도 됩니다</strong>. 이 가이드 범위에서는 요금이 발생하지 않습니다. 안내는 닫고 진행하세요.
+    </div>
+
+    <h2 id="step3">3단계: 프로젝트를 만든다</h2>
+    <p>「프로젝트」는 Google Cloud 안의 <strong>작업용 폴더</strong> 같은 것입니다. API 키는 이 폴더 안에 만듭니다.</p>
+    <ol>
+        <li>화면 상단의 프로젝트 이름 버튼을 누릅니다. <strong>아래 이미지에서 “NeoN VJ TEST”라고 표시된 위치</strong>입니다(처음이라면 “프로젝트 선택”(Select a project)으로 표시됩니다)</li>
+        <li><strong>「프로젝트 선택」</strong>(Select a project) 창이 열리면 오른쪽 위의 <strong>「새 프로젝트」</strong>(New Project)를 누릅니다.</li>
+    </ol>
+    <figure>
+        <img src="images/help-youtube-setup/00-new-project-dialog.png" alt="프로젝트 선택 대화상자. 오른쪽 위에 새 프로젝트 버튼이 있다">
+        <figcaption>「프로젝트 선택」 화면 오른쪽 위의 「새 프로젝트」(New Project)를 누른다</figcaption>
+    </figure>
+    <ol start="3">
+        <li>프로젝트 이름을 입력합니다. 이름은 자유입니다(예: <code>NeoN VJ</code>). 「위치」는 「조직 없음」(No organization) 그대로 두면 됩니다.</li>
+        <li><strong>「만들기」</strong>(Create)를 누르고 잠시 기다립니다.</li>
+        <li>만들어지면 화면 상단의 「프로젝트 선택」에서 <strong>방금 만든 프로젝트를 선택합니다</strong>. 선택한 프로젝트 이름이 화면 상단에 표시되면 됩니다(아래 이미지의 테두리 안). 이 부분을 놓치면 다음 단계에서 헤매게 됩니다.</li>
+    </ol>
+    <figure>
+        <img src="images/help-youtube-setup/01-project-selected.png" alt="Google Cloud 첫 화면. 상단에 프로젝트 이름이 표시되고 현재 프로젝트 영역에 만든 프로젝트가 표시되어 있다">
+        <figcaption>프로젝트가 선택된 상태. 상단 버튼과 현재 프로젝트 영역에 자신의 프로젝트 이름이 나오면 됩니다(이 예에서는 「NeoN VJ TEST」)</figcaption>
+    </figure>
+
+    <h2 id="step4">4단계: YouTube Data API v3를 사용 설정한다</h2>
+    <p>「API」라는 말이 나오지만 여기서는 <strong>「YouTube 동영상을 찾는 기능을 여러분의 프로젝트에서 사용할 수 있게 하는 스위치」</strong>라고 생각하시면 됩니다.</p>
+    <ol>
+        <li>화면 왼쪽 위의 메뉴(☰)에서 <strong>「API 및 서비스」 → 「라이브러리」</strong>(APIs &amp; Services → Library)를 선택합니다.</li>
+        <li>API 라이브러리 시작 화면(Welcome to the API Library)이 나오면 검색란에 <code>YouTube Data API v3</code>를 입력해 검색합니다.</li>
+    </ol>
+    <figure>
+        <img src="images/help-youtube-setup/02-library-search.png" alt="API 라이브러리 검색 화면에 YouTube Data API v3를 입력한 상태">
+        <figcaption>API 라이브러리 화면의 검색란에 입력</figcaption>
+    </figure>
+    <ol start="3">
+        <li>검색 결과의 <strong>「YouTube Data API v3」</strong>(빨간 재생 마크 아이콘)를 누르고 <strong>「사용 설정」</strong>(Enable) 버튼을 누릅니다.</li>
+    </ol>
+    <figure>
+        <img src="images/help-youtube-setup/03-enable-api.png" alt="YouTube Data API v3 제품 상세 페이지. 사용 설정 버튼이 있다">
+        <figcaption>「사용 설정」(Enable)을 누른다(옆의 「이 API 사용해 보기」(Try this API)는 사용하지 않습니다)</figcaption>
+    </figure>
+    <ol start="4">
+        <li>화면이 바뀌고 「상태: 사용 설정됨」(Status: Enabled)으로 표시되면 이 단계는 완료입니다. 상단에 「사용자 인증 정보 생성이 필요합니다」라는 알림이 나오지만 다음 단계에서 만들 것이므로 그대로 두면 됩니다.</li>
+    </ol>
+    <figure>
+        <img src="images/help-youtube-setup/04-api-enabled.png" alt="사용 설정 후의 API/서비스 상세 화면. 상태가 사용 설정됨으로 되어 있다">
+        <figcaption>사용 설정이 완료된 상태(상태: 사용 설정됨)</figcaption>
+    </figure>
+
+    <h2 id="step5">5단계: API 키를 만든다</h2>
+    <p>드디어 키를 만듭니다. 만들기 화면에서 <strong>키 보호 설정(권장)</strong>도 이 자리에서 함께 끝냅니다.</p>
+    <ol>
+        <li>왼쪽 메뉴에서 <strong>「사용자 인증 정보」</strong>(Credentials)를 선택합니다(메뉴에 보이지 않으면 ☰ → 「API 및 서비스」 → 「사용자 인증 정보」).</li>
+        <li>상단의 <strong>「+ 사용자 인증 정보 만들기」</strong>(Create Credentials)를 누르고 <strong>「API 키」</strong>(API key)를 선택합니다.</li>
+    </ol>
+    <figure>
+        <img src="images/help-youtube-setup/05-create-credentials.png" alt="사용자 인증 정보 화면에서 사용자 인증 정보 만들기를 누르고 API 키, OAuth 클라이언트 ID, 서비스 계정 선택지가 표시된 상태">
+        <figcaption>「+ 사용자 인증 정보 만들기」(Create Credentials) → 맨 위의 「API 키」(API key)를 선택</figcaption>
+    </figure>
+    <ol start="3">
+        <li>키 설정 화면이 열립니다. 「이름」은 <code>API 키 1</code> 그대로 두어도 됩니다.</li>
+        <li><strong>(권장)</strong> 「API 제한사항」(API restrictions)에서 <strong>「키 제한」</strong>(Restrict key)을 누르고, 목록에서 <strong>「YouTube Data API v3」만</strong> 체크한 뒤 <strong>「확인」</strong>(OK)을 누릅니다. 만에 하나 키가 유출되었을 때 다른 용도로 악용되는 것을 막는 보험입니다.</li>
+    </ol>
+    <figure>
+        <img src="images/help-youtube-setup/06-api-restriction.png" alt="API 제한 선택 목록에서 YouTube Data API v3에 체크한 상태">
+        <figcaption>목록 아래쪽에 있는 「YouTube Data API v3」에 체크 → 「확인」(OK)</figcaption>
+    </figure>
+    <ol start="5">
+        <li><strong>「애플리케이션 제한사항」(Application restrictions)은 「없음」(None) 그대로</strong> 두세요(변경하면 NeoN VJ에서 사용할 수 없게 되는 경우가 있습니다).</li>
+        <li>맨 아래의 <strong>「만들기」</strong>(Create)를 누릅니다.</li>
+    </ol>
+    <figure>
+        <img src="images/help-youtube-setup/07-app-restriction-create.png" alt="애플리케이션 제한사항이 없음으로 선택된 상태와 만들기 버튼">
+        <figcaption>「애플리케이션 제한사항」(Application restrictions)은 「없음」(None) → 「만들기」(Create)</figcaption>
+    </figure>
+    <ol start="7">
+        <li><strong>「API 키 생성됨」</strong>(API key created) 화면이 나옵니다. 「내 API 키」(Your API key) 칸에 <code>AIza...</code>로 시작하는 긴 문자열이 표시되므로 오른쪽 <strong>복사 버튼</strong>으로 복사하고 <strong>「닫기」</strong>(Close)를 누릅니다.</li>
+    </ol>
+    <figure>
+        <img src="images/help-youtube-setup/08-key-created.png" alt="생성된 API 키 대화상자. 내 API 키 칸과 복사 버튼, 닫기 버튼이 있다">
+        <figcaption>이것이 여러분의 API 키입니다. 복사하고 「닫기」(Close)(나중에 「사용자 인증 정보」 화면에서 언제든 확인할 수 있습니다)</figcaption>
+    </figure>
+    <div class="warning">
+        ⚠️ API 키는 <strong>다른 사람에게 알려주지 마세요</strong>. SNS나 스크린샷으로 실수로 공개해 버린 경우에는 「사용자 인증 정보」 화면에서 그 키를 삭제하고 새로 만들면 안전합니다.
+    </div>
+
+    <h2 id="step6">6단계: NeoN VJ에 설정한다</h2>
+    <ol>
+        <li>NeoN VJ의 <strong>설정</strong>을 열고 <strong>「모든 설정 메뉴 표시」</strong>를 ON으로 합니다.</li>
+        <li><strong>「YouTube 동영상 배경」</strong> 항목의 입력란에 복사한 API 키를 붙여넣습니다.</li>
+        <li><strong>「저장 후 확인」</strong>을 누릅니다. 앱이 자동으로 키 상태를 확인합니다.</li>
+        <li><strong>✅가 표시되면 설정 완료</strong>입니다. 기능을 ON으로 하고 즐기세요.</li>
+    </ol>
+    <div class="tip">
+        💡 컴퓨터에서 키를 발급한 경우, 메모 앱이나 AirDrop 등으로 iPad에 문자열을 보낸 뒤 붙여넣는 것이 간단합니다. ❌나 ⚠️가 표시되면 아래의 <a href="#trouble">「잘 안될 때」</a>로 가세요.
+    </div>
+
+    <h2 id="faq">자주 묻는 질문</h2>
+    <table>
+        <tr><th>질문</th><th>답변</th></tr>
+        <tr>
+            <td>정말 무료인가요?</td>
+            <td>네. YouTube Data API에는 무료 사용 한도가 있으며, NeoN VJ의 일반적인 이용은 그 범위 내입니다. 신용카드 등록도 필요 없습니다. 이 API에는 유료 요금제 자체가 없기 때문에 <strong>한도에 도달해도 과금으로 전환되지 않고, 다음 날까지 검색이 멈출 뿐</strong>입니다. 「모르는 사이에 과금되었다」는 일은 일어나지 않습니다.</td>
+        </tr>
+        <tr>
+            <td>하루에 어느 정도 사용할 수 있나요?</td>
+            <td>동영상 검색은 대략 <strong>하루 100곡</strong>이 기준입니다(Google의 무료 한도에 따릅니다). 앱의 설정 화면에 <strong>사용량 미터</strong>가 있으며, 한도에 도달하면 다음 날(태평양 시간 오전 0시)에 자동으로 초기화됩니다.</td>
+        </tr>
+        <tr>
+            <td>동영상에 광고가 나오나요?</td>
+            <td>동영상은 YouTube 플레이어로 재생되므로 <strong>YouTube 측 사양에 따라 광고가 재생될 수 있습니다</strong>. 광고의 유무나 시점은 YouTube 측에서 정하는 것으로, 앱에서는 제어할 수 없습니다.</td>
+        </tr>
+        <tr>
+            <td>키를 잃어버렸어요</td>
+            <td>Google Cloud Console의 「API 및 서비스」 → 「사용자 인증 정보」에서 언제든 확인할 수 있습니다.</td>
+        </tr>
+    </table>
+
+    <h2 id="trouble">잘 안될 때</h2>
+    <p>「저장 후 확인」의 결과에 따라 다음을 확인하세요.</p>
+    <table>
+        <tr><th>앱 표시</th><th>생각할 수 있는 원인과 대처</th></tr>
+        <tr><td>❌ 키가 올바르지 않음</td><td>복사한 앞뒤에 불필요한 공백이나 줄바꿈이 들어가지 않았는지 확인하고 다시 붙여넣으세요.</td></tr>
+        <tr><td>❌ API가 사용 설정되지 않음</td><td><a href="#step4">4단계</a>가 끝나지 않았습니다. API를 사용 설정한 프로젝트에서 키를 만들었는지도 확인하세요(<a href="#step3">3단계</a>의 「프로젝트를 선택」 참조).</td></tr>
+        <tr><td>⚠️ 키 제한을 확인</td><td><a href="#step5">5단계</a>에서 제한을 너무 걸었을 가능성이 있습니다. 「사용자 인증 정보」 화면에서 키 이름을 눌러 열고 「애플리케이션 제한사항」을 「없음」으로 되돌린 뒤 「저장」하세요.</td></tr>
+        <tr><td>⚠️ 한도에 도달했습니다</td><td>오늘의 무료 한도를 다 사용했습니다. 다음 날 자동으로 초기화됩니다.</td></tr>
+        <tr><td>⚠️ 연결할 수 없음</td><td>인터넷 연결을 확인하고 다시 시도하세요.</td></tr>
+    </table>
+    <p>그 밖의 문제는 <a href="manual-ko.html#troubleshooting">사용자 가이드의 문제 해결</a>을 참고하세요.</p>
+
+    <div class="back-link"><a href="manual-ko.html#features">← NeoN VJ 사용자 가이드로 돌아가기</a></div>
+</body>
+</html>

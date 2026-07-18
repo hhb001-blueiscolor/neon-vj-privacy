@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>คู่มือการขอ YouTube API Key - NeoN VJ</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
+            line-height: 1.8;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+        }
+        h1 { color: #2c3e50; border-bottom: 3px solid #3498db; padding-bottom: 12px; font-size: 2em; }
+        h2 { color: #34495e; margin-top: 40px; border-left: 5px solid #3498db; padding-left: 15px; font-size: 1.6em; }
+        h3 { color: #7f8c8d; margin-top: 25px; font-size: 1.3em; }
+        .subtitle { font-style: italic; color: #7f8c8d; margin-bottom: 30px; font-size: 1.1em; }
+        .important, .warning, .tip { border-left: 4px solid #3498db; padding: 12px 18px; margin: 20px 0; border-radius: 4px; }
+        .important { background-color: #e8f4f8; border-color: #3498db; }
+        .warning { background-color: #fff3cd; border-color: #ff9800; }
+        .tip { background-color: #f0f9ff; border-color: #00bcd4; }
+        ul, ol { padding-left: 25px; line-height: 1.9; }
+        li { margin: 8px 0; }
+        code { background-color: #f4f4f4; padding: 2px 6px; border-radius: 3px; font-family: 'Courier New', monospace; font-size: 0.9em; }
+        a { color: #3498db; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        table { border-collapse: collapse; width: 100%; margin: 15px 0; }
+        th, td { border: 1px solid #ddd; padding: 10px 12px; text-align: left; vertical-align: top; }
+        th { background-color: #f4f8fb; }
+        .language-switch { text-align: right; font-size: 0.9em; margin-bottom: 10px; }
+        .language-switch a { margin-left: 8px; }
+        .language-switch a.current { font-weight: bold; color: #2c3e50; }
+        .back-link { margin: 10px 0 20px; }
+        figure { margin: 15px 0; }
+        figure img { max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 6px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
+        figcaption { font-size: 0.85em; color: #7f8c8d; margin-top: 6px; }
+    </style>
+</head>
+<body>
+    <div class="language-switch">
+        <a href="help-youtube-setup-ja.html">日本語</a>
+        <a href="help-youtube-setup-en.html">English</a>
+        <a href="help-youtube-setup-es.html">Español</a>
+        <a href="help-youtube-setup-fr.html">Français</a>
+        <a href="help-youtube-setup-ko.html">한국어</a>
+        <a href="help-youtube-setup-th.html" class="current">ไทย</a>
+        <a href="help-youtube-setup-zh-Hans.html">简体中文</a>
+        <a href="help-youtube-setup-zh-Hant.html">繁體中文</a>
+    </div>
+
+    <div class="back-link"><a href="manual-th.html#features">← กลับไปที่คู่มือผู้ใช้ NeoN VJ</a></div>
+
+    <h1>คู่มือการขอ YouTube API Key</h1>
+    <p class="subtitle">การเตรียมพร้อมเพื่อใช้พื้นหลังวิดีโอ YouTube — อธิบายทีละขั้นตอนสำหรับผู้เริ่มต้น</p>
+
+    <h2 id="overview">สิ่งที่จะทำในหน้านี้</h2>
+    <p>「พื้นหลังวิดีโอ YouTube」ของ NeoN VJ คือฟีเจอร์ที่ค้นหามิวสิกวิดีโอของเพลงที่รู้จำได้จาก YouTube แล้วแสดงเป็นพื้นหลัง สิ่งที่ทำหน้าที่ "ค้นหา" นี้คือ <strong>API Key</strong> ซึ่งเปรียบเสมือน <strong>กุญแจส่วนตัวของคุณ</strong> สำหรับใช้การค้นหาข้อมูลของ YouTube</p>
+    <p>ในหน้านี้จะอธิบายตั้งแต่การสร้าง API Key ในเว็บไซต์ของ Google ไปจนถึงการตั้งค่าใน NeoN VJ</p>
+    <div class="important">
+        <strong>สิ่งที่ควรรู้ก่อนเริ่ม</strong>
+        <ul>
+            <li>ใช้เวลาประมาณ <strong>15 นาที</strong></li>
+            <li><strong>ไม่มีค่าใช้จ่าย</strong> และไม่ต้องลงทะเบียนบัตรเครดิต</li>
+            <li>สิ่งที่ต้องมีคือ <strong>บัญชี Google</strong> (บัญชีที่ใช้กับ Gmail หรือ YouTube) เท่านั้น</li>
+            <li>ระหว่างทางจะพบคำที่ไม่คุ้นเคย เช่น "API" หรือ "โปรเจกต์" แต่จะมีคำอธิบายในแต่ละจุด <strong>แม้จะไม่เข้าใจความหมาย หากทำตามขั้นตอนก็จะสำเร็จ</strong></li>
+        </ul>
+    </div>
+    <div class="tip">
+        💡 ภาพหน้าจอในหน้านี้เป็น Google Cloud ที่แสดงเป็นภาษาญี่ปุ่น แต่ตำแหน่งของปุ่มเหมือนกันในทุกภาษา ชื่อและตำแหน่งของปุ่มอาจเปลี่ยนไปเมื่อ Google อัปเดตเว็บไซต์ หากหาไม่พบ ให้มองหาปุ่มที่มีความหมายใกล้เคียง หรือใช้การค้นหาในหน้าจอ ในหน้านี้จะอ้างอิงชื่อปุ่มเป็นภาษาอังกฤษ (ตามที่ปรากฏในเอกสารทางการของ Google)
+    </div>
+
+    <h2 id="step1">ขั้นที่ 1: ตรวจสอบบัญชี Google</h2>
+    <p>ผู้ที่ใช้ Gmail หรือ YouTube เป็นประจำ สามารถใช้บัญชีนั้นได้เลย ไม่ต้องสร้างใหม่</p>
+    <p>หากยังไม่มีบัญชี Google กรุณา <a href="https://accounts.google.com/" target="_blank">สร้างบัญชี Google</a> (ฟรี) ให้เรียบร้อยก่อน</p>
+
+    <h2 id="step2">ขั้นที่ 2: เปิด Google Cloud Console</h2>
+    <p>「Google Cloud Console」คือหน้าจอจัดการบริการที่ Google ให้บริการ เป็นหน้าจอสำหรับนักพัฒนาจึงดูแข็งเล็กน้อย แต่เราจะใช้เพียงส่วนเล็กน้อยเท่านั้น</p>
+    <ol>
+        <li>เปิด <a href="https://console.cloud.google.com/" target="_blank">console.cloud.google.com</a> ในเบราว์เซอร์ (Safari บน iPad ก็ได้)</li>
+        <li>ลงชื่อเข้าใช้ด้วยบัญชี Google</li>
+        <li>ครั้งแรกจะมีหน้าจอยอมรับข้อกำหนดในการให้บริการ ให้ตรวจสอบเนื้อหา ทำเครื่องหมายในช่อง แล้วกด <strong>"Agree and continue"</strong> (ยอมรับและดำเนินการต่อ)</li>
+    </ol>
+    <div class="tip">
+        💡 อาจมีข้อความแนะนำเกี่ยวกับ "ทดลองใช้ฟรี" หรือ "บัญชีการเรียกเก็บเงิน" ปรากฏขึ้น แต่ <strong>ไม่จำเป็นต้องลงทะเบียน</strong> ภายในขอบเขตของคู่มือนี้จะไม่มีค่าใช้จ่าย ให้ปิดข้อความแล้วดำเนินการต่อ
+    </div>
+
+    <h2 id="step3">ขั้นที่ 3: สร้างโปรเจกต์</h2>
+    <p>「โปรเจกต์」เปรียบเสมือน <strong>โฟลเดอร์สำหรับทำงาน</strong> ภายใน Google Cloud โดย API Key จะถูกสร้างไว้ในโฟลเดอร์นี้</p>
+    <ol>
+        <li>กดปุ่มชื่อโปรเจ็กต์ที่ด้านบนของหน้าจอ — <strong>ตำแหน่งที่ในภาพด้านล่างแสดงว่า “NeoN VJ TEST”</strong> (หากเป็นครั้งแรกจะแสดงเป็น “Select a project”)</li>
+        <li>หน้าต่าง <strong>"Select a project"</strong> (เลือกโปรเจกต์) จะเปิดขึ้น ให้กด <strong>"New Project"</strong> (โปรเจกต์ใหม่) ที่มุมขวาบน</li>
+    </ol>
+    <figure>
+        <img src="images/help-youtube-setup/00-new-project-dialog.png" alt="กล่องโต้ตอบเลือกโปรเจกต์ มีปุ่มโปรเจกต์ใหม่อยู่มุมขวาบน">
+        <figcaption>กด "New Project" (โปรเจกต์ใหม่) ที่มุมขวาบนของหน้าจอ "Select a project"</figcaption>
+    </figure>
+    <ol start="3">
+        <li>ป้อนชื่อโปรเจกต์ ชื่ออะไรก็ได้ (เช่น <code>NeoN VJ</code>) ส่วน "Location" (ตำแหน่ง) ให้คงไว้ที่ "No organization" (ไม่มีองค์กร)</li>
+        <li>กด <strong>"Create"</strong> (สร้าง) แล้วรอสักครู่</li>
+        <li>เมื่อสร้างเสร็จ ให้เลือก <strong>โปรเจกต์ที่เพิ่งสร้าง</strong> จากเมนู "Select a project" ด้านบน หากชื่อโปรเจกต์ที่เลือกแสดงอยู่ด้านบนของหน้าจอ (ภายในกรอบในภาพด้านล่าง) ก็ถือว่าเรียบร้อย หากข้ามขั้นตอนนี้จะหลงทางในขั้นตอนถัดไป</li>
+    </ol>
+    <figure>
+        <img src="images/help-youtube-setup/01-project-selected.png" alt="หน้าจอหลักของ Google Cloud มีชื่อโปรเจกต์แสดงอยู่ด้านบน และโปรเจกต์ที่สร้างแสดงในพื้นที่โปรเจกต์ปัจจุบัน">
+        <figcaption>สถานะที่เลือกโปรเจกต์แล้ว หากชื่อโปรเจกต์ของคุณปรากฏที่ปุ่มด้านบนและในพื้นที่โปรเจกต์ปัจจุบันก็ถือว่าเรียบร้อย (ในตัวอย่างนี้คือ "NeoN VJ TEST")</figcaption>
+    </figure>
+
+    <h2 id="step4">ขั้นที่ 4: เปิดใช้งาน YouTube Data API v3</h2>
+    <p>คำว่า "API" จะปรากฏขึ้น แต่ในที่นี้ให้คิดว่าเป็น <strong>"สวิตช์ที่ทำให้โปรเจกต์ของคุณใช้ฟังก์ชันค้นหาวิดีโอของ YouTube ได้"</strong> ก็พอ</p>
+    <ol>
+        <li>จากเมนู (☰) ที่มุมซ้ายบน ให้เลือก <strong>"APIs &amp; Services" → "Library"</strong> (API และบริการ → ไลบรารี)</li>
+        <li>เมื่อหน้าจอต้อนรับสู่ API Library (Welcome to the API Library) ปรากฏ ให้พิมพ์ <code>YouTube Data API v3</code> ในช่องค้นหาแล้วค้นหา</li>
+    </ol>
+    <figure>
+        <img src="images/help-youtube-setup/02-library-search.png" alt="สถานะที่พิมพ์ YouTube Data API v3 ในหน้าจอค้นหาของ API Library">
+        <figcaption>พิมพ์ในช่องค้นหาของหน้าจอ API Library</figcaption>
+    </figure>
+    <ol start="3">
+        <li>กด <strong>"YouTube Data API v3"</strong> (ไอคอนเครื่องหมายเล่นสีแดง) ในผลการค้นหา แล้วกดปุ่ม <strong>"Enable"</strong> (เปิดใช้งาน)</li>
+    </ol>
+    <figure>
+        <img src="images/help-youtube-setup/03-enable-api.png" alt="หน้ารายละเอียดผลิตภัณฑ์ YouTube Data API v3 มีปุ่มเปิดใช้งาน">
+        <figcaption>กด "Enable" (เปิดใช้งาน) — ปุ่ม "Try this API" (ลองใช้ API นี้) ที่อยู่ข้างๆ ไม่ได้ใช้</figcaption>
+    </figure>
+    <ol start="4">
+        <li>หน้าจอจะเปลี่ยนไป และเมื่อแสดง "Status: Enabled" (สถานะ: เปิดใช้งานแล้ว) ขั้นตอนนี้ก็เสร็จสิ้น อาจมีข้อความแจ้งว่า "ต้องสร้างข้อมูลรับรอง" ที่ด้านบน แต่เราจะสร้างในขั้นตอนถัดไป จึงปล่อยไว้ได้เลย</li>
+    </ol>
+    <figure>
+        <img src="images/help-youtube-setup/04-api-enabled.png" alt="หน้าจอรายละเอียด API/บริการหลังเปิดใช้งาน โดยสถานะเป็นเปิดใช้งานแล้ว">
+        <figcaption>สถานะที่เปิดใช้งานเสร็จสิ้น (Status: Enabled)</figcaption>
+    </figure>
+
+    <h2 id="step5">ขั้นที่ 5: สร้าง API Key</h2>
+    <p>ถึงเวลาสร้างคีย์แล้ว ในหน้าจอสร้าง เราจะตั้งค่า <strong>การป้องกันคีย์ (แนะนำ)</strong> ไปพร้อมกันในที่นี้เลย</p>
+    <ol>
+        <li>เลือก <strong>"Credentials"</strong> (ข้อมูลรับรอง) จากเมนูด้านซ้าย (หากไม่เห็นในเมนู ให้ไปที่ ☰ → "APIs &amp; Services" → "Credentials")</li>
+        <li>กด <strong>"+ Create Credentials"</strong> (สร้างข้อมูลรับรอง) ด้านบน แล้วเลือก <strong>"API key"</strong> (คีย์ API)</li>
+    </ol>
+    <figure>
+        <img src="images/help-youtube-setup/05-create-credentials.png" alt="ในหน้าจอข้อมูลรับรอง กดสร้างข้อมูลรับรอง และแสดงตัวเลือก API key, OAuth client ID, Service account">
+        <figcaption>"+ Create Credentials" (สร้างข้อมูลรับรอง) → เลือก "API key" (คีย์ API) ตัวบนสุด</figcaption>
+    </figure>
+    <ol start="3">
+        <li>หน้าจอตั้งค่าคีย์จะเปิดขึ้น "Name" (ชื่อ) จะคงไว้เป็น <code>API key 1</code> ก็ได้</li>
+        <li><strong>(แนะนำ)</strong> ที่ "API restrictions" (การจำกัด API) ให้กด <strong>"Restrict key"</strong> (จำกัดคีย์) แล้วทำเครื่องหมายเฉพาะ <strong>"YouTube Data API v3" เท่านั้น</strong> ในรายการ จากนั้นกด <strong>"OK"</strong> นี่เป็นการป้องกันไว้ก่อน เผื่อคีย์รั่วไหลจะได้ไม่ถูกนำไปใช้ในทางที่ผิดเพื่อวัตถุประสงค์อื่น</li>
+    </ol>
+    <figure>
+        <img src="images/help-youtube-setup/06-api-restriction.png" alt="สถานะที่ทำเครื่องหมาย YouTube Data API v3 ในรายการเลือกการจำกัด API">
+        <figcaption>ทำเครื่องหมายที่ "YouTube Data API v3" (อยู่ประมาณด้านล่างของรายการ) → "OK"</figcaption>
+    </figure>
+    <ol start="5">
+        <li><strong>ให้คง "Application restrictions" (การจำกัดแอปพลิเคชัน) ไว้ที่ "None" (ไม่มี)</strong> (หากเปลี่ยน อาจทำให้ใช้คีย์จาก NeoN VJ ไม่ได้)</li>
+        <li>กด <strong>"Create"</strong> (สร้าง) ที่ด้านล่างสุด</li>
+    </ol>
+    <figure>
+        <img src="images/help-youtube-setup/07-app-restriction-create.png" alt="สถานะที่เลือกการจำกัดแอปพลิเคชันเป็นไม่มี และปุ่มสร้าง">
+        <figcaption>คง "Application restrictions" (การจำกัดแอปพลิเคชัน) ไว้ที่ "None" (ไม่มี) → "Create" (สร้าง)</figcaption>
+    </figure>
+    <ol start="7">
+        <li>หน้าจอ <strong>"API key created"</strong> (สร้างคีย์ API แล้ว) จะปรากฏขึ้น ในช่อง "Your API key" (คีย์ API ของคุณ) จะแสดงสตริงยาวที่ขึ้นต้นด้วย <code>AIza...</code> ให้คัดลอกด้วย <strong>ปุ่มคัดลอก</strong> ทางขวา แล้วกด <strong>"Close"</strong> (ปิด)</li>
+    </ol>
+    <figure>
+        <img src="images/help-youtube-setup/08-key-created.png" alt="กล่องโต้ตอบคีย์ API ที่สร้างขึ้น มีช่องคีย์ API ของคุณ ปุ่มคัดลอก และปุ่มปิด">
+        <figcaption>นี่คือ API Key ของคุณ คัดลอกแล้วกด "Close" (ปิด) — สามารถตรวจสอบได้ทุกเมื่อในหน้าจอ "Credentials"</figcaption>
+    </figure>
+    <div class="warning">
+        ⚠️ <strong>อย่าบอก API Key แก่ผู้อื่น</strong> หากเผลอเปิดเผยผ่านโซเชียลมีเดียหรือภาพหน้าจอ ให้ลบคีย์นั้นจากหน้าจอ "Credentials" แล้วสร้างใหม่ก็จะปลอดภัย
+    </div>
+
+    <h2 id="step6">ขั้นที่ 6: ตั้งค่าใน NeoN VJ</h2>
+    <ol>
+        <li>เปิด <strong>การตั้งค่า</strong> ของ NeoN VJ แล้วเปิด <strong>"แสดงเมนูการตั้งค่าทั้งหมด"</strong></li>
+        <li>วาง API Key ที่คัดลอกไว้ในช่องกรอกของ <strong>"พื้นหลังวิดีโอ YouTube"</strong></li>
+        <li>กด <strong>"บันทึกและตรวจสอบ"</strong> แอปจะตรวจสอบสถานะของคีย์โดยอัตโนมัติ</li>
+        <li><strong>เมื่อแสดง ✅ แสดงว่าตั้งค่าเสร็จสมบูรณ์</strong> เปิดใช้งานฟีเจอร์แล้วเพลิดเพลินได้เลย</li>
+    </ol>
+    <div class="tip">
+        💡 หากขอคีย์จากคอมพิวเตอร์ วิธีที่ง่ายคือส่งสตริงไปยัง iPad ผ่านแอปบันทึกหรือ AirDrop แล้วค่อยวาง หากแสดง ❌ หรือ ⚠️ ให้ดูที่ <a href="#trouble">"เมื่อทำไม่สำเร็จ"</a> ด้านล่าง
+    </div>
+
+    <h2 id="faq">คำถามที่พบบ่อย</h2>
+    <table>
+        <tr><th>คำถาม</th><th>คำตอบ</th></tr>
+        <tr>
+            <td>ฟรีจริงหรือ?</td>
+            <td>ใช่ YouTube Data API มีโควตาการใช้งานฟรี และการใช้งาน NeoN VJ ตามปกติอยู่ในขอบเขตนั้น ไม่ต้องลงทะเบียนบัตรเครดิต เนื่องจาก API นี้ไม่มีแพ็กเกจแบบเสียเงินอยู่เลย <strong>แม้ถึงขีดจำกัดก็จะไม่เปลี่ยนเป็นการเรียกเก็บเงิน เพียงแต่การค้นหาจะหยุดจนถึงวันถัดไป</strong> จึงไม่มีกรณี "ถูกเรียกเก็บเงินโดยไม่รู้ตัว"</td>
+        </tr>
+        <tr>
+            <td>ใช้ได้วันละเท่าไร?</td>
+            <td>การค้นหาวิดีโออยู่ที่ประมาณ <strong>100 เพลงต่อวัน</strong> เป็นเกณฑ์ (ขึ้นอยู่กับโควตาฟรีของ Google) หน้าจอการตั้งค่าของแอปมี <strong>มิเตอร์การใช้งาน</strong> และเมื่อถึงขีดจำกัดจะรีเซ็ตอัตโนมัติในวันถัดไป (เที่ยงคืนตามเวลาแปซิฟิก)</td>
+        </tr>
+        <tr>
+            <td>วิดีโอมีโฆษณาไหม?</td>
+            <td>วิดีโอเล่นผ่านโปรแกรมเล่นของ YouTube ดังนั้น <strong>อาจมีโฆษณาเล่นตามข้อกำหนดของ YouTube</strong> การมีโฆษณาหรือช่วงเวลาที่แสดงเป็นสิ่งที่ YouTube กำหนด แอปไม่สามารถควบคุมได้</td>
+        </tr>
+        <tr>
+            <td>ทำคีย์หาย</td>
+            <td>สามารถตรวจสอบได้ทุกเมื่อที่ "APIs &amp; Services" → "Credentials" ของ Google Cloud Console</td>
+        </tr>
+    </table>
+
+    <h2 id="trouble">เมื่อทำไม่สำเร็จ</h2>
+    <p>ตามผลลัพธ์ของ "บันทึกและตรวจสอบ" กรุณาตรวจสอบสิ่งต่อไปนี้</p>
+    <table>
+        <tr><th>ข้อความในแอป</th><th>สาเหตุที่เป็นไปได้และวิธีแก้</th></tr>
+        <tr><td>❌ คีย์ไม่ถูกต้อง</td><td>ตรวจสอบว่ามีช่องว่างหรือการขึ้นบรรทัดใหม่เกินมาก่อนหรือหลังข้อความที่คัดลอกหรือไม่ แล้ววางใหม่</td></tr>
+        <tr><td>❌ API ยังไม่เปิดใช้งาน</td><td><a href="#step4">ขั้นที่ 4</a> ยังไม่เสร็จ ตรวจสอบด้วยว่าได้สร้างคีย์ในโปรเจกต์ที่เปิดใช้งาน API หรือไม่ (ดู "เลือกโปรเจกต์" ใน<a href="#step3">ขั้นที่ 3</a>)</td></tr>
+        <tr><td>⚠️ ตรวจสอบการจำกัดคีย์</td><td>อาจจำกัดมากเกินไปใน<a href="#step5">ขั้นที่ 5</a> ที่หน้าจอ "Credentials" ให้แตะชื่อคีย์เพื่อเปิด แล้วเปลี่ยน "Application restrictions" กลับเป็น "None" จากนั้น "Save" (บันทึก)</td></tr>
+        <tr><td>⚠️ ถึงขีดจำกัดแล้ว</td><td>ใช้โควตาฟรีของวันนี้หมดแล้ว จะรีเซ็ตอัตโนมัติในวันถัดไป</td></tr>
+        <tr><td>⚠️ เชื่อมต่อไม่ได้</td><td>ตรวจสอบการเชื่อมต่ออินเทอร์เน็ตแล้วลองอีกครั้ง</td></tr>
+    </table>
+    <p>สำหรับปัญหาอื่นๆ กรุณาดู <a href="manual-th.html#troubleshooting">การแก้ปัญหาในคู่มือผู้ใช้</a></p>
+
+    <div class="back-link"><a href="manual-th.html#features">← กลับไปที่คู่มือผู้ใช้ NeoN VJ</a></div>
+</body>
+</html>

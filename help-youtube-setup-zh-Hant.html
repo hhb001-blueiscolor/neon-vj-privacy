@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube API 金鑰取得指南 - NeoN VJ</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
+            line-height: 1.8;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+        }
+        h1 { color: #2c3e50; border-bottom: 3px solid #3498db; padding-bottom: 12px; font-size: 2em; }
+        h2 { color: #34495e; margin-top: 40px; border-left: 5px solid #3498db; padding-left: 15px; font-size: 1.6em; }
+        h3 { color: #7f8c8d; margin-top: 25px; font-size: 1.3em; }
+        .subtitle { font-style: italic; color: #7f8c8d; margin-bottom: 30px; font-size: 1.1em; }
+        .important, .warning, .tip { border-left: 4px solid #3498db; padding: 12px 18px; margin: 20px 0; border-radius: 4px; }
+        .important { background-color: #e8f4f8; border-color: #3498db; }
+        .warning { background-color: #fff3cd; border-color: #ff9800; }
+        .tip { background-color: #f0f9ff; border-color: #00bcd4; }
+        ul, ol { padding-left: 25px; line-height: 1.9; }
+        li { margin: 8px 0; }
+        code { background-color: #f4f4f4; padding: 2px 6px; border-radius: 3px; font-family: 'Courier New', monospace; font-size: 0.9em; }
+        a { color: #3498db; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        table { border-collapse: collapse; width: 100%; margin: 15px 0; }
+        th, td { border: 1px solid #ddd; padding: 10px 12px; text-align: left; vertical-align: top; }
+        th { background-color: #f4f8fb; }
+        .language-switch { text-align: right; font-size: 0.9em; margin-bottom: 10px; }
+        .language-switch a { margin-left: 8px; }
+        .language-switch a.current { font-weight: bold; color: #2c3e50; }
+        .back-link { margin: 10px 0 20px; }
+        figure { margin: 15px 0; }
+        figure img { max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 6px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
+        figcaption { font-size: 0.85em; color: #7f8c8d; margin-top: 6px; }
+    </style>
+</head>
+<body>
+    <div class="language-switch">
+        <a href="help-youtube-setup-ja.html">日本語</a>
+        <a href="help-youtube-setup-en.html">English</a>
+        <a href="help-youtube-setup-es.html">Español</a>
+        <a href="help-youtube-setup-fr.html">Français</a>
+        <a href="help-youtube-setup-ko.html">한국어</a>
+        <a href="help-youtube-setup-th.html">ไทย</a>
+        <a href="help-youtube-setup-zh-Hans.html">简体中文</a>
+        <a href="help-youtube-setup-zh-Hant.html" class="current">繁體中文</a>
+    </div>
+
+    <div class="back-link"><a href="manual-zh-Hant.html#features">← 返回 NeoN VJ 使用者指南</a></div>
+
+    <h1>YouTube API 金鑰取得指南</h1>
+    <p class="subtitle">使用 YouTube 影片背景前的準備 — 為初次使用者逐步說明</p>
+
+    <h2 id="overview">本頁要做的事</h2>
+    <p>NeoN VJ 的「YouTube影片背景」是一項從 YouTube 尋找已辨識歌曲的音樂影片並顯示為背景的功能。讓這項「尋找」得以運作的正是 <strong>API 金鑰</strong>——可以把它想像成用來使用 YouTube 資料搜尋的<strong>你專屬的鑰匙</strong>。</p>
+    <p>本頁將說明如何在 Google 的網站上建立 API 金鑰，並在 NeoN VJ 中完成設定。</p>
+    <div class="important">
+        <strong>開始前需要了解的事項</strong>
+        <ul>
+            <li>大約需要 <strong>15 分鐘</strong>。</li>
+            <li><strong>不會產生費用</strong>，也無需登錄信用卡。</li>
+            <li>你只需要一個 <strong>Google 帳戶</strong>（用於 Gmail 或 YouTube 的那個）。</li>
+            <li>過程中會出現「API」「專案」等陌生詞彙，但每個都會隨時說明。<strong>即使不理解含意，只要按步驟進行就能完成。</strong></li>
+        </ul>
+    </div>
+    <div class="tip">
+        💡 本頁的螢幕截圖是以日文顯示的 Google Cloud，但按鈕的位置在任何語言下都相同。按鈕的名稱和位置可能因 Google 更新而變動。找不到時，請尋找含意相近的按鈕，或使用畫面內的搜尋。
+    </div>
+
+    <h2 id="step1">步驟 1：確認 Google 帳戶</h2>
+    <p>平時使用 Gmail 或 YouTube 的使用者，可以直接使用該帳戶，無需新建。</p>
+    <p>如果沒有 Google 帳戶，請先完成<a href="https://accounts.google.com/" target="_blank">建立 Google 帳戶</a>（免費）。</p>
+
+    <h2 id="step2">步驟 2：開啟 Google Cloud Console</h2>
+    <p>「Google Cloud Console」是 Google 所提供服務的管理介面。它面向開發者，介面看起來略顯生硬，但我們只會用到很小一部分。</p>
+    <ol>
+        <li>在瀏覽器（iPad 的 Safari 也可以）中開啟 <a href="https://console.cloud.google.com/" target="_blank">console.cloud.google.com</a>。</li>
+        <li>使用 Google 帳戶登入。</li>
+        <li>首次會出現服務條款同意畫面，請確認內容並勾選，然後按 <strong>「同意並繼續」</strong>（Agree and continue）。</li>
+    </ol>
+    <div class="tip">
+        💡 可能會出現「免費試用」或「帳單帳戶」的提示，但<strong>無需登錄</strong>。在本指南的範圍內不會產生費用。關閉提示繼續即可。
+    </div>
+
+    <h2 id="step3">步驟 3：建立專案</h2>
+    <p>「專案」就像是 Google Cloud 中的<strong>工作資料夾</strong>。API 金鑰就建立在這個資料夾裡。</p>
+    <ol>
+        <li>點按畫面上方的專案名稱按鈕——<strong>就是下圖中顯示「NeoN VJ TEST」的位置</strong>（首次使用時顯示為「選擇專案」（Select a project））</li>
+        <li>會開啟 <strong>「選取專案」</strong>（Select a project）視窗，按右上角的 <strong>「新增專案」</strong>（New Project）。</li>
+    </ol>
+    <figure>
+        <img src="images/help-youtube-setup/00-new-project-dialog.png" alt="選取專案對話方塊，右上角有新增專案按鈕">
+        <figcaption>在「選取專案」畫面右上角按「新增專案」（New Project）</figcaption>
+    </figure>
+    <ol start="3">
+        <li>輸入專案名稱。名稱可自由填寫（例如 <code>NeoN VJ</code>）。「位置」保持為「沒有機構」（No organization）即可。</li>
+        <li>按 <strong>「建立」</strong>（Create），稍等片刻。</li>
+        <li>建立完成後，從上方的「選取專案」中<strong>選擇剛才建立的專案</strong>。只要所選專案名稱顯示在畫面上方（下圖框內）即可。若漏掉這一步，下一步會無所適從。</li>
+    </ol>
+    <figure>
+        <img src="images/help-youtube-setup/01-project-selected.png" alt="Google Cloud 首頁，上方顯示專案名稱，目前專案區域顯示已建立的專案">
+        <figcaption>專案已選取的狀態。只要頂部按鈕和目前專案區域出現你的專案名稱即可（本例為「NeoN VJ TEST」）</figcaption>
+    </figure>
+
+    <h2 id="step4">步驟 4：啟用 YouTube Data API v3</h2>
+    <p>這裡出現了「API」一詞，但在此可以把它理解為<strong>「讓你的專案能夠使用 YouTube 影片尋找功能的開關」</strong>。</p>
+    <ol>
+        <li>從左上角選單（☰）中選擇 <strong>「API 和服務」→「程式庫」</strong>（APIs &amp; Services → Library）。</li>
+        <li>出現 API 程式庫歡迎畫面（Welcome to the API Library）後，在搜尋框中輸入 <code>YouTube Data API v3</code> 進行搜尋。</li>
+    </ol>
+    <figure>
+        <img src="images/help-youtube-setup/02-library-search.png" alt="在 API 程式庫搜尋畫面輸入 YouTube Data API v3 的狀態">
+        <figcaption>在 API 程式庫畫面的搜尋框中輸入</figcaption>
+    </figure>
+    <ol start="3">
+        <li>按搜尋結果中的 <strong>「YouTube Data API v3」</strong>（紅色播放標記圖示），再按 <strong>「啟用」</strong>（Enable）按鈕。</li>
+    </ol>
+    <figure>
+        <img src="images/help-youtube-setup/03-enable-api.png" alt="YouTube Data API v3 產品詳細頁，有啟用按鈕">
+        <figcaption>按「啟用」（Enable）——旁邊的「試用這個 API」（Try this API）不使用</figcaption>
+    </figure>
+    <ol start="4">
+        <li>畫面切換後，顯示「狀態：已啟用」（Status: Enabled）時本步驟即完成。上方可能出現「需要建立憑證」的提示，但那將在下一步建立，保持原樣即可。</li>
+    </ol>
+    <figure>
+        <img src="images/help-youtube-setup/04-api-enabled.png" alt="啟用後的 API/服務詳細畫面，狀態為已啟用">
+        <figcaption>啟用已完成的狀態（狀態：已啟用）</figcaption>
+    </figure>
+
+    <h2 id="step5">步驟 5：建立 API 金鑰</h2>
+    <p>終於要建立金鑰了。在建立畫面上，我們順便在此處一併完成<strong>金鑰的保護設定（建議）</strong>。</p>
+    <ol>
+        <li>從左側選單中選擇 <strong>「憑證」</strong>（Credentials）（若選單中找不到，請從 ☰ →「API 和服務」→「憑證」）。</li>
+        <li>按上方的 <strong>「+ 建立憑證」</strong>（Create Credentials），並選擇 <strong>「API 金鑰」</strong>（API key）。</li>
+    </ol>
+    <figure>
+        <img src="images/help-youtube-setup/05-create-credentials.png" alt="在憑證畫面按建立憑證，顯示 API 金鑰、OAuth 用戶端 ID、服務帳戶選項的狀態">
+        <figcaption>「+ 建立憑證」（Create Credentials）→ 選擇最上方的「API 金鑰」（API key）</figcaption>
+    </figure>
+    <ol start="3">
+        <li>會開啟金鑰設定畫面。「名稱」保持為 <code>API 金鑰 1</code> 即可。</li>
+        <li><strong>（建議）</strong>在「API 限制」（API restrictions）中按 <strong>「限制金鑰」</strong>（Restrict key），在清單中僅勾選 <strong>「YouTube Data API v3」</strong>，然後按 <strong>「確定」</strong>（OK）。這是一道保險：萬一金鑰外洩，也能防止被挪作他用。</li>
+    </ol>
+    <figure>
+        <img src="images/help-youtube-setup/06-api-restriction.png" alt="在 API 限制選擇清單中勾選 YouTube Data API v3 的狀態">
+        <figcaption>勾選清單下方附近的「YouTube Data API v3」→「確定」（OK）</figcaption>
+    </figure>
+    <ol start="5">
+        <li><strong>「應用程式限制」（Application restrictions）保持為「無」（None）</strong>（若變更，可能導致 NeoN VJ 無法使用）。</li>
+        <li>按最下方的 <strong>「建立」</strong>（Create）。</li>
+    </ol>
+    <figure>
+        <img src="images/help-youtube-setup/07-app-restriction-create.png" alt="應用程式限制選擇為無的狀態與建立按鈕">
+        <figcaption>「應用程式限制」（Application restrictions）保持為「無」（None）→「建立」（Create）</figcaption>
+    </figure>
+    <ol start="7">
+        <li>會出現 <strong>「已建立 API 金鑰」</strong>（API key created）畫面。「您的 API 金鑰」（Your API key）欄中會顯示以 <code>AIza...</code> 開頭的長字串，請用右側的<strong>複製按鈕</strong>複製，然後按 <strong>「關閉」</strong>（Close）。</li>
+    </ol>
+    <figure>
+        <img src="images/help-youtube-setup/08-key-created.png" alt="已建立 API 金鑰對話方塊，有您的 API 金鑰欄、複製按鈕和關閉按鈕">
+        <figcaption>這就是你的 API 金鑰。複製後按「關閉」（Close）——之後可隨時在「憑證」畫面查看</figcaption>
+    </figure>
+    <div class="warning">
+        ⚠️ 請<strong>不要把 API 金鑰告訴他人</strong>。若不慎在社群媒體或截圖中公開，請在「憑證」畫面刪除該金鑰並重新建立，即可確保安全。
+    </div>
+
+    <h2 id="step6">步驟 6：在 NeoN VJ 中設定</h2>
+    <ol>
+        <li>開啟 NeoN VJ 的<strong>設定</strong>，開啟 <strong>「顯示所有設定選單」</strong>。</li>
+        <li>在 <strong>「YouTube影片背景」</strong> 欄的輸入框中，貼上複製好的 API 金鑰。</li>
+        <li>按 <strong>「儲存並驗證」</strong>。應用程式會自動檢查金鑰的狀態。</li>
+        <li><strong>顯示 ✅ 即設定完成。</strong>開啟該功能即可享用。</li>
+    </ol>
+    <div class="tip">
+        💡 若在電腦上取得金鑰，最簡單的方法是透過備忘錄應用程式或 AirDrop 等把字串傳送到 iPad 後再貼上。若顯示 ❌ 或 ⚠️，請前往下方的<a href="#trouble">「遇到問題時」</a>。
+    </div>
+
+    <h2 id="faq">常見問題</h2>
+    <table>
+        <tr><th>問題</th><th>解答</th></tr>
+        <tr>
+            <td>真的免費嗎？</td>
+            <td>是的。YouTube Data API 有免費使用額度，NeoN VJ 的一般使用在該範圍內，也無需登錄信用卡。由於此 API 根本不存在付費方案，<strong>即使達到上限也不會切換為計費，只是搜尋會暫停到隔天</strong>。不會發生「不知不覺就被扣款」的情況。</td>
+        </tr>
+        <tr>
+            <td>每天能用多少？</td>
+            <td>影片搜尋大致以 <strong>每天 100 首</strong> 為參考（取決於 Google 的免費額度）。應用程式的設定畫面有<strong>用量計</strong>，達到上限後會在隔天（太平洋時間 0 點）自動重設。</td>
+        </tr>
+        <tr>
+            <td>影片會有廣告嗎？</td>
+            <td>影片透過 YouTube 播放器播放，因此<strong>可能會依 YouTube 自身的規則播放廣告</strong>。是否出現廣告及其時機由 YouTube 決定，應用程式無法控制。</td>
+        </tr>
+        <tr>
+            <td>金鑰遺失了</td>
+            <td>可隨時在 Google Cloud Console 的「API 和服務」→「憑證」中查看。</td>
+        </tr>
+    </table>
+
+    <h2 id="trouble">遇到問題時</h2>
+    <p>請根據「儲存並驗證」的結果，確認以下內容。</p>
+    <table>
+        <tr><th>應用程式顯示</th><th>可能的原因與處理</th></tr>
+        <tr><td>❌ 金鑰不正確</td><td>請確認複製內容前後是否混入了多餘的空格或換行，然後重新貼上。</td></tr>
+        <tr><td>❌ API 未啟用</td><td><a href="#step4">步驟 4</a> 尚未完成。也請確認是否在已啟用 API 的專案中建立了金鑰（參見<a href="#step3">步驟 3</a>的「選取專案」）。</td></tr>
+        <tr><td>⚠️ 請檢查金鑰限制</td><td>可能在<a href="#step5">步驟 5</a>中限制過多。在「憑證」畫面點按金鑰名稱開啟，將「應用程式限制」改回「無」，然後「儲存」。</td></tr>
+        <tr><td>⚠️ 已達到上限</td><td>今日的免費額度已用完。隔天會自動重設。</td></tr>
+        <tr><td>⚠️ 無法連線</td><td>請確認網路連線後再試一次。</td></tr>
+    </table>
+    <p>其他問題請參見<a href="manual-zh-Hant.html#troubleshooting">使用者指南的疑難排解</a>。</p>
+
+    <div class="back-link"><a href="manual-zh-Hant.html#features">← 返回 NeoN VJ 使用者指南</a></div>
+</body>
+</html>
